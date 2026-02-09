@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+:root {
+  --primary-blue: #1E40AF;
+  --primary-blue-dark: #1E3A8A;
+  --accent-orange: #F97316;
+  --accent-orange-light: #FB923C;
+  --bg-gradient: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
+  --orange-gradient: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  --text-dark: #111827;
+  --text-light: #4B5563;
+  --white: #FFFFFF;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --shadow-premium: 0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-dark);
+}
+
+/* Glass Card Effect */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: var(--shadow-premium);
+}
+
+/* Counter Animation */
+.counter {
+  font-weight: 700;
+  color: var(--accent-orange);
+}
+
+/* Premium Button Styles */
+.btn-primary {
+  background: var(--orange-gradient);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Section Styles */
+.section-padding {
+  padding: 6rem 1.5rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: -0.02em;
+}
+
+/* Activity Tile - Base styles (colors handled by Tailwind) */
+.activity-tile {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient Backgrounds */
+.bg-orange-gradient {
+  background: var(--orange-gradient);
+}
+
+.bg-blue-gradient {
+  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+}
