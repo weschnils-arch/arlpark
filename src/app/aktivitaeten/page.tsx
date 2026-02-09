@@ -158,20 +158,23 @@ export default function AktivitaetenPage() {
                     <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-3 tracking-tight">
                         Unsere Aktivitäten
                     </h1>
-                    <p className="text-base md:text-xl text-white/90 max-w-2xl mx-auto mb-5 md:mb-6">
+                    <p className="text-base md:text-xl text-white/90 max-w-2xl mx-auto">
                         Von Trampolinen bis Klettern – erlebe Action pur unter einem Dach!
                     </p>
+                </div>
+            </section>
 
-                    {/* Quick Nav Pills */}
-                    <div className="flex flex-wrap justify-center gap-2">
-                        {activities.map((activity) => (
-                            <a
-                                key={activity.id}
-                                href={`#${activity.id}`}
-                                className="bg-white/20 hover:bg-white/30 backdrop-blur-sm px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium transition-colors"
+            {/* Activity Pills - Below Hero */}
+            <section className="py-6 md:py-8 px-4 md:px-6 bg-gradient-to-b from-indigo-100 to-indigo-50">
+                <div className="max-w-4xl mx-auto">
+                    <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+                        {["Trampolin", "Klettern", "9-Pin", "Squash", "Tennis", "Sports"].map((activity) => (
+                            <span
+                                key={activity}
+                                className="bg-white/80 hover:bg-white backdrop-blur-sm px-4 md:px-5 py-2 md:py-2.5 rounded-full text-sm md:text-base font-semibold text-gray-700 hover:text-gray-900 transition-all shadow-sm hover:shadow-md cursor-default border border-gray-200/50"
                             >
-                                {activity.title.split(" ")[0]}
-                            </a>
+                                {activity}
+                            </span>
                         ))}
                     </div>
                 </div>

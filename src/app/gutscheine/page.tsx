@@ -52,7 +52,7 @@ export default function GutscheinePage() {
                     <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-3 tracking-tight">
                         Gutscheine
                     </h1>
-                    <p className="text-base md:text-xl text-white/90 max-w-2xl mx-auto">
+                    <p className="text-base md:text-xl text-white/90 max-w-3xl mx-auto md:whitespace-nowrap">
                         Das perfekte Geschenk für Action-Liebhaber! Verschenke unvergessliche Erlebnisse.
                     </p>
                 </div>

@@ -57,11 +57,11 @@ export default function GeburtstagePage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-400 via-orange-500 to-red-500" />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.3)_0%,transparent_60%)]" />
 
-                <div className="relative z-10 w-full max-w-4xl mx-auto px-4 md:px-6 text-center text-white">
+                <div className="relative z-10 w-full max-w-5xl mx-auto px-4 md:px-6 text-center text-white">
                     <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-3 tracking-tight">
                         Geburtstage & Gruppen
                     </h1>
-                    <p className="text-base md:text-xl text-white/90 max-w-2xl mx-auto">
+                    <p className="text-base md:text-xl text-white/90 max-w-4xl mx-auto md:whitespace-nowrap">
                         Feiere unvergessliche Momente bei uns! Perfekt für Kindergeburtstage, Schulausflüge und Teamevents.
                     </p>
                 </div>

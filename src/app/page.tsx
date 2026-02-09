@@ -195,18 +195,6 @@ function HeroSection() {
               ))}
             </div>
           </nav>
-
-          {/* Activity Pills */}
-          <div className="flex flex-wrap justify-center gap-2 mt-6 md:mt-8">
-            {["Trampolin", "Klettern", "9-Pin", "Squash", "Tennis", "Sports"].map((activity) => (
-              <span
-                key={activity}
-                className="bg-white/20 hover:bg-white/30 backdrop-blur-sm px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium text-white transition-colors cursor-default"
-              >
-                {activity}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
 
