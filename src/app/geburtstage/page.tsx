@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { GeburtstagIcon, TrampolinIcon, BowlingIcon, KletternIcon, CheckIcon, PhoneIcon, EmailIcon, FoodIcon, SchuleIcon, FirmaIcon } from "@/components/Icons";
+"use client";
 
-export const metadata: Metadata = {
-    title: "Geburtstage & Gruppen - ARL.PARK Indoor Funpark",
-    description: "Feiere deinen Geburtstag im ARL.PARK! Pakete für Kindergeburtstage, Schulausflüge und Gruppenevents.",
-};
+import Link from "next/link";
+import { GeburtstagIcon, TrampolinIcon, BowlingIcon, KletternIcon, CheckIcon, FoodIcon } from "@/components/Icons";
 
 const birthdayPackages = [
     {
@@ -51,61 +47,76 @@ const cateringOptions = [
 
 export default function GeburtstagePage() {
     return (
-        <main>
-            {/* Hero Section - Unified Style */}
-            <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 min-h-[280px] md:min-h-[320px] flex items-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-400 via-orange-500 to-red-500" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.3)_0%,transparent_60%)]" />
+        <main className="bg-white min-h-screen">
+            {/* Hero Section */}
+            <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-fuchsia-900/40 z-10" />
+                <div className="absolute inset-0 bg-slate-300 flex items-center justify-center">
+                    <span className="text-4xl text-white/50 font-bold">Foto: Kindergeburtstag</span>
+                </div>
 
-                <div className="relative z-10 w-full max-w-5xl mx-auto px-4 md:px-6 text-center text-white">
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-3 tracking-tight">
-                        Geburtstage & Gruppen
-                    </h1>
-                    <p className="text-base md:text-xl text-white/90 max-w-4xl mx-auto md:whitespace-nowrap">
-                        Feiere unvergessliche Momente bei uns! Perfekt für Kindergeburtstage, Schulausflüge und Teamevents.
+                <div className="relative z-20 text-center text-white px-4">
+                    <div className="w-20 h-20 bg-fuchsia-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl">
+                        <GeburtstagIcon size={40} />
+                    </div>
+                    <h1 className="text-5xl md:text-7xl font-black mb-6">Geburtstage</h1>
+                    <p className="text-xl md:text-2xl font-light max-w-2xl mx-auto">
+                        Feiere den besten Tag des Jahres bei uns!
                     </p>
                 </div>
             </section>
 
             {/* Birthday Packages */}
-            <section className="py-12 md:py-20 px-4 md:px-6 bg-gradient-to-b from-orange-50 to-white">
+            <section className="py-20 px-4 md:px-6 bg-slate-50">
                 <div className="max-w-5xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-center mb-3 text-gray-900">Geburtstagspakete</h2>
-                    <p className="text-center text-gray-600 mb-8 md:mb-12 text-base md:text-lg">Ab 8 Personen</p>
+                    <div className="text-center mb-16">
+                        <h2 className="section-title text-slate-900">Unsere Party-Pakete</h2>
+                        <p className="text-xl text-slate-600">Buchbar ab 8 Personen</p>
+                    </div>
 
-                    <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+                    <div className="grid md:grid-cols-3 gap-6 md:gap-8">
                         {birthdayPackages.map((pkg) => {
                             const IconComponent = pkg.icon;
                             return (
                                 <article
                                     key={pkg.title}
-                                    className={`glass-card p-6 md:p-8 text-center relative transition-all duration-300 hover:shadow-xl ${pkg.popular ? "ring-2 ring-orange-500 md:scale-105" : ""
+                                    className={`glass-card bg-white p-8 text-center relative transition-all duration-300 hover:shadow-2xl ${pkg.popular ? "ring-2 ring-fuchsia-500 transform scale-105 z-10" : "hover:-translate-y-2"
                                         }`}
                                 >
                                     {pkg.popular && (
-                                        <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">
+                                        <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-fuchsia-500 text-white text-sm font-bold px-4 py-1 rounded-full shadow-lg">
                                             BELIEBT
                                         </span>
                                     )}
 
-                                    <div className="w-12 h-12 md:w-14 md:h-14 bg-orange-100 rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
-                                        <IconComponent className="text-orange-500" size={24} />
+                                    <div className="w-16 h-16 bg-fuchsia-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                        <IconComponent className="text-fuchsia-600" size={32} />
                                     </div>
 
-                                    <h3 className="text-lg md:text-xl font-bold mb-2 text-gray-900">{pkg.title}</h3>
-                                    <p className="text-3xl md:text-4xl font-black text-orange-500 mb-1">
+                                    <h3 className="text-xl font-bold mb-2 text-slate-900">{pkg.title}</h3>
+                                    <p className="text-4xl font-black text-fuchsia-600 mb-2">
                                         {pkg.price}
-                                        <span className="text-sm md:text-base text-gray-500 font-medium">/Person</span>
                                     </p>
+                                    <span className="text-sm text-slate-500 font-medium block mb-6">pro Person</span>
 
-                                    <ul className="space-y-2 md:space-y-3 text-gray-600 mt-4 md:mt-6 text-left text-sm md:text-base" role="list">
+                                    <ul className="space-y-3 text-slate-600 text-left text-sm" role="list">
                                         {pkg.includes.map((item) => (
-                                            <li key={item} className="flex items-center gap-2 md:gap-3">
-                                                <CheckIcon className="w-4 h-4 md:w-5 md:h-5 text-green-500 flex-shrink-0" size={18} />
+                                            <li key={item} className="flex items-center gap-3">
+                                                <CheckIcon className="w-5 h-5 text-emerald-500 flex-shrink-0" size={18} />
                                                 <span>{item}</span>
                                             </li>
                                         ))}
                                     </ul>
+
+                                    <div className="mt-8">
+                                        <Link
+                                            href="https://v5.bookandplay.com/p_pro_arlpark.php"
+                                            target="_blank"
+                                            className="btn-primary w-full block text-sm bg-fuchsia-600 shadow-fuchsia-500/20"
+                                        >
+                                            Jetzt buchen
+                                        </Link>
+                                    </div>
                                 </article>
                             );
                         })}
@@ -114,101 +125,40 @@ export default function GeburtstagePage() {
             </section>
 
             {/* Catering */}
-            <section className="py-12 md:py-16 bg-white px-4 md:px-6">
-                <div className="max-w-4xl mx-auto">
-                    <div className="flex items-center justify-center gap-3 md:gap-4 mb-8 md:mb-10">
-                        <div className="w-12 h-12 md:w-14 md:h-14 bg-amber-500 rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg">
-                            <FoodIcon className="text-white" size={24} />
+            <section className="py-20 bg-white px-4 md:px-6">
+                <div className="max-w-5xl mx-auto">
+                    <div className="flex flex-col items-center justify-center mb-12">
+                        <div className="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center shadow-lg mb-6">
+                            <FoodIcon className="text-amber-600" size={32} />
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-black text-gray-900">Catering Optionen</h2>
+                        <h2 className="text-3xl font-black text-slate-900 text-center">Leckeres für die Party</h2>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+                    <div className="grid md:grid-cols-3 gap-6">
                         {cateringOptions.map((option) => (
                             <div
                                 key={option.title}
-                                className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-5 md:p-6 text-center border border-amber-100 hover:shadow-lg transition-shadow"
+                                className="bg-amber-50 rounded-3xl p-8 text-center border border-amber-100 hover:shadow-lg transition-shadow"
                             >
-                                <h3 className="text-lg md:text-xl font-bold mb-2 text-gray-900">{option.title}</h3>
-                                <p className="text-2xl md:text-3xl font-black text-orange-500 mb-2">{option.price}</p>
-                                <p className="text-gray-600 text-xs md:text-sm">{option.includes}</p>
+                                <h3 className="text-xl font-bold mb-2 text-slate-900">{option.title}</h3>
+                                <p className="text-3xl font-black text-amber-600 mb-4">{option.price}</p>
+                                <p className="text-slate-600">{option.includes}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Group Offers */}
-            <section className="py-12 md:py-16 px-4 md:px-6 bg-gray-50">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl font-black text-center mb-8 md:mb-12 text-gray-900">Gruppenangebote</h2>
-
-                    <div className="glass-card p-6 md:p-10">
-                        <div className="grid md:grid-cols-2 gap-8 md:gap-10">
-                            <div>
-                                <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-900 flex items-center gap-3">
-                                    <span className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center shadow-lg">
-                                        <SchuleIcon className="text-white" size={20} />
-                                    </span>
-                                    Schulen & Vereine
-                                </h3>
-                                <ul className="space-y-3 md:space-y-4 text-gray-700 text-sm md:text-base" role="list">
-                                    {["Gruppenrabatte ab 8 Personen", "Flexible Zeitfenster nach Absprache", "Begleitpersonen kostenlos (nach Absprache)"].map((item) => (
-                                        <li key={item} className="flex items-start gap-2 md:gap-3">
-                                            <CheckIcon className="w-4 h-4 md:w-5 md:h-5 text-green-500 mt-0.5 flex-shrink-0" size={18} />
-                                            <span>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-900 flex items-center gap-3">
-                                    <span className="w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center shadow-lg">
-                                        <FirmaIcon className="text-white" size={20} />
-                                    </span>
-                                    Firmenevents
-                                </h3>
-                                <ul className="space-y-3 md:space-y-4 text-gray-700 text-sm md:text-base" role="list">
-                                    {["Teambuilding-Aktivitäten", "Exklusive Buchungen möglich", "Catering auf Anfrage"].map((item) => (
-                                        <li key={item} className="flex items-start gap-2 md:gap-3">
-                                            <CheckIcon className="w-4 h-4 md:w-5 md:h-5 text-green-500 mt-0.5 flex-shrink-0" size={18} />
-                                            <span>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* CTA */}
-            <section className="py-16 md:py-20 px-4 md:px-6">
-                <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-orange-500 via-orange-600 to-red-500 rounded-2xl md:rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:20px_20px]" />
-
-                    <div className="relative z-10">
-                        <h2 className="text-2xl md:text-3xl font-black mb-3 md:mb-4">Jetzt Geburtstag anfragen</h2>
-                        <p className="text-white/90 mb-6 md:mb-8 text-sm md:text-base max-w-lg mx-auto">
-                            Kontaktiere uns für deine individuelle Anfrage. Wir erstellen dir gerne ein maßgeschneidertes Angebot!
-                        </p>
-                        <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
-                            <a
-                                href="tel:+4366099880066"
-                                className="bg-white text-orange-600 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:scale-105 transition-transform inline-flex items-center justify-center gap-2 shadow-lg"
-                            >
-                                <PhoneIcon size={20} />
-                                Anrufen
-                            </a>
-                            <a
-                                href="mailto:info@arlpark.com"
-                                className="bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:bg-white/30 transition-colors inline-flex items-center justify-center gap-2"
-                            >
-                                <EmailIcon size={20} />
-                                E-Mail senden
-                            </a>
-                        </div>
-                    </div>
+            {/* Booking Form CTA */}
+            <section className="py-20 px-4 md:px-6 bg-slate-900 text-white text-center">
+                <div className="max-w-3xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl font-black mb-6">Noch Fragen?</h2>
+                    <p className="text-xl text-slate-300 mb-10">
+                        Wir helfen dir gerne bei der Planung deiner perfekten Geburtstagsparty.
+                    </p>
+                    <Link href="/kontakt" className="btn-primary bg-white text-slate-900 hover:bg-slate-100 shadow-none px-10 py-4 text-lg">
+                        Kontakt aufnehmen
+                    </Link>
                 </div>
             </section>
         </main>

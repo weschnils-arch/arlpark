@@ -1,47 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { TrampolinIcon, KletternIcon, BowlingIcon, SquashIcon, GeburtstagIcon, GutscheinIcon, ClockIcon, PriceIcon, CheckIcon } from "@/components/Icons";
+import { TrampolinIcon, KletternIcon, BowlingIcon, SquashIcon, GeburtstagIcon, GutscheinIcon, ClockIcon, PriceIcon } from "@/components/Icons";
 
-// Counter Animation Hook
-function useCounterAnimation(target: number, duration: number = 2000) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const hasAnimated = useRef(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          let start = 0;
-          const step = target / (duration / 16);
-          const timer = setInterval(() => {
-            start += step;
-            if (start >= target) {
-              setCount(target);
-              clearInterval(timer);
-            } else {
-              setCount(Math.floor(start));
-            }
-          }, 16);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, [target, duration]);
-
-  return { count, ref };
-}
-
-// Activity Tile Component - Colored Glassmorphism
+// Activity Tile Component - Blue Theme
 interface ActivityTileProps {
   href: string;
   icon: React.ComponentType<{ className?: string; size?: number }>;
@@ -55,11 +18,11 @@ function ActivityTile({ href, icon: Icon, name, description, color, glassBg }: A
   return (
     <Link
       href={href}
-      className={`activity-tile flex flex-col items-center p-4 md:p-5 rounded-2xl md:rounded-3xl ${glassBg} backdrop-blur-xl border border-white/30 shadow-lg hover:shadow-2xl hover:border-white/50 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] group focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent`}
+      className={`activity-tile flex flex-col items-center p-4 md:p-5 rounded-3xl ${glassBg} backdrop-blur-md border border-white/20 shadow-lg hover:shadow-2xl hover:border-white/40 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] group`}
       aria-label={`${name} - ${description}`}
     >
       <div
-        className={`w-14 h-14 md:w-16 md:h-16 ${color} rounded-xl md:rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-lg`}
+        className={`w-14 h-14 md:w-16 md:h-16 ${color} rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-lg`}
         aria-hidden="true"
       >
         <Icon className="text-white" size={28} />
@@ -70,331 +33,276 @@ function ActivityTile({ href, icon: Icon, name, description, color, glassBg }: A
   );
 }
 
-// Counter Component
-function Counter({ target, suffix = "€" }: { target: number; suffix?: string }) {
-  const { count, ref } = useCounterAnimation(target);
-  return (
-    <span ref={ref} className="counter font-black text-orange-500">
-      {count}{suffix}
-    </span>
-  );
-}
-
-// Hero Section
+// Hero Section with Parallax Video
 function HeroSection() {
   const quickLinks = [
     {
-      href: "/aktivitaeten#trampolin",
+      href: "/angebote/trampolin",
       icon: TrampolinIcon,
       name: "Trampolin",
       description: "1.000 m²",
-      color: "bg-blue-500",
-      glassBg: "bg-blue-500/30 hover:bg-blue-500/40",
+      color: "bg-blue-600",
+      glassBg: "bg-blue-900/40 hover:bg-blue-900/60",
     },
     {
-      href: "/aktivitaeten#klettern",
+      href: "/angebote/klettern",
       icon: KletternIcon,
       name: "Klettern",
       description: "100+ Routen",
-      color: "bg-orange-500",
-      glassBg: "bg-orange-500/30 hover:bg-orange-500/40",
+      color: "bg-red-600",
+      glassBg: "bg-red-900/40 hover:bg-red-900/60",
     },
     {
-      href: "/aktivitaeten#bowling",
+      href: "/angebote/bowling",
       icon: BowlingIcon,
       name: "Bowling",
       description: "4 Bahnen",
-      color: "bg-gray-700",
-      glassBg: "bg-gray-700/30 hover:bg-gray-700/40",
+      color: "bg-purple-700",
+      glassBg: "bg-purple-900/40 hover:bg-purple-900/60",
     },
     {
-      href: "/aktivitaeten#squash",
+      href: "/angebote/squash",
       icon: SquashIcon,
       name: "Squash",
       description: "Courts",
-      color: "bg-purple-500",
-      glassBg: "bg-purple-500/30 hover:bg-purple-500/40",
+      color: "bg-lime-600",
+      glassBg: "bg-lime-900/40 hover:bg-lime-900/60",
     },
     {
       href: "/geburtstage",
       icon: GeburtstagIcon,
       name: "Geburtstage",
-      description: "Feiern",
-      color: "bg-red-500",
-      glassBg: "bg-red-500/30 hover:bg-red-500/40",
+      description: "Partys",
+      color: "bg-pink-500",
+      glassBg: "bg-pink-900/40 hover:bg-pink-900/60",
     },
     {
       href: "/gutscheine",
       icon: GutscheinIcon,
       name: "Gutscheine",
       description: "Schenken",
-      color: "bg-green-500",
-      glassBg: "bg-green-500/30 hover:bg-green-500/40",
+      color: "bg-emerald-500",
+      glassBg: "bg-emerald-900/40 hover:bg-emerald-900/60",
     },
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden" aria-label="Hero Bereich">
-      {/* Video Background - Lazy Loaded */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        className="absolute inset-0 w-full h-full object-cover"
-        aria-hidden="true"
-      >
-        <source src="/videos/hero-video.mp4" type="video/mp4" />
-      </video>
+    <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden" aria-label="Hero Bereich">
+      {/* Parallax Video Background - Fixed */}
+      <div className="fixed inset-0 w-full h-full -z-10">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+          poster="/images/hero-poster.jpg"
+          aria-hidden="true"
+        >
+          {/* Replace with actual video path if available, using existing placeholder logic */}
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay Removed as requested */}
+        {/* Minimal gradient for text readability at the very bottom/top only if needed, but removing general tint */}
+        <div className="absolute inset-0 bg-black/20" />
+      </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" aria-hidden="true" />
+      {/* Hero Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 pt-20 flex flex-col items-center text-center">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tight drop-shadow-xl">
+          Indoor Funpark<br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-white">St. Anton am Arlberg</span>
+        </h1>
+        <p className="text-lg md:text-2xl text-slate-100 mb-10 max-w-2xl font-light drop-shadow-md">
+          Dein Action-Erlebnis unter einem Dach: Trampolin, Klettern, Bowling & mehr.
+        </p>
 
-      {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center text-center text-white px-4 md:px-6 pt-24 pb-8">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-4 md:mb-6 leading-tight">
-            Indoor Funpark<br />
-            <span className="text-orange-400">St. Anton am Arlberg</span>
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 md:mb-10 max-w-2xl mx-auto">
-            Dein Action-Erlebnis unter einem Dach
-          </p>
+        {/* CTA Buttons - Blue Theme */}
+        <div className="flex flex-col sm:flex-row gap-4 mb-16 w-full max-w-md sm:max-w-none justify-center">
+          <Link
+            href="https://v5.bookandplay.com/p_pro_arlpark.php"
+            className="btn-primary text-lg px-8 py-4 shadow-xl shadow-sky-500/20"
+          >
+            Jetzt Buchen
+          </Link>
+          <Link
+            href="/preise"
+            className="btn-secondary text-lg px-8 py-4 hover:bg-white/10"
+          >
+            Preise & Infos
+          </Link>
+        </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 mb-10 md:mb-14 px-4">
-            <Link
-              href="https://v5.bookandplay.com/p_pro_arlpark.php"
-              className="btn-primary text-base md:text-lg px-6 md:px-8 py-3 md:py-4 w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2"
-            >
-              Tickets buchen
-            </Link>
-            <Link
-              href="/preise"
-              className="btn-secondary text-base md:text-lg px-6 md:px-8 py-3 md:py-4 w-full sm:w-auto focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
-            >
-              Preise ansehen
+        {/* Quick Access Tiles */}
+        <div className="w-full grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
+          {quickLinks.map((link) => (
+            <ActivityTile
+              key={link.name}
+              href={link.href}
+              icon={link.icon}
+              name={link.name}
+              description={link.description}
+              color={link.color}
+              glassBg={link.glassBg}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white/50">
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+      </div>
+    </section>
+  );
+}
+
+// Info & Kids Section
+function InfoSection() {
+  return (
+    <section className="relative z-20 bg-white py-20 lg:py-32 px-4 rounded-t-[3rem] -mt-10 shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.3)]">
+      <div className="max-w-7xl mx-auto">
+
+        {/* Info Grid - Moved above Kids Play */}
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-24">
+          {/* Hours */}
+          <div className="bg-slate-50 border border-slate-100 rounded-3xl p-8">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center">
+                <ClockIcon size={24} />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900">Öffnungszeiten</h3>
+            </div>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center py-3 border-b border-slate-200">
+                <span className="font-medium text-slate-600">Trampolin</span>
+                <span className="font-bold text-slate-900">Mo–Fr 14h | Sa/So 9h</span>
+              </div>
+              <div className="flex justify-between items-center py-3 border-b border-slate-200">
+                <span className="font-medium text-slate-600">Klettern</span>
+                <span className="font-bold text-slate-900">Täglich 9/14–22h</span>
+              </div>
+              <div className="flex justify-between items-center py-3 border-b border-slate-200">
+                <span className="font-medium text-slate-600">Bowling</span>
+                <span className="font-bold text-slate-900">Mo–So 14–23h</span>
+              </div>
+            </div>
+            <Link href="/oeffnungszeiten" className="mt-8 inline-block text-sky-600 font-bold hover:underline">
+              Alle Zeiten ansehen &rarr;
             </Link>
           </div>
 
-          {/* Schnellzugriffe - 6 Tiles with Glassmorphism */}
-          <nav aria-label="Schnellzugriffe">
-            <h2 className="sr-only">Schnellzugriffe zu Aktivitäten</h2>
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4 max-w-4xl mx-auto">
-              {quickLinks.map((link) => (
-                <ActivityTile
-                  key={link.name}
-                  href={link.href}
-                  icon={link.icon}
-                  name={link.name}
-                  description={link.description}
-                  color={link.color}
-                  glassBg={link.glassBg}
-                />
-              ))}
+          {/* Prices */}
+          <div className="bg-slate-50 border border-slate-100 rounded-3xl p-8">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center">
+                <PriceIcon size={24} />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900">Preise & Tickets</h3>
             </div>
-          </nav>
-        </div>
-      </div>
-
-      {/* Status Badge */}
-      <div className="relative z-10 pb-6 md:pb-8 px-4">
-        <div className="max-w-lg mx-auto flex items-center justify-center gap-2 bg-white/15 backdrop-blur-md border border-white/20 rounded-full px-4 md:px-6 py-2.5 md:py-3 text-white text-xs md:text-sm">
-          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0" aria-hidden="true"></span>
-          <span><strong>Keine</strong> Reservierung für Trampolin & Klettern!</span>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Info Section
-function InfoSection() {
-  return (
-    <section className="py-12 md:py-20 lg:py-24 px-4 md:px-6 bg-gradient-to-b from-orange-50 to-white" aria-labelledby="info-heading">
-      <div className="max-w-6xl mx-auto">
-        <h2 id="info-heading" className="text-2xl md:text-3xl lg:text-4xl font-black text-center mb-8 md:mb-12 text-gray-900">
-          Wichtige Infos & Zeiten
-        </h2>
-        <div className="grid md:grid-cols-2 gap-4 md:gap-8">
-          {/* Opening Hours Card */}
-          <article className="glass-card p-5 md:p-8">
-            <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-orange-100 rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                <ClockIcon className="text-orange-500" size={24} />
+            <div className="space-y-4 mb-8">
+              <div className="flex justify-between items-center py-3 border-b border-slate-200">
+                <span className="font-medium text-slate-600">Trampolin (1h)</span>
+                <span className="font-bold text-sky-600 text-xl">17€</span>
               </div>
-              <h3 className="text-lg md:text-2xl font-bold text-gray-900">Öffnungszeiten</h3>
-            </div>
-            <dl className="space-y-3 md:space-y-4 text-gray-600 text-sm md:text-base">
-              <div className="flex justify-between py-2 border-b border-gray-100">
-                <dt className="font-medium">Trampolin</dt>
-                <dd className="text-right">Mo–Fr: 14h | Sa/So: 9h</dd>
+              <div className="flex justify-between items-center py-3 border-b border-slate-200">
+                <span className="font-medium text-slate-600">Klettern (ab)</span>
+                <span className="font-bold text-sky-600 text-xl">10€</span>
               </div>
-              <div className="flex justify-between py-2 border-b border-gray-100">
-                <dt className="font-medium">Klettern</dt>
-                <dd className="text-right">Täglich 9/14–22h</dd>
+              <div className="flex justify-between items-center py-3 border-b border-slate-200">
+                <span className="font-medium text-slate-600">Bowling (p.P.)</span>
+                <span className="font-bold text-sky-600 text-xl">4€</span>
               </div>
-              <div className="flex justify-between py-2">
-                <dt className="font-medium">Bowling</dt>
-                <dd className="text-right">Mo–So: 14–23h</dd>
-              </div>
-            </dl>
-            <Link href="/oeffnungszeiten" className="inline-flex items-center gap-2 text-orange-500 font-semibold mt-4 hover:gap-3 transition-all focus:outline-none focus:underline">
-              Alle Zeiten ansehen
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </article>
-
-          {/* Pricing Card */}
-          <article className="glass-card p-5 md:p-8">
-            <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-100 rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                <PriceIcon className="text-blue-500" size={24} />
-              </div>
-              <h3 className="text-lg md:text-2xl font-bold text-gray-900">Preise & Buchung</h3>
-            </div>
-            <div className="space-y-2 md:space-y-3 text-gray-600 mb-4 md:mb-6 text-sm md:text-base">
-              <p><strong>Trampolin:</strong> 1 Std. <Counter target={17} /> | 2 Std. <Counter target={22} /></p>
-              <p><strong>Klettern:</strong> ab <Counter target={10} /></p>
-              <p><strong>Bowling:</strong> ab <Counter target={4} suffix="€/Pers." /></p>
             </div>
             <Link
               href="https://v5.bookandplay.com/p_pro_arlpark.php"
-              className="btn-primary inline-flex items-center gap-2 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="btn-primary w-full inline-block text-center"
             >
-              Jetzt buchen
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+              Tickets buchen
             </Link>
-          </article>
+          </div>
         </div>
+
+        {/* Kids Play Promo - Prominent Placement (now below) */}
+        <div>
+          <div className="bg-gradient-to-tr from-sky-500 to-indigo-600 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl translate-x-1/3 -translate-y-1/2" />
+            <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-sm font-bold mb-4 border border-white/20">NEU IM ARL.PARK</span>
+                <h2 className="text-3xl md:text-5xl font-black mb-6">Kids Play</h2>
+                <p className="text-lg md:text-xl text-sky-100 mb-8 leading-relaxed">
+                  Ein Paradies für die Kleinsten! Entdecke unseren neuen Kids-Play Bereich mit Rutschen, Bällebad und Klettergerüsten.
+                </p>
+                <Link href="/angebote/kids-play" className="bg-white text-sky-600 px-8 py-3.5 rounded-full font-bold hover:bg-sky-50 transition-colors shadow-lg inline-flex items-center gap-2">
+                  Mehr erfahren
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </Link>
+              </div>
+              {/* Placeholder for Kids Image */}
+              <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden bg-sky-800/30 border border-white/10 flex items-center justify-center">
+                <span className="text-white/50 font-bold text-xl">Foto: Kids Play Bereich</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );
 }
 
-// Birthday Section
-function BirthdaySection() {
+// Mietanlagen Preview Section
+function RentalSection() {
   return (
-    <section className="py-12 md:py-20 lg:py-24 px-4 md:px-6 bg-gradient-to-br from-orange-500 via-orange-600 to-red-500 text-white relative overflow-hidden" aria-labelledby="birthday-heading">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:24px_24px]" aria-hidden="true" />
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <div className="w-16 h-16 md:w-20 md:h-20 bg-white/20 backdrop-blur-sm rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-4 md:mb-6" aria-hidden="true">
-          <GeburtstagIcon className="text-white" size={32} />
+    <section className="relative z-20 py-20 bg-slate-50 border-t border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="text-center mb-16">
+          <span className="text-sky-600 font-bold tracking-wider uppercase text-sm mb-2 block">Party & Events</span>
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">Mietanlagen für dein Event</h2>
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            Hole dir den Spaß nach Hause! Wir vermieten professionelles Equipment für Firmenfeiern, Events und private Partys.
+          </p>
         </div>
-        <h2 id="birthday-heading" className="text-2xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6">Geburtstage & Gruppen</h2>
-        <p className="text-base md:text-xl text-white/90 mb-8 md:mb-10 max-w-2xl mx-auto px-4">
-          Feiere unvergessliche Momente bei uns! Perfekt für Kindergeburtstage und Teamevents.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-10 px-2" role="list">
+
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
           {[
-            { title: "Trampolin Party", price: "15€", desc: "2 Std. Action" },
-            { title: "Trampolin + Bowling", price: "17€", desc: "Kombi-Paket" },
-            { title: "Action-Paket", price: "22,50€", desc: "Trampolin + Klettern" },
-          ].map((pkg) => (
-            <article key={pkg.title} className="bg-white/15 backdrop-blur-md rounded-2xl md:rounded-3xl p-4 md:p-6 border border-white/20">
-              <h3 className="font-bold text-sm md:text-lg mb-1 md:mb-2">{pkg.title}</h3>
-              <p className="text-2xl md:text-3xl font-black mb-1">{pkg.price}</p>
-              <p className="text-white/70 text-xs md:text-sm">{pkg.desc} p.P.</p>
-            </article>
+            { title: "Mobiler Boulderblock", desc: "Klettern überall genießen", icon: "🧗‍♂️" },
+            { title: "Bungee Trampolin", desc: "Hoch hinaus mit Sicherheit", icon: "🤸‍♂️" },
+            { title: "Hüpfburgen & mehr", desc: "Spaß für die Kleinen", icon: "🏰" },
+          ].map((item, i) => (
+            <div key={i} className="bg-white rounded-3xl p-8 shadow-lg border border-slate-100 hover:shadow-xl transition-shadow">
+              <div className="text-4xl mb-4">{item.icon}</div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+              <p className="text-slate-500">{item.desc}</p>
+            </div>
           ))}
         </div>
-        <Link
-          href="/geburtstage"
-          className="bg-white text-orange-500 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:scale-105 transition-transform inline-block shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-500"
-        >
-          Jetzt anfragen
-        </Link>
-      </div>
-    </section>
-  );
-}
 
-// Voucher Section
-function VoucherSection() {
-  return (
-    <section className="py-12 md:py-20 lg:py-24 px-4 md:px-6 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white relative overflow-hidden" aria-labelledby="voucher-heading">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.15)_0%,transparent_60%)]" aria-hidden="true" />
-      <div className="max-w-3xl mx-auto text-center relative z-10">
-        <div className="w-16 h-16 md:w-20 md:h-20 bg-white/20 backdrop-blur-sm rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-4 md:mb-6" aria-hidden="true">
-          <GutscheinIcon className="text-white" size={32} />
+        <div className="text-center">
+          <Link href="/mietanlagen" className="btn-secondary text-sky-600 border-sky-200 hover:bg-sky-50 px-8 py-3.5 whitespace-nowrap">
+            Alle Mietanlagen ansehen
+          </Link>
         </div>
-        <h2 id="voucher-heading" className="text-2xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6">Gutscheine</h2>
-        <p className="text-base md:text-xl text-white/90 mb-8 md:mb-10 max-w-xl mx-auto px-4">
-          Verschenke Action und Spaß! Das perfekte Geschenk für jeden Anlass.
-        </p>
-        <Link
-          href="/gutscheine"
-          className="bg-white text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold text-base md:text-lg hover:scale-105 transition-transform inline-block shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600"
-        >
-          Gutscheine kaufen
-        </Link>
       </div>
     </section>
-  );
+  )
 }
 
-// Newsletter Section - Light Design
-function NewsletterSection() {
-  return (
-    <section className="py-12 md:py-20 lg:py-24 px-4 md:px-6 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 relative overflow-hidden" aria-labelledby="newsletter-heading">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-orange-200/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" aria-hidden="true" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" aria-hidden="true" />
 
-      <div className="max-w-2xl mx-auto text-center relative z-10">
-        {/* Icon */}
-        <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg" aria-hidden="true">
-          <svg className="text-white w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-        </div>
 
-        <h2 id="newsletter-heading" className="text-2xl md:text-4xl lg:text-5xl font-black mb-3 md:mb-4 text-gray-900">
-          Newsletter
-        </h2>
-        <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 max-w-lg mx-auto">
-          Melde dich zu unserem Newsletter an und profitiere von exklusiven Angeboten und News!
-        </p>
-
-        {/* Form */}
-        <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-          <input
-            type="email"
-            placeholder="Deine E-Mail-Adresse"
-            className="flex-1 px-5 py-3.5 md:py-4 rounded-full border-2 border-gray-200 bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all text-base shadow-sm"
-            required
-          />
-          <button
-            type="submit"
-            className="btn-primary px-6 md:px-8 py-3.5 md:py-4 rounded-full font-bold text-base whitespace-nowrap shadow-lg hover:scale-105 transition-transform"
-          >
-            Anmelden
-          </button>
-        </form>
-
-        {/* Trust text */}
-        <p className="text-xs md:text-sm text-gray-500 mt-4">
-          Kein Spam, nur relevante Updates. Du kannst dich jederzeit abmelden.
-        </p>
-      </div>
-    </section>
-  );
-}
+import EventsSection from "@/components/EventsSection";
+import FaqTeaser from "@/components/FaqTeaser";
 
 // Main Page Component
 export default function HomePage() {
   return (
-    <main>
+    <main className="min-h-screen">
       <HeroSection />
+      <EventsSection />
       <InfoSection />
-      <BirthdaySection />
-      <VoucherSection />
-      <NewsletterSection />
+      <RentalSection />
+      <FaqTeaser />
     </main>
   );
 }

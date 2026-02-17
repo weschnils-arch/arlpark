@@ -368,3 +368,82 @@ export const UsersIcon: React.FC<IconProps> = ({ className = "", size = 24 }) =>
         <path d="M16 3.13a4 4 0 0 1 0 7.75" />
     </svg>
 );
+
+
+
+export const TableTennisIcon: React.FC<IconProps> = ({ className = "", size = 24 }) => (
+    <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={className}
+        aria-hidden="true"
+    >
+        <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
+        <path d="M9 12h6" />
+        <path d="M12 9v6" />
+    </svg>
+);
+
+export const PickleballIcon: React.FC<IconProps> = ({ className = "", size = 24 }) => (
+    <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={className}
+        aria-hidden="true"
+    >
+        <rect x="6" y="4" width="12" height="16" rx="2" />
+        <line x1="12" y1="4" x2="12" y2="20" />
+        <line x1="6" y1="12" x2="18" y2="12" />
+    </svg>
+);
+
+export const KidsPlayIcon: React.FC<IconProps> = ({ className = "", size = 24 }) => (
+    <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={className}
+        aria-hidden="true"
+    >
+        <path d="M3 12h18M12 3v18M12 12l-6-6M12 12l6-6M12 12l-6 6M12 12l6 6" />
+        <circle cx="12" cy="12" r="9" />
+    </svg>
+);
+
+export const TrainingIcon: React.FC<IconProps> = ({ className = "", size = 24 }) => (
+    <svg
+        width={size}
+        height={size}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={className}
+        aria-hidden="true"
+    >
+        <path d="M18.6 13.9l-2.6-5.2a2 2 0 0 0-3.6 0l-2.6 5.2" />
+        <path d="M8 17h8" />
+        <path d="M5 21v-8" />
+        <path d="M19 21v-8" />
+        <circle cx="12" cy="6" r="2" />
+    </svg>
+);

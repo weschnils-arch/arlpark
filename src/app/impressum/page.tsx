@@ -1,60 +1,38 @@
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-    title: "Impressum - ARL.PARK",
-    description: "Impressum und rechtliche Informationen der ARL.PARK GmbH.",
-};
+import Link from "next/link";
 
 export default function ImpressumPage() {
     return (
-        <main className="pt-24 pb-16">
-            <section className="section-padding max-w-3xl mx-auto">
-                <h1 className="text-4xl font-black mb-8">Impressum</h1>
+        <main className="bg-white min-h-screen pt-24 pb-20">
+            <div className="max-w-3xl mx-auto px-4 md:px-6 prose prose-slate">
+                <h1 className="text-4xl font-black text-slate-900 mb-8">Impressum</h1>
 
-                <div className="prose prose-lg max-w-none">
-                    <h2>Angaben gemäß § 5 TMG</h2>
-                    <p>
-                        ARL.PARK GmbH<br />
-                        St. Anton am Arlberg<br />
-                        6580 St. Anton am Arlberg<br />
-                        Österreich
-                    </p>
+                <h3>ARL.PARK GmbH</h3>
+                <p>
+                    Bahnhofstraße 1<br />
+                    6580 St. Anton am Arlberg<br />
+                    Österreich
+                </p>
 
-                    <h2>Kontakt</h2>
-                    <p>
-                        Telefon: +43 660 99 88 0 66<br />
-                        E-Mail: info@arlpark.com
-                    </p>
+                <p>
+                    <strong>Telefon:</strong> +43 660 99 88 0 66<br />
+                    <strong>E-Mail:</strong> info@arlpark.com<br />
+                    <strong>Web:</strong> www.arlpark.com
+                </p>
 
-                    <h2>Geschäftsführung</h2>
-                    <p>[Geschäftsführer Name]</p>
+                <h3>Unternehmensdaten</h3>
+                <p>
+                    <strong>Geschäftsführer:</strong> [Name]<br />
+                    <strong>Firmenbuchnummer:</strong> [Nummer]<br />
+                    <strong>Firmenbuchgericht:</strong> [Gericht]<br />
+                    <strong>UID-Nummer:</strong> [UID]
+                </p>
 
-                    <h2>Registereintrag</h2>
-                    <p>
-                        Handelsregister: [Registergericht]<br />
-                        Registernummer: [Nummer]
-                    </p>
-
-                    <h2>Umsatzsteuer-ID</h2>
-                    <p>
-                        Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-                        [USt-IdNr.]
-                    </p>
-
-                    <h2>Verantwortlich für den Inhalt</h2>
-                    <p>
-                        ARL.PARK GmbH<br />
-                        St. Anton am Arlberg
-                    </p>
-
-                    <h2>Streitschlichtung</h2>
-                    <p>
-                        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit.
-                        Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
-                        Verbraucherschlichtungsstelle teilzunehmen.
-                    </p>
-                </div>
-            </section>
+                <p className="text-slate-500 italic mt-12 border-t pt-8">
+                    Dies ist eine neu gestaltete Website für den ARL.PARK. Inhalte basieren auf dem Redesign-Konzept.
+                </p>
+            </div>
         </main>
     );
 }

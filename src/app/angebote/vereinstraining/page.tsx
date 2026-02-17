@@ -1,0 +1,65 @@
+"use client";
+
+import Link from "next/link";
+import { TrainingIcon } from "@/components/Icons";
+
+export default function VereinstrainingPage() {
+    return (
+        <main className="bg-white min-h-screen">
+            <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-slate-900/60 z-10" />
+                <div className="absolute inset-0 bg-slate-300 flex items-center justify-center">
+                    <span className="text-4xl text-white/50 font-bold">Foto: Training</span>
+                </div>
+
+                <div className="relative z-20 text-center text-white px-4">
+                    <div className="w-20 h-20 bg-slate-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl">
+                        <TrainingIcon size={40} />
+                    </div>
+                    <h1 className="text-5xl md:text-7xl font-black mb-6">arl.x Vereinstraining</h1>
+                    <p className="text-xl md:text-2xl font-light max-w-2xl mx-auto">
+                        Professionelles Training in Kooperation mit arl.x
+                    </p>
+                </div>
+            </section>
+
+            <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+                <div>
+                    <h2 className="text-3xl font-black text-slate-900 mb-6">Werde Teil des Teams</h2>
+                    <div className="prose prose-lg text-slate-600 mb-8">
+                        <p>
+                            Das arl.x Vereinstraining bietet Kindern und Jugendlichen die Möglichkeit, Klettern und Bouldern als Leistungssport oder ambitioniertes Hobby zu betreiben.
+                        </p>
+                        <h3 className="font-bold text-slate-900 mt-6 mb-2">Unser Angebot:</h3>
+                        <ul className="list-none space-y-2 pl-0">
+                            {[
+                                "Regelmäßiges Training mit lizenzierten Trainern",
+                                "Teilnahme an Wettkämpfen",
+                                "Förderung von Talenten",
+                                "Gemeinsame Events und Ausflüge"
+                            ].map((item, i) => (
+                                <li key={i} className="flex items-center gap-3">
+                                    <span className="w-6 h-6 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center text-sm font-bold">✓</span>
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="glass-card bg-white p-8 md:p-10">
+                    <h2 className="text-2xl font-bold text-slate-900 mb-6">Interessiert?</h2>
+                    <p className="text-slate-600 mb-8">
+                        Melde dich jetzt für ein Probetraining an oder informiere dich über die aktuellen Trainingszeiten.
+                    </p>
+                    <a
+                        href="mailto:training@arlpark.com"
+                        className="btn-primary bg-slate-800 text-white w-full flex items-center justify-center gap-2 text-lg hover:bg-slate-700 shadow-none"
+                    >
+                        Kontakt aufnehmen
+                    </a>
+                </div>
+            </section>
+        </main>
+    );
+}

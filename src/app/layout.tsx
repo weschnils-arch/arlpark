@@ -16,6 +16,8 @@ export const metadata: Metadata = {
   keywords: "Trampolin, Klettern, Bowling, Squash, Indoor Funpark, St. Anton, Arlberg, Geburtstag, Sport",
 };
 
+import BackButton from "@/components/BackButton";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,6 +27,7 @@ export default function RootLayout({
     <html lang="de">
       <body className={`${inter.variable} antialiased`}>
         <Navigation />
+        <BackButton />
         {children}
         <Footer />
         <WhatsAppButton />
