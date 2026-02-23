@@ -265,8 +265,8 @@ export default function PremiumMenuViewer() {
                                 <button
                                     onClick={() => handleToggle(category.id)}
                                     className={`w-full text-left py-5 px-6 md:px-8 flex justify-between items-center transition-all font-black uppercase tracking-wider text-xl md:text-2xl z-10 border-b border-black/10 ${openId === category.id
-                                            ? category.colorClass + " brightness-[1.12]"
-                                            : category.colorClass + " hover:brightness-110"
+                                        ? category.colorClass + " brightness-[1.12]"
+                                        : category.colorClass + " hover:brightness-110"
                                         }`}
                                 >
                                     {category.title}
@@ -290,20 +290,20 @@ export default function PremiumMenuViewer() {
                                                 )}
                                                 <div className="space-y-4">
                                                     {section.items.map((item, iIdx) => (
-                                                        <div key={iIdx} className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline relative group gap-2 sm:gap-4">
-                                                            <div className="bg-white z-10 pr-4">
-                                                                <h5 className="font-bold text-slate-800 text-lg sm:text-xl uppercase">
+                                                        <div key={iIdx} className="flex flex-row justify-between items-start sm:items-baseline relative group gap-4">
+                                                            <div className="bg-white z-10 max-w-[70%] sm:max-w-none pr-2 sm:pr-4">
+                                                                <h5 className="font-bold text-slate-800 text-base sm:text-xl uppercase break-words">
                                                                     {item.name}
                                                                 </h5>
                                                                 {(item.desc || item.allergens) && (
-                                                                    <p className="text-sm text-slate-500 uppercase tracking-widest mt-1">
+                                                                    <p className="text-xs sm:text-sm text-slate-500 uppercase tracking-widest mt-1">
                                                                         {item.desc} {item.allergens && <span className="text-teal-600 font-medium">[{item.allergens}]</span>}
                                                                     </p>
                                                                 )}
                                                             </div>
                                                             <div className="hidden sm:block flex-grow border-b-2 border-dotted border-slate-300 mb-2 opacity-50 z-0"></div>
-                                                            <div className="bg-white z-10 pl-0 sm:pl-4 whitespace-nowrap flex-shrink-0">
-                                                                <span className="font-bold text-slate-900 text-xl">{item.price}</span>
+                                                            <div className="bg-white z-10 pl-0 sm:pl-4 whitespace-nowrap flex-shrink-0 text-right mt-0.5 sm:mt-0">
+                                                                <span className="font-bold text-slate-900 text-lg sm:text-xl">{item.price}</span>
                                                             </div>
                                                         </div>
                                                     ))}

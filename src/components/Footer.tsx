@@ -47,9 +47,9 @@ export default function Footer() {
                 <div className="max-w-7xl mx-auto px-4 md:px-6 pt-16 pb-8">
 
                     {/* Main Footer Content */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-slate-800">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-10 gap-y-12 pb-12 border-b border-slate-800">
                         {/* Brand Column */}
-                        <div className="col-span-1 lg:col-span-1">
+                        <div className="col-span-2 lg:col-span-1">
                             <Link href="/" className="inline-block mb-6" aria-label="ARL.PARK Homepage">
                                 <Image
                                     src="/logo.svg"
@@ -89,14 +89,14 @@ export default function Footer() {
                         </div>
 
                         {/* Quick Links */}
-                        <div>
-                            <h3 className="text-white font-bold text-lg mb-6">Navigation</h3>
+                        <div className="col-span-1">
+                            <h3 className="text-white font-bold text-lg leading-tight sm:leading-normal mb-5 flex items-center h-[28px] sm:mb-6">Navigation</h3>
                             <ul className="space-y-3" role="list">
                                 {quickLinks.map((link) => (
                                     <li key={link.href}>
                                         <Link
                                             href={link.href}
-                                            className="text-slate-400 hover:text-sky-400 transition-colors text-sm font-medium"
+                                            className="text-slate-400 hover:text-sky-400 transition-colors text-sm font-medium block"
                                         >
                                             {link.label}
                                         </Link>
@@ -106,41 +106,43 @@ export default function Footer() {
                         </div>
 
                         {/* Contact */}
-                        <div>
-                            <h3 className="text-white font-bold text-lg mb-6">Kontakt</h3>
+                        <div className="col-span-1">
+                            <h3 className="text-white font-bold text-lg leading-tight sm:leading-normal mb-5 flex items-center h-[28px] sm:mb-6">Kontakt</h3>
                             <ul className="space-y-4" role="list">
                                 <li>
                                     <a
                                         href="tel:+4366099880066"
-                                        className="text-slate-400 hover:text-sky-400 transition-colors text-sm flex items-center gap-3"
+                                        className="text-slate-400 hover:text-sky-400 transition-colors text-sm flex items-start sm:items-center gap-2 sm:gap-3"
                                     >
-                                        <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0">
-                                            <PhoneIcon size={14} className="text-sky-500" />
+                                        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                                            <PhoneIcon size={12} className="text-sky-500 hidden sm:block" />
+                                            <PhoneIcon size={10} className="text-sky-500 sm:hidden block" />
                                         </div>
-                                        +43 660 99 88 0 66
+                                        <span className="break-words mt-[2px] sm:mt-0 leading-tight">+43 660 99 88 0 66</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a
                                         href="mailto:info@arlpark.com"
-                                        className="text-slate-400 hover:text-sky-400 transition-colors text-sm flex items-center gap-3"
+                                        className="text-slate-400 hover:text-sky-400 transition-colors text-sm flex items-start sm:items-center gap-2 sm:gap-3"
                                     >
-                                        <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0">
-                                            <EmailIcon size={14} className="text-sky-500" />
+                                        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                                            <EmailIcon size={12} className="text-sky-500 hidden sm:block" />
+                                            <EmailIcon size={10} className="text-sky-500 sm:hidden block" />
                                         </div>
-                                        info@arlpark.com
+                                        <span className="break-all mt-[2px] sm:mt-0 leading-tight">info@arlpark.com</span>
                                     </a>
                                 </li>
                             </ul>
-                            <div className="mt-6 text-sm text-slate-400 pl-[44px]">
+                            <div className="mt-8 sm:mt-6 text-sm text-slate-400 block sm:pl-[44px]">
                                 <p className="font-medium text-white mb-1">ARL.PARK GmbH</p>
                                 <p>Bahnhofstraße 1</p>
-                                <p>6580 St. Anton am Arlberg</p>
+                                <p className="break-words">6580 St. Anton am Arlberg</p>
                             </div>
                         </div>
 
                         {/* Booking CTA */}
-                        <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700/50 flex flex-col h-full">
+                        <div className="col-span-2 lg:col-span-1 bg-slate-800/50 rounded-2xl p-6 sm:p-8 border border-slate-700/50 flex flex-col h-full">
                             <h3 className="text-white font-bold text-lg mb-6">Jetzt buchen</h3>
                             <p className="text-slate-400 text-sm mb-8 leading-relaxed flex-grow">
                                 Sichere dir deinen Platz für Bowling, Squash oder Tennis bequem online.
