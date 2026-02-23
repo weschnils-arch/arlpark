@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FoodIcon } from "@/components/Icons";
+import PremiumMenuViewer from "@/components/PremiumMenuViewer";
 
 export default function SportsbarPage() {
     return (
@@ -82,6 +83,9 @@ export default function SportsbarPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Menu Viewer Section placed right before the Footer which contains "So finden Sie uns" */}
+            <PremiumMenuViewer />
         </main>
     );
 }
