@@ -15,7 +15,7 @@ export default function TischtennisPage() {
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
-                        backgroundImage: `url('/images/tischtennis/1.webp')`,
+                        backgroundImage: `url('/images/activities/Squash_Tischtennis/DSC2345-scaled.jpg')`,
                         backgroundAttachment: "fixed",
                     }}
                 />

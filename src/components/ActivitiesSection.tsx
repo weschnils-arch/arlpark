@@ -60,8 +60,7 @@ const ACTIVITY_DATA = [
         features: ["Profi Courts", "Equipment Verleih", "Flexible Buchung", "Ligatauglich"],
         buttonLink: "/angebote/squash",
         images: [
-            "/images/activities/Squash_Tischtennis/DSC2580-scaled.jpg",
-            "/images/activities/Squash_Tischtennis/DSC2345-scaled.jpg"
+            "/images/activities/Squash_Tischtennis/DSC2580-scaled.jpg"
         ]
     },
     {
@@ -86,8 +85,7 @@ const ACTIVITY_DATA = [
         features: ["Profi-Tische", "Schlägerverleih", "Einzel & Doppel", "Turnierqualität"],
         buttonLink: "/angebote/tischtennis",
         images: [
-            "/images/tischtennis/1.webp",
-            "/images/tischtennis/2.webp"
+            "/images/activities/Squash_Tischtennis/DSC2345-scaled.jpg"
         ]
     },
     {
