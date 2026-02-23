@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { KletternIcon } from "@/components/Icons";
 
 const highlights = [
     {
@@ -50,25 +51,46 @@ const sponsors: { name: string; url: string | null; logo: string; dark?: boolean
     { name: "Kletterzentrum Imst", url: "https://kletterhalle.com/", logo: "/images/routensponsoren/8.png" },
 ];
 
-export default function KletternPage() {
-    const [priceType, setPriceType] = useState("tageskarten");
+const CLIMBING_TYPES = [
+    { label: "Tageskarte", value: "day" },
+    { label: "10er-Block", value: "10er" },
+    { label: "3-Monatskarte", value: "3m" },
+    { label: "Halbjahreskarte", value: "6m" },
+    { label: "Jahreskarte", value: "year" },
+];
 
-    const prices = {
-        tageskarten: [
-            { label: "Erwachsene (ab 18)", price: "13,50 €" },
-            { label: "Jugendliche (bis 17)", price: "10,00 €" },
-        ],
-        verleih: [
-            { label: "Kletterschuhe Erw.", price: "5,00 €" },
-            { label: "Kletterschuhe Kind (0-5)", price: "3,00 €" },
-            { label: "Gurt / Sicherungsgerät", price: "je 3,00 €" },
-            { label: "Seil", price: "3,00 €" },
-        ],
-        kurse: [
-            { label: "Schnupperkurs (2h)", price: "45,00 €" },
-            { label: "Grundkurs (3x 2h)", price: "125,00 €" },
-        ]
-    };
+const CLIMBING_GROUPS = [
+    { label: "Erwachsene (ab 18)", value: "adult" },
+    { label: "Jugendliche (bis 17)", value: "youth" },
+];
+
+const CLIMBING_PRICES: Record<string, Record<string, number>> = {
+    day: {
+        adult: 13.50,
+        youth: 10.00,
+    },
+    "10er": {
+        adult: 121.50,
+        youth: 90.00,
+    },
+    "3m": {
+        adult: 159.00,
+        youth: 109.00,
+    },
+    "6m": {
+        adult: 290.00,
+        youth: 180.00,
+    },
+    year: {
+        adult: 415.00,
+        youth: 250.00,
+    },
+};
+
+export default function KletternPage() {
+    const [climbingType, setClimbingType] = useState(CLIMBING_TYPES[0]);
+    const [climbingGroup, setClimbingGroup] = useState(CLIMBING_GROUPS[0]);
+    const climbingPrice = CLIMBING_PRICES[climbingType.value]?.[climbingGroup.value] || 0;
 
     return (
         <main className="bg-white min-h-screen">
@@ -145,40 +167,67 @@ export default function KletternPage() {
 
                 {/* Right Column: Pricing & Booking */}
                 <div className="space-y-8">
-                    <div className="glass-card bg-white p-8 md:p-10">
-                        <h2 className="text-2xl font-bold text-slate-900 mb-6">Preise</h2>
-
-                        <div className="mb-8">
-                            <label htmlFor="price-select" className="block text-sm font-medium text-slate-700 mb-2">Kategorie wählen:</label>
-                            <select
-                                id="price-select"
-                                value={priceType}
-                                onChange={(e) => setPriceType(e.target.value)}
-                                className="w-full p-4 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 font-bold focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer appearance-none"
-                            >
-                                <option value="tageskarten">Tageskarten</option>
-                                <option value="verleih">Verleihmaterial</option>
-                                <option value="kurse">Kurse & Training</option>
-                            </select>
+                    {/* Interactive Pricing Card */}
+                    <div className="glass-card bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl flex flex-col">
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center text-orange-700" aria-hidden="true">
+                                <KletternIcon size={24} />
+                            </div>
+                            <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Klettern & Bouldern</h2>
                         </div>
 
-                        <div className="space-y-4 mb-8">
-                            {/* @ts-expect-error type safety ignored for brevity */}
-                            {prices[priceType].map((item: any, i: number) => (
-                                <div key={i} className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
-                                    <span className="font-medium text-slate-700">{item.label}</span>
-                                    <span className="text-xl font-black text-slate-900">{item.price}</span>
+                        <div className="flex-1 space-y-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label htmlFor="climb-type" className="block text-sm font-bold text-slate-700 mb-2">Ticket-Art</label>
+                                    <select
+                                        id="climb-type"
+                                        className="w-full p-3 rounded-xl border border-slate-300 bg-white font-medium text-slate-900 focus:ring-2 focus:ring-sky-600 focus:border-sky-600 outline-none"
+                                        value={climbingType.value}
+                                        onChange={(e) => setClimbingType(CLIMBING_TYPES.find(o => o.value === e.target.value) || CLIMBING_TYPES[0])}
+                                    >
+                                        {CLIMBING_TYPES.map(opt => (
+                                            <option key={opt.value} value={opt.value}>{opt.label}</option>
+                                        ))}
+                                    </select>
                                 </div>
-                            ))}
+                                <div>
+                                    <label htmlFor="climb-group" className="block text-sm font-bold text-slate-700 mb-2">Personengruppe</label>
+                                    <select
+                                        id="climb-group"
+                                        className="w-full p-3 rounded-xl border border-slate-300 bg-white font-medium text-slate-900 focus:ring-2 focus:ring-sky-600 focus:border-sky-600 outline-none"
+                                        value={climbingGroup.value}
+                                        onChange={(e) => setClimbingGroup(CLIMBING_GROUPS.find(o => o.value === e.target.value) || CLIMBING_GROUPS[0])}
+                                    >
+                                        {CLIMBING_GROUPS.map(opt => (
+                                            <option key={opt.value} value={opt.value}>{opt.label}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center justify-between p-6 bg-orange-50/70 rounded-xl border border-orange-100">
+                                <span className="text-orange-950 font-bold text-lg">Preis</span>
+                                <span className="text-4xl font-black text-[#c2410c]">{climbingPrice.toFixed(2).replace('.', ',')} €</span>
+                            </div>
+
+                            <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
+                                <h4 className="font-bold text-slate-900 mb-4 text-base">Verleihpreise</h4>
+                                <div className="space-y-3 text-base text-slate-700">
+                                    <div className="flex justify-between"><span>Kletterschuhe (Erw.)</span><span>5,00 €</span></div>
+                                    <div className="flex justify-between"><span>Kletterschuhe (Kind 0-5)</span><span>3,00 €</span></div>
+                                    <div className="flex justify-between"><span>Gurt / Sicherungsgerät</span><span>je 3,00 €</span></div>
+                                    <div className="flex justify-between"><span>Seil</span><span>3,00 €</span></div>
+                                </div>
+                            </div>
                         </div>
 
                         <Link
                             href="https://v5.bookandplay.com/p_pro_arlpark.php"
                             target="_blank"
-                            className="btn-primary bg-gradient-to-r from-emerald-500 to-teal-600 shadow-emerald-500/30 w-full flex items-center justify-center gap-2 text-lg"
+                            className="block w-full text-center bg-[#006fb4] text-white font-bold py-4 px-4 rounded-xl hover:bg-[#005a94] transition-colors shadow-lg shadow-sky-500/20 mt-8 focus:outline-none focus:ring-4 focus:ring-sky-500/50 text-lg"
                         >
-                            Tickets buchen
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                            Klettern buchen
                         </Link>
                     </div>
 
