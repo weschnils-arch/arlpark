@@ -25,7 +25,7 @@ const CalendarIcon = ({ size = 20, className = "" }: { size?: number; className?
 
 export default function EventsSection() {
     return (
-        <section className="py-20 bg-white">
+        <section className="relative z-30 bg-white py-20 lg:py-28 px-4 rounded-t-[3rem] -mt-10 shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.3)]">
             <div className="max-w-7xl mx-auto px-4 md:px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
