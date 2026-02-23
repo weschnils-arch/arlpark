@@ -214,11 +214,14 @@ export default function PremiumMenuViewer() {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const handleToggle = (id: number) => {
-        setOpenId(id);
-        if (containerRef.current) {
-            const y = containerRef.current.getBoundingClientRect().top + window.scrollY - 100;
-            window.scrollTo({ top: y, behavior: "smooth" });
-        }
+        setOpenId(openId === id ? 0 : id);
+        setTimeout(() => {
+            const el = document.getElementById(`menu-category-${id}`);
+            if (el) {
+                const y = el.getBoundingClientRect().top + window.scrollY - 100;
+                window.scrollTo({ top: y, behavior: "smooth" });
+            }
+        }, 300); // Wait for accordion to start opening before scrolling
     };
 
     return (
@@ -249,16 +252,15 @@ export default function PremiumMenuViewer() {
                         </div>
                     </div>
 
-                    {/* Content Area */}
-                    <div className="flex-1 flex flex-col bg-slate-50">
-                        {/* Stacked Category Bars (All at the top) */}
-                        <div className="flex flex-col z-10 w-full shadow-md">
-                            {MENU_DATA.map((category) => (
+                    {/* Accordion Content Area */}
+                    <div className="flex-1 flex flex-col bg-white">
+                        {MENU_DATA.map((category) => (
+                            <div key={category.id} id={`menu-category-${category.id}`} className="flex flex-col border-b border-white/20 last:border-b-0">
+                                {/* Accordion Header */}
                                 <button
-                                    key={category.id}
                                     onClick={() => handleToggle(category.id)}
-                                    className={`w-full text-left py-4 px-6 md:px-8 border-b border-white/10 flex justify-between items-center transition-all font-black uppercase tracking-wider text-lg md:text-xl ${openId === category.id
-                                            ? category.colorClass + " brightness-110 py-5"
+                                    className={`w-full text-left py-5 px-6 md:px-8 flex justify-between items-center transition-all font-black uppercase tracking-wider text-xl md:text-2xl z-10 border-b border-black/10 ${openId === category.id
+                                            ? category.colorClass + " brightness-[1.12]"
                                             : category.colorClass + " hover:brightness-110"
                                         }`}
                                 >
@@ -267,49 +269,46 @@ export default function PremiumMenuViewer() {
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                                     </span>
                                 </button>
-                            ))}
-                        </div>
 
-                        {/* Active Category Items Area */}
-                        <div className="flex-1 bg-white p-6 md:p-12 relative min-h-[400px]">
-                            {MENU_DATA.map((category) => (
+                                {/* Accordion Body (Content directly under the button) */}
                                 <div
-                                    key={category.id}
-                                    className={`transition-opacity duration-500 ease-in-out ${openId === category.id ? "block opacity-100 animate-fadeIn" : "hidden opacity-0"
+                                    className={`overflow-hidden transition-all duration-500 ease-in-out bg-white ${openId === category.id ? "max-h-[3000px] opacity-100" : "max-h-0 opacity-0"
                                         }`}
                                 >
-                                    {category.sections.map((section, sIdx) => (
-                                        <div key={sIdx} className="mb-12 last:mb-0">
-                                            {section.title && (
-                                                <h4 className="text-xl font-bold text-slate-900 mb-8 pb-2 border-b-2 border-slate-900 inline-block">
-                                                    {section.title}
-                                                </h4>
-                                            )}
-                                            <div className="space-y-4">
-                                                {section.items.map((item, iIdx) => (
-                                                    <div key={iIdx} className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline relative group gap-2 sm:gap-4">
-                                                        <div className="bg-white z-10 pr-4">
-                                                            <h5 className="font-bold text-slate-800 text-lg sm:text-xl uppercase">
-                                                                {item.name}
-                                                            </h5>
-                                                            {(item.desc || item.allergens) && (
-                                                                <p className="text-sm text-slate-500 uppercase tracking-widest mt-1">
-                                                                    {item.desc} {item.allergens && <span className="text-teal-600 font-medium">[{item.allergens}]</span>}
-                                                                </p>
-                                                            )}
+                                    <div className="p-6 md:p-12 relative shadow-inner">
+                                        {category.sections.map((section, sIdx) => (
+                                            <div key={sIdx} className="mb-12 last:mb-0">
+                                                {section.title && (
+                                                    <h4 className="text-xl font-bold text-slate-900 mb-8 pb-2 border-b-2 border-slate-900 inline-block">
+                                                        {section.title}
+                                                    </h4>
+                                                )}
+                                                <div className="space-y-4">
+                                                    {section.items.map((item, iIdx) => (
+                                                        <div key={iIdx} className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline relative group gap-2 sm:gap-4">
+                                                            <div className="bg-white z-10 pr-4">
+                                                                <h5 className="font-bold text-slate-800 text-lg sm:text-xl uppercase">
+                                                                    {item.name}
+                                                                </h5>
+                                                                {(item.desc || item.allergens) && (
+                                                                    <p className="text-sm text-slate-500 uppercase tracking-widest mt-1">
+                                                                        {item.desc} {item.allergens && <span className="text-teal-600 font-medium">[{item.allergens}]</span>}
+                                                                    </p>
+                                                                )}
+                                                            </div>
+                                                            <div className="hidden sm:block flex-grow border-b-2 border-dotted border-slate-300 mb-2 opacity-50 z-0"></div>
+                                                            <div className="bg-white z-10 pl-0 sm:pl-4 whitespace-nowrap flex-shrink-0">
+                                                                <span className="font-bold text-slate-900 text-xl">{item.price}</span>
+                                                            </div>
                                                         </div>
-                                                        <div className="hidden sm:block flex-grow border-b-2 border-dotted border-slate-300 mb-2 opacity-50 z-0"></div>
-                                                        <div className="bg-white z-10 pl-0 sm:pl-4 whitespace-nowrap flex-shrink-0">
-                                                            <span className="font-bold text-slate-900 text-xl">{item.price}</span>
-                                                        </div>
-                                                    </div>
-                                                ))}
+                                                    ))}
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </div>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
