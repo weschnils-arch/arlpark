@@ -149,20 +149,27 @@ const activities = [
 export default function AktivitaetenPage() {
     return (
         <main>
-            {/* Hero Section - Fixed Height */}
-            <section className="relative pt-32 pb-16 md:pt-40 md:pb-20 min-h-[280px] md:min-h-[320px] flex items-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.3)_0%,transparent_60%)]" />
-
-                <div className="relative z-10 w-full max-w-4xl mx-auto px-4 md:px-6 text-center text-white">
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-3 tracking-tight">
-                        Unsere Aktivitäten
+            {/* Hero Section */}
+            <section
+                className="relative h-[50vh] flex items-center justify-center overflow-hidden"
+            >
+                <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                        backgroundImage: `url('/images/activities/Trampoline/DSC0523-scaled.jpg')`,
+                        backgroundAttachment: "fixed",
+                    }}
+                />
+                <div className="absolute inset-0 bg-blue-900/50 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent z-10" />
+                <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
+                    <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg text-white">
+                        Aktivitäten
                     </h1>
-                    <p className="text-base md:text-xl text-white/90 max-w-2xl mx-auto">
-                        Von Trampolinen bis Klettern – erlebe Action pur unter einem Dach!
-                    </p>
+                    <p className="text-xl md:text-2xl font-light drop-shadow-md text-white/90 max-w-2xl mx-auto">Entdecke alle Angebote im arl.park.</p>
                 </div>
             </section>
+
 
             {/* Activity Pills - Below Hero */}
             <section className="py-6 md:py-8 px-4 md:px-6 bg-gradient-to-b from-indigo-100 to-indigo-50">

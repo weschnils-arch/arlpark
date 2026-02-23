@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { BowlingIcon } from "@/components/Icons";
 
@@ -21,20 +22,24 @@ export default function BowlingPage() {
     return (
         <main className="bg-white min-h-screen">
             {/* Hero Section */}
-            <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-indigo-900/40 z-10" />
-                <div className="absolute inset-0 bg-slate-300 flex items-center justify-center">
-                    <span className="text-4xl text-white/50 font-bold">Foto: Bowlingbahn</span>
-                </div>
-
-                <div className="relative z-20 text-center text-white px-4">
-                    <div className="w-20 h-20 bg-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl">
-                        <BowlingIcon size={40} />
-                    </div>
-                    <h1 className="text-5xl md:text-7xl font-black mb-6">Bowling</h1>
-                    <p className="text-xl md:text-2xl font-light max-w-2xl mx-auto">
-                        Strike! 4 vollautomatische Bahnen für Spaß mit Freunden und Familie.
-                    </p>
+            <section
+                className="relative h-[50vh] flex items-center justify-center overflow-hidden"
+            >
+                <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                        backgroundImage: "url('/images/activities/Bowling/DSC2041-scaled.jpg')",
+                        backgroundAttachment: "fixed",
+                    }}
+                />
+                {/* Color overlay */}
+                <div className="absolute inset-0 bg-slate-900/50 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent z-10" />
+                <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
+                    <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg">
+                        9-Pin Bowling
+                    </h1>
+                    <p className="text-xl md:text-2xl font-light drop-shadow-md text-white/90 max-w-2xl mx-auto">Vier moderne Bahnen – Spaß für Groß und Klein.</p>
                 </div>
             </section>
 

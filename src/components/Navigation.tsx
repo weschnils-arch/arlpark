@@ -70,7 +70,14 @@ export default function Navigation() {
         { href: "/preise", label: "Preise" },
         { href: "/veranstaltungen", label: "Events" }, // User asked for "Veranstaltungen / Aktuelles", keeping it short for menu
         { href: "/faq", label: "FAQ" },
-        { href: "/kontakt", label: "Kontakt" },
+        {
+            href: "/kontakt",
+            label: "Kontakt",
+            subLinks: [
+                { href: "/kontakt", label: "Kontakt & Anfahrt" },
+                { href: "/impressum", label: "Impressum" },
+            ]
+        },
     ];
 
     return (

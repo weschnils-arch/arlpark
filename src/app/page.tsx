@@ -279,7 +279,11 @@ function RentalSection() {
           ))}
         </div>
 
-        <div className="text-center">
+        <div className="text-center flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Link href="/kontakt" className="btn-primary px-8 py-3.5 text-lg inline-flex items-center gap-2 shadow-lg shadow-sky-500/20">
+            Jetzt unverbindlich anfragen
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </Link>
           <Link href="/mietanlagen" className="btn-secondary text-sky-600 border-sky-200 hover:bg-sky-50 px-8 py-3.5 whitespace-nowrap">
             Alle Mietanlagen ansehen
           </Link>

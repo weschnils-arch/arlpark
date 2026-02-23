@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { GeburtstagIcon, TrampolinIcon, BowlingIcon, KletternIcon, CheckIcon, FoodIcon } from "@/components/Icons";
 
 const birthdayPackages = [
@@ -49,20 +50,24 @@ export default function GeburtstagePage() {
     return (
         <main className="bg-white min-h-screen">
             {/* Hero Section */}
-            <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-fuchsia-900/40 z-10" />
-                <div className="absolute inset-0 bg-slate-300 flex items-center justify-center">
-                    <span className="text-4xl text-white/50 font-bold">Foto: Kindergeburtstag</span>
-                </div>
-
-                <div className="relative z-20 text-center text-white px-4">
-                    <div className="w-20 h-20 bg-fuchsia-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl">
-                        <GeburtstagIcon size={40} />
-                    </div>
-                    <h1 className="text-5xl md:text-7xl font-black mb-6">Geburtstage</h1>
-                    <p className="text-xl md:text-2xl font-light max-w-2xl mx-auto">
-                        Feiere den besten Tag des Jahres bei uns!
-                    </p>
+            <section
+                className="relative h-[50vh] flex items-center justify-center overflow-hidden"
+            >
+                <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                        backgroundImage: "url('/images/activities/Trampoline/DSC0662-scaled.jpg')",
+                        backgroundAttachment: "fixed",
+                    }}
+                />
+                {/* Color overlay */}
+                <div className="absolute inset-0 bg-fuchsia-900/50 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent z-10" />
+                <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
+                    <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg">
+                        Geburtstage
+                    </h1>
+                    <p className="text-xl md:text-2xl font-light drop-shadow-md text-white/90 max-w-2xl mx-auto">Feiere den besten Tag des Jahres bei uns!</p>
                 </div>
             </section>
 

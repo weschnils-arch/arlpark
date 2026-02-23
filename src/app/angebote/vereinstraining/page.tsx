@@ -1,25 +1,31 @@
 "use client";
 
+import Image from "next/image";
+
 import Link from "next/link";
 import { TrainingIcon } from "@/components/Icons";
 
 export default function VereinstrainingPage() {
     return (
         <main className="bg-white min-h-screen">
-            <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-slate-900/60 z-10" />
-                <div className="absolute inset-0 bg-slate-300 flex items-center justify-center">
-                    <span className="text-4xl text-white/50 font-bold">Foto: Training</span>
-                </div>
-
-                <div className="relative z-20 text-center text-white px-4">
-                    <div className="w-20 h-20 bg-slate-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl">
-                        <TrainingIcon size={40} />
-                    </div>
-                    <h1 className="text-5xl md:text-7xl font-black mb-6">arl.x Vereinstraining</h1>
-                    <p className="text-xl md:text-2xl font-light max-w-2xl mx-auto">
-                        Professionelles Training in Kooperation mit arl.x
-                    </p>
+            {/* Hero Section */}
+            <section
+                className="relative h-[50vh] flex items-center justify-center overflow-hidden"
+            >
+                <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                        backgroundImage: `url('/images/activities/Climbing/20230629_155046-scaled.jpg')`,
+                        backgroundAttachment: "fixed",
+                    }}
+                />
+                <div className="absolute inset-0 bg-indigo-900/50 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent z-10" />
+                <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
+                    <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg text-white">
+                        Vereinstraining
+                    </h1>
+                    <p className="text-xl md:text-2xl font-light drop-shadow-md text-white/90 max-w-2xl mx-auto">Professionelle Trainingsmöglichkeiten für Vereine.</p>
                 </div>
             </section>
 

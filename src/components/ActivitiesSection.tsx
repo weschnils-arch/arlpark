@@ -73,8 +73,8 @@ const ACTIVITY_DATA = [
         features: ["Sandplätze", "Flutlicht", "Trainer verfügbar", "Equipment Verleih"],
         buttonLink: "/angebote/tennis",
         images: [
-            "/images/activities/Tennis_Pickleball/DSC0043-scaled.jpg",
-            "/images/activities/Tennis_Pickleball/DSC0123-scaled.jpg"
+            "/images/activities/Tennis_Pickleball/DSC2637-scaled.jpg",
+            "/images/activities/Tennis_Pickleball/DSC2656-scaled.jpg"
         ]
     },
     {
@@ -86,8 +86,8 @@ const ACTIVITY_DATA = [
         features: ["Profi-Tische", "Schlägerverleih", "Einzel & Doppel", "Turnierqualität"],
         buttonLink: "/angebote/tischtennis",
         images: [
-            "/images/activities/Squash_Tischtennis/DSC2508-scaled.jpg",
-            "/images/activities/Squash_Tischtennis/DSC2353-scaled.jpg"
+            "/images/tischtennis/1.webp",
+            "/images/tischtennis/2.webp"
         ]
     },
     {
@@ -99,8 +99,8 @@ const ACTIVITY_DATA = [
         features: ["Outdoor Court", "Einfach zu lernen", "Equipment vor Ort", "Für alle Alter"],
         buttonLink: "/angebote/pickleball",
         images: [
-            "/images/activities/Tennis_Pickleball/DSC0043-scaled.jpg", // Reusing tennis img as placeholder if needed or specific one
-            "/images/activities/Tennis_Pickleball/DSC0123-scaled.jpg"
+            "/images/pickleball/pickleball_1.webp",
+            "/images/pickleball/pickleball_2.webp"
         ]
     },
     {
@@ -139,8 +139,12 @@ const ACTIVITY_DATA = [
         features: ["Boulderblock", "Bungee Trampolin", "Airtrack", "Free-Fall Tower"],
         buttonLink: "/angebote/mietanlagen",
         images: [
-            "/images/activities/Climbing/DSC2839-scaled.jpg", // Placeholder
-            "/images/activities/Trampoline/DSC0345-scaled.jpg"
+            "/images/mietanlagen/Mobiler_Bolderblock.jpg",
+            "/images/mietanlagen/Bunge Trampolin.png",
+            "/images/mietanlagen/Free Fall Tower.png",
+            "/images/mietanlagen/Airtracker.png",
+            "/images/mietanlagen/4er Trampolin Anlage.png",
+            "/images/mietanlagen/Dschungel Tiere.jpg",
         ]
     },
     {

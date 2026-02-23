@@ -1,18 +1,34 @@
 "use client";
 
+import Image from "next/image";
+
 import Link from "next/link";
 import { InfoIcon, PhoneIcon, EmailIcon } from "@/components/Icons";
 
 export default function KontaktPage() {
     return (
-        <main className="bg-white min-h-screen pt-24 pb-20">
-            <div className="max-w-7xl mx-auto px-4 md:px-6">
-                <div className="text-center mb-16">
-                    <h1 className="section-title text-slate-900">Kontakt & Anfahrt</h1>
-                    <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                        Wir freuen uns auf deinen Besuch! Hier findest du alle Infos für deine Anreise.
-                    </p>
+        <main className="bg-white min-h-screen">
+            {/* Hero Section */}
+            <section
+                className="relative h-[50vh] flex items-center justify-center overflow-hidden"
+            >
+                <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                        backgroundImage: `url('/images/activities/Bowling/IMG_20220623_163214-scaled.jpg')`,
+                        backgroundAttachment: "fixed",
+                    }}
+                />
+                <div className="absolute inset-0 bg-blue-900/50 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent z-10" />
+                <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
+                    <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg text-white">
+                        Kontakt & Anfahrt
+                    </h1>
+                    <p className="text-xl md:text-2xl font-light drop-shadow-md text-white/90 max-w-2xl mx-auto">Wir freuen uns auf deinen Besuch!</p>
                 </div>
+            </section>
+            <div className="max-w-7xl mx-auto px-4 md:px-6 py-16">
 
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
 
