@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { SchuleIcon, FirmaIcon, CheckIcon } from "@/components/Icons";
+import { SchuleIcon, FirmaIcon, CheckIcon, GeburtstagIcon } from "@/components/Icons";
 
 export default function GruppenSchulenPage() {
     return (
@@ -23,7 +23,7 @@ export default function GruppenSchulenPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent z-10" />
                 <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
                     <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg">
-                        Gruppen & Schulen
+                        Gruppen & Vereine
                     </h1>
                     <p className="text-xl md:text-2xl font-light drop-shadow-md text-white/90 max-w-2xl mx-auto">Gemeinsam erleben – für Schulen, Vereine und Firmen.</p>
                 </div>
@@ -59,15 +59,25 @@ export default function GruppenSchulenPage() {
                             Individuelles Angebot anfordern &rarr;
                         </Link>
                     </div>
-                    <div className="bg-slate-100 rounded-3xl h-80 lg:h-full min-h-[300px] flex items-center justify-center">
-                        <span className="text-slate-400 font-bold">Foto: Schulklasse</span>
+                    <div className="relative rounded-3xl h-80 lg:h-full min-h-[300px] overflow-hidden shadow-lg">
+                        <Image
+                            src="/images/activities/Trampoline/DSC0636-scaled.jpg"
+                            alt="Schulklasse im arl.park"
+                            fill
+                            className="object-cover"
+                        />
                     </div>
                 </div>
 
                 {/* Firmenevents */}
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    <div className="order-2 lg:order-1 bg-slate-100 rounded-3xl h-80 lg:h-full min-h-[300px] flex items-center justify-center">
-                        <span className="text-slate-400 font-bold">Foto: Teamevent</span>
+                    <div className="order-2 lg:order-1 relative rounded-3xl h-80 lg:h-full min-h-[300px] overflow-hidden shadow-lg">
+                        <Image
+                            src="/images/activities/Bowling/DSC2041-scaled.jpg"
+                            alt="Teamevent Bowling im arl.park"
+                            fill
+                            className="object-cover"
+                        />
                     </div>
                     <div className="order-1 lg:order-2">
                         <div className="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center mb-6">
@@ -94,6 +104,44 @@ export default function GruppenSchulenPage() {
                         <Link href="/kontakt" className="text-indigo-600 font-bold hover:underline flex items-center gap-2">
                             Firmenevent planen &rarr;
                         </Link>
+                    </div>
+                </div>
+
+                {/* Erwachsenengeburtstage & JGA */}
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div className="w-16 h-16 bg-pink-100 rounded-2xl flex items-center justify-center mb-6">
+                            <GeburtstagIcon className="text-pink-600" size={32} />
+                        </div>
+                        <h2 className="text-3xl font-black text-slate-900 mb-6">Erwachsenengeburtstage & Junggesellenabschiede</h2>
+                        <p className="text-lg text-slate-600 mb-6">
+                            Feiert euren besonderen Tag mit Action und Spaß im arl.park! Ob sportlicher Wettkampf beim Bowling oder ein Kletter-Abenteuer – bei uns wird jede Feier unvergesslich.
+                        </p>
+                        <h3 className="font-bold text-slate-900 mb-4">Highlights für euch:</h3>
+                        <ul className="space-y-3 mb-8">
+                            {[
+                                "Sport-Action kombiniert mit gemütlichem Beisammensein",
+                                "Reservierte Bereiche in der Sportsbar",
+                                "Spezielle Getränke- und Snack-Pakete",
+                                "Kein Vorwissen nötig – Spaß steht im Vordergrund"
+                            ].map((item, i) => (
+                                <li key={`jga-${i}`} className="flex items-center gap-3">
+                                    <CheckIcon className="w-5 h-5 text-emerald-500" />
+                                    <span className="text-slate-700">{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                        <Link href="/kontakt" className="text-pink-600 font-bold hover:underline flex items-center gap-2">
+                            Jetzt Feier anfragen &rarr;
+                        </Link>
+                    </div>
+                    <div className="relative rounded-3xl h-80 lg:h-full min-h-[300px] overflow-hidden shadow-lg">
+                        <Image
+                            src="/images/activities/Sportsbar/DSC2065-scaled.jpg"
+                            alt="Geburtstagsfeier in der Sportsbar"
+                            fill
+                            className="object-cover"
+                        />
                     </div>
                 </div>
 
