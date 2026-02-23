@@ -238,7 +238,7 @@ function KidsPlaySection() {
             {/* Kids Play image — using real climbing photo as visual stand-in */}
             <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/activities/Klettern/DSC2171-scaled.jpg"
+                src="/images/activities/Trampoline/DSC0662-scaled.jpg"
                 alt="Kids Play Bereich im arl.park"
                 fill
                 className="object-cover"
