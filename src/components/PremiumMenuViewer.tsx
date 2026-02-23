@@ -214,14 +214,19 @@ export default function PremiumMenuViewer() {
     const containerRef = useRef<HTMLDivElement>(null);
 
     const handleToggle = (id: number) => {
-        setOpenId(openId === id ? 0 : id);
-        setTimeout(() => {
-            const el = document.getElementById(`menu-category-${id}`);
-            if (el) {
-                const y = el.getBoundingClientRect().top + window.scrollY - 100;
-                window.scrollTo({ top: y, behavior: "smooth" });
-            }
-        }, 300); // Wait for accordion to start opening before scrolling
+        const isOpening = openId !== id;
+        setOpenId(isOpening ? id : 0);
+
+        if (isOpening) {
+            setTimeout(() => {
+                const el = document.getElementById(`menu-category-${id}`);
+                if (el) {
+                    // Navigation bar offset (appx 85px)
+                    const y = el.getBoundingClientRect().top + window.scrollY - 85;
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                }
+            }, 310); // Wait for the transition to finish to get the exact final position
+        }
     };
 
     return (
@@ -272,7 +277,7 @@ export default function PremiumMenuViewer() {
 
                                 {/* Accordion Body (Content directly under the button) */}
                                 <div
-                                    className={`overflow-hidden transition-all duration-500 ease-in-out bg-white ${openId === category.id ? "max-h-[3000px] opacity-100" : "max-h-0 opacity-0"
+                                    className={`overflow-hidden transition-all duration-300 ease-in-out bg-white ${openId === category.id ? "max-h-[3000px] opacity-100" : "max-h-0 opacity-0"
                                         }`}
                                 >
                                     <div className="p-6 md:p-12 relative shadow-inner">
