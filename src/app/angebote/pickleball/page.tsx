@@ -48,6 +48,15 @@ export default function PickleballPage() {
                             ))}
                         </ul>
                     </div>
+                    <div className="mt-8 rounded-2xl overflow-hidden shadow-xl">
+                        <Image
+                            src="/images/pickleball/pickleball_1.webp"
+                            alt="Pickleball Court im arl.park"
+                            width={800}
+                            height={500}
+                            className="w-full h-auto object-cover"
+                        />
+                    </div>
                 </div>
 
                 <div className="glass-card bg-white p-8 md:p-10">

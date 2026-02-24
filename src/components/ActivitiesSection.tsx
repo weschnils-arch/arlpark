@@ -194,7 +194,7 @@ const TABS = [
     { id: "tischtennis", label: "Tischtennis" },
     { id: "pickleball", label: "Pickleball" },
     { id: "kids-play", label: "Kids Play" },
-    { id: "sportsbar", label: "Gastronomie" },
+    { id: "sportsbar", label: "Sportsbar" },
     { id: "mietanlagen", label: "Mietanlagen" },
     { id: "geburtstage", label: "Geburtstage" },
     { id: "gruppen", label: "Gruppen & Vereine" }
