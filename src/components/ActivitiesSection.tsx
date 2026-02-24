@@ -97,8 +97,7 @@ const ACTIVITY_DATA = [
         features: ["Outdoor Court", "Einfach zu lernen", "Equipment vor Ort", "Für alle Alter"],
         buttonLink: "/angebote/pickleball",
         images: [
-            "/images/pickleball/pickleball_1.webp",
-            "/images/pickleball/pickleball_2.webp"
+            "/images/pickleball/pickleball_1.webp"
         ]
     },
     {
