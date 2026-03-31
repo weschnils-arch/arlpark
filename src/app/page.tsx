@@ -23,14 +23,14 @@ function ActivityTile({ href, icon: Icon, name, description, color, glassBg }: A
   return (
     <Link
       href={href}
-      className={`activity-tile flex flex-col items-center p-4 md:p-5 rounded-3xl ${glassBg} backdrop-blur-md border border-white/20 shadow-lg hover:shadow-2xl hover:border-white/40 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] group`}
+      className={`activity-tile flex flex-col items-center p-2.5 md:p-5 rounded-2xl md:rounded-3xl ${glassBg} backdrop-blur-md border border-white/20 shadow-lg hover:shadow-2xl hover:border-white/40 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] group`}
       aria-label={`${name} - ${description}`}
     >
-      <div className={`w-16 h-16 md:w-18 md:h-18 ${color} rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-lg`} aria-hidden="true">
-        <Icon className="text-white" size={34} />
+      <div className={`w-11 h-11 md:w-18 md:h-18 ${color} rounded-xl md:rounded-2xl flex items-center justify-center mb-1.5 md:mb-3 group-hover:scale-110 transition-transform shadow-lg`} aria-hidden="true">
+        <Icon className="text-white" size={22} />
       </div>
-      <span className="text-base md:text-lg font-bold text-white text-center">{name}</span>
-      <span className="text-xs md:text-sm text-white/80 text-center">{description}</span>
+      <span className="text-xs md:text-lg font-bold text-white text-center leading-tight">{name}</span>
+      <span className="text-xs text-white/80 text-center hidden md:block">{description}</span>
     </Link>
   );
 }
@@ -54,25 +54,25 @@ function HeroSection() {
         </video>
         <div className="absolute inset-0 bg-black/20" />
       </div>
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 pt-20 flex flex-col items-center text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tight drop-shadow-xl">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-6 pt-16 md:pt-20 flex flex-col items-center text-center">
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-white mb-3 md:mb-6 leading-tight tracking-tight drop-shadow-xl">
           Indoor Funpark<br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-white">St. Anton am Arlberg</span>
         </h1>
-        <p className="text-lg md:text-2xl text-slate-100 mb-10 max-w-2xl font-light drop-shadow-md">
+        <p className="text-base md:text-2xl text-slate-100 mb-6 md:mb-10 max-w-2xl font-light drop-shadow-md">
           Dein Action-Erlebnis unter einem Dach: Trampolin, Klettern, 9-Pin Bowling &amp; mehr.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 mb-16 w-full max-w-md sm:max-w-none justify-center">
-          <Link href="https://v5.bookandplay.com/p_pro_arlpark.php" className="btn-primary text-lg px-8 py-4 shadow-xl shadow-sky-500/20">Jetzt Buchen</Link>
-          <Link href="/gutscheine" className="btn-secondary text-lg px-8 py-4 hover:bg-white/10">Gutscheine</Link>
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-16 w-full max-w-md sm:max-w-none justify-center">
+          <Link href="https://v5.bookandplay.com/p_pro_arlpark.php" className="btn-primary text-base md:text-lg px-6 py-3 md:px-8 md:py-4 shadow-xl shadow-sky-500/20">Jetzt Buchen</Link>
+          <Link href="/gutscheine" className="btn-secondary text-base md:text-lg px-6 py-3 md:px-8 md:py-4 hover:bg-white/10">Gutscheine</Link>
         </div>
-        <div className="w-full grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
+        <div className="w-full grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-4">
           {quickLinks.map((link) => (
             <ActivityTile key={link.name} {...link} />
           ))}
         </div>
         {/* Scroll indicator — centered between tiles and section 2 */}
-        <div className="mt-10 flex justify-center animate-bounce text-white/50">
+        <div className="mt-4 md:mt-10 flex justify-center animate-bounce text-white/50">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
         </div>
       </div>
