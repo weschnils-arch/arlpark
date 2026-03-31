@@ -41,11 +41,21 @@ export default function SportsbarPage() {
                         <h2 className="text-3xl font-bold text-slate-900 mb-6">Leckeres für den Hunger</h2>
                         <div className="prose prose-lg text-slate-600 mb-8">
                             <p>
-                                Unsere Küche versorgt euch mit frisch zubereiteten Snacks, Pizza, Burgern und knackigen Salaten. Perfekt zur Stärkung nach dem Bouldern oder Trampolinspringen.
+                                Unsere Küche versorgt euch mit frisch zubereiteten Snacks und warmen Gerichten. Perfekt zur Stärkung nach dem Bouldern oder Trampolinspringen.
                             </p>
                             <p>
                                 Dazu servieren wir kühle Drinks, Kaffeespezialitäten und natürlich frisches Bier vom Fass.
                             </p>
+                        </div>
+
+                        <div className="bg-amber-50 rounded-2xl p-6 border border-amber-100 mb-6">
+                            <h3 className="font-bold text-slate-900 mb-3">Highlights</h3>
+                            <ul className="text-sm text-slate-600 space-y-1">
+                                <li>Biertender</li>
+                                <li>Catering auf Anfrage</li>
+                                <li>Junggesellen- und Firmenabende</li>
+                                <li>Gruppenveranstaltungen</li>
+                            </ul>
                         </div>
 
                         <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 max-w-md">
@@ -61,8 +71,8 @@ export default function SportsbarPage() {
                     {/* Games & Entertainment */}
                     <div className="glass-card bg-white p-8 md:p-10 border-t-4 border-amber-500">
                         <h2 className="text-2xl font-bold text-slate-900 mb-6">More than just Food</h2>
-                        <p className="text-slate-600 mb-8">
-                            In unserer Sportsbar gibt es jede Menge Entertainment abseits der großen Sportflächen.
+                        <p className="text-slate-600 mb-4">
+                            In unserer Sportsbar gibt es jede Menge Entertainment abseits der großen Sportflächen. Alle Geräte mit Münzeinwurf. Billard und Tischfußball pro Spiel 1 €. Kartenzahlung — Credits an der Bar erhältlich.
                         </p>
 
                         <div className="grid grid-cols-2 gap-4">
@@ -72,7 +82,6 @@ export default function SportsbarPage() {
                                 { name: "Tischfußball", icon: "⚽" },
                                 { name: "Boxautomat", icon: "🥊" },
                                 { name: "Kickautomat", icon: "👣" },
-                                { name: "Live Sport", icon: "📺" },
                             ].map((game, i) => (
                                 <div key={i} className="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-amber-50 hover:border-amber-200 transition-colors">
                                     <span className="text-3xl mb-2">{game.icon}</span>

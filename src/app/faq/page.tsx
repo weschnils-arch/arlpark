@@ -7,8 +7,19 @@ import { useState } from "react";
 
 export default function FAQPage() {
     // Group FAQs by category
+    const [searchQuery, setSearchQuery] = useState("");
+    const [activeCategory, setActiveCategory] = useState<string | null>(null);
     const categories = Array.from(new Set(faqs.map(f => f.category)));
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+    const filteredFaqs = faqs.filter(f => {
+        const matchesSearch = searchQuery === "" ||
+            f.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            f.answer.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesCategory = !activeCategory || f.category === activeCategory;
+        return matchesSearch && matchesCategory;
+    });
+    const filteredCategories = Array.from(new Set(filteredFaqs.map(f => f.category)));
 
     return (
         <main className="bg-slate-50 min-h-screen">
@@ -34,9 +45,37 @@ export default function FAQPage() {
             </section>
             <div className="max-w-4xl mx-auto px-4 md:px-6 py-16">
 
+                {/* Search & Filter */}
+                <div className="mb-10 space-y-4">
+                    <input
+                        type="text"
+                        placeholder="FAQ durchsuchen..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-full px-5 py-4 rounded-2xl border border-slate-200 bg-white text-slate-900 font-medium focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none shadow-sm text-lg"
+                    />
+                    <div className="flex flex-wrap gap-2">
+                        <button
+                            onClick={() => setActiveCategory(null)}
+                            className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${!activeCategory ? "bg-sky-600 text-white" : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"}`}
+                        >
+                            Alle
+                        </button>
+                        {categories.map((cat) => (
+                            <button
+                                key={cat}
+                                onClick={() => setActiveCategory(activeCategory === cat ? null : cat)}
+                                className={`px-4 py-2 rounded-full text-sm font-bold transition-colors ${activeCategory === cat ? "bg-sky-600 text-white" : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"}`}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
                 <div className="space-y-12">
-                    {categories.map((category) => {
-                        const categoryFaqs = faqs.filter(f => f.category === category);
+                    {filteredCategories.map((category) => {
+                        const categoryFaqs = filteredFaqs.filter(f => f.category === category);
                         return (
                             <div key={category}>
                                 <h2 className="text-2xl font-bold text-slate-900 mb-6 border-l-4 border-sky-500 pl-4">{category}</h2>

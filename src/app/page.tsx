@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import {
   TrampolinIcon, KletternIcon, BowlingIcon,
-  SquashIcon, GeburtstagIcon, GutscheinIcon
+  SquashIcon, GeburtstagIcon, KidsPlayIcon
 } from "@/components/Icons";
 import EventsSection from "@/components/EventsSection";
 import FaqTeaser from "@/components/FaqTeaser";
@@ -26,8 +26,8 @@ function ActivityTile({ href, icon: Icon, name, description, color, glassBg }: A
       className={`activity-tile flex flex-col items-center p-4 md:p-5 rounded-3xl ${glassBg} backdrop-blur-md border border-white/20 shadow-lg hover:shadow-2xl hover:border-white/40 transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] group`}
       aria-label={`${name} - ${description}`}
     >
-      <div className={`w-14 h-14 md:w-16 md:h-16 ${color} rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-lg`} aria-hidden="true">
-        <Icon className="text-white" size={28} />
+      <div className={`w-16 h-16 md:w-18 md:h-18 ${color} rounded-2xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform shadow-lg`} aria-hidden="true">
+        <Icon className="text-white" size={34} />
       </div>
       <span className="text-base md:text-lg font-bold text-white text-center">{name}</span>
       <span className="text-xs md:text-sm text-white/80 text-center">{description}</span>
@@ -39,11 +39,11 @@ function ActivityTile({ href, icon: Icon, name, description, color, glassBg }: A
 function HeroSection() {
   const quickLinks = [
     { href: "/angebote/trampolin", icon: TrampolinIcon, name: "Trampolin", description: "1.000 m²", color: "bg-blue-600", glassBg: "bg-blue-900/40 hover:bg-blue-900/60" },
+    { href: "/angebote/kids-play", icon: KidsPlayIcon, name: "Kids Play", description: "Mini Airbag, Hüpfburg und mehr", color: "bg-pink-500", glassBg: "bg-pink-900/40 hover:bg-pink-900/60" },
     { href: "/angebote/klettern", icon: KletternIcon, name: "Klettern", description: "100+ Routen", color: "bg-red-600", glassBg: "bg-red-900/40 hover:bg-red-900/60" },
-    { href: "/angebote/bowling", icon: BowlingIcon, name: "Bowling", description: "4 Bahnen", color: "bg-purple-700", glassBg: "bg-purple-900/40 hover:bg-purple-900/60" },
+    { href: "/angebote/bowling", icon: BowlingIcon, name: "9-Pin Bowling", description: "4 Bahnen", color: "bg-purple-700", glassBg: "bg-purple-900/40 hover:bg-purple-900/60" },
     { href: "/angebote/squash", icon: SquashIcon, name: "Squash", description: "Courts", color: "bg-lime-600", glassBg: "bg-lime-900/40 hover:bg-lime-900/60" },
     { href: "/geburtstage", icon: GeburtstagIcon, name: "Geburtstage", description: "Partys", color: "bg-pink-500", glassBg: "bg-pink-900/40 hover:bg-pink-900/60" },
-    { href: "/gutscheine", icon: GutscheinIcon, name: "Gutscheine", description: "Schenken", color: "bg-emerald-500", glassBg: "bg-emerald-900/40 hover:bg-emerald-900/60" },
   ];
 
   return (
@@ -60,11 +60,11 @@ function HeroSection() {
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-white">St. Anton am Arlberg</span>
         </h1>
         <p className="text-lg md:text-2xl text-slate-100 mb-10 max-w-2xl font-light drop-shadow-md">
-          Dein Action-Erlebnis unter einem Dach: Trampolin, Klettern, Bowling &amp; mehr.
+          Dein Action-Erlebnis unter einem Dach: Trampolin, Klettern, 9-Pin Bowling &amp; mehr.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mb-16 w-full max-w-md sm:max-w-none justify-center">
           <Link href="https://v5.bookandplay.com/p_pro_arlpark.php" className="btn-primary text-lg px-8 py-4 shadow-xl shadow-sky-500/20">Jetzt Buchen</Link>
-          <Link href="/preise" className="btn-secondary text-lg px-8 py-4 hover:bg-white/10">Preise &amp; Infos</Link>
+          <Link href="/gutscheine" className="btn-secondary text-lg px-8 py-4 hover:bg-white/10">Gutscheine</Link>
         </div>
         <div className="w-full grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
           {quickLinks.map((link) => (
@@ -113,7 +113,7 @@ const schedules = [
   },
   {
     id: "tennis", label: "Tennis – mit Reservierung", color: "bg-emerald-600", lightColor: "bg-emerald-50", borderColor: "border-emerald-200", textColor: "text-emerald-700", icon: "🎾",
-    note: "Reservierung erforderlich – telefonisch oder online.",
+    note: "Reservierung erforderlich – online buchbar.",
     rows: [
       { day: "Montag bis Donnerstag", time: "08:00 – 14:00 & 19:00 – 23:00 Uhr" },
       { day: "Freitag", time: "08:00 – 14:00 & 21:00 – 23:00 Uhr" },
@@ -128,16 +128,15 @@ function WelcomeAndHoursSection() {
   const toggle = (id: string) => setOpenId(openId === id ? "" : id);
 
   return (
-    <section className="relative z-20 bg-white py-20 lg:py-28 px-4">
+    <section className="relative z-20 bg-white py-16 lg:py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 items-start">
 
           {/* Left: Welcome + Reservation Info */}
           <div>
-            <span className="inline-block text-sky-600 font-bold tracking-wider uppercase text-xs mb-3">Willkommen im arl.park</span>
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-5 leading-tight">Dein Indoor Erlebnispark<br />in St. Anton</h2>
-            <p className="text-slate-600 leading-relaxed mb-10 text-lg">
-              Im ideal erreichbaren Sportcenter arl.park in St. Anton am Arlberg, der direkt beim Bahnhof gelegen ist, sind diverse sportliche Erlebnisse unter einem Dach vereint: Von Klettern, über Trampolin-Hüpfen, Squash, Tennis bis hin zu Bowling und mehr. Auch das kulinarische Angebot kann sich sehen lassen – im Zentrum des Sportbereichs gibt es mit der „Sportsbar" einen Ausschank und eine Vielzahl köstlicher Snacks und erfrischender Getränke.
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-5 leading-tight">Dein Indoor Erlebnispark<br />in St. Anton am Arlberg</h2>
+            <p className="text-slate-600 leading-relaxed mb-8 text-lg">
+              Nur einen Sprung vom Bahnhof entfernt — im arl.park in St. Anton am Arlberg sind diverse sportliche Erlebnisse unter einem Dach vereint: Von Klettern, über Trampolin-Hüpfen, Squash, Tennis bis hin zu 9-Pin Bowling und mehr. Parkplätze sind direkt beim Eingang neben dem Gebäude. Auch das kulinarische Angebot kann sich sehen lassen – im Zentrum des Sportbereichs gibt es mit der „Sportsbar" einen Ausschank und eine Vielzahl köstlicher Snacks und erfrischender Getränke.
             </p>
 
             {/* Reservation Info Box */}
@@ -153,17 +152,13 @@ function WelcomeAndHoursSection() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-sky-500 font-black mt-0.5">→</span>
-                  <span><strong className="text-slate-800">9Pin-Bowling, Squash, Tischtennis, Tennis &amp; Pickleball:</strong> Vorab reservieren empfohlen – telefonisch oder online.</span>
+                  <span><strong className="text-slate-800">9-Pin Bowling, Squash, Tischtennis, Tennis &amp; Pickleball:</strong> Vorab reservieren empfohlen – online buchbar.</span>
                 </li>
               </ul>
-              <div className="mt-6 pt-5 border-t border-sky-200 flex flex-col sm:flex-row gap-3">
-                <a href="tel:+4366099880066" className="flex items-center gap-2 text-sky-700 font-bold text-sm hover:underline">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                  +43 660 99 88 066
-                </a>
+              <div className="mt-6 pt-5 border-t border-sky-200">
                 <Link href="https://v5.bookandplay.com/p_pro_arlpark.php" target="_blank" className="flex items-center gap-2 text-sky-700 font-bold text-sm hover:underline">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                  Online reservieren
+                  Jetzt online buchen
                 </Link>
               </div>
             </div>
@@ -206,10 +201,20 @@ function WelcomeAndHoursSection() {
                 </div>
               ))}
             </div>
-            <Link href="/preise" className="mt-6 inline-flex items-center gap-2 text-sky-600 font-bold text-sm hover:underline">
-              Preise ansehen →
-            </Link>
           </div>
+        </div>
+
+        {/* Preise Link — full width below Öffnungszeiten (#13 länglich) */}
+        <div className="mt-10">
+          <Link href="/preise" className="block w-full bg-sky-50 hover:bg-sky-100 border border-sky-200 rounded-2xl px-8 py-5 transition-colors group">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-lg font-black text-slate-900">Preise &amp; Tickets</h3>
+                <p className="text-sm text-slate-500">Alle Preise für sämtliche Aktivitäten auf einen Blick.</p>
+              </div>
+              <svg className="w-5 h-5 text-sky-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </div>
+          </Link>
         </div>
       </div>
     </section>
@@ -228,20 +233,20 @@ function KidsPlaySection() {
               <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-sm font-bold mb-4 border border-white/20">NEU IM ARL.PARK</span>
               <h2 className="text-3xl md:text-5xl font-black mb-6">Kids Play</h2>
               <p className="text-lg md:text-xl text-sky-100 mb-8 leading-relaxed">
-                Ein Paradies für die Kleinsten! Entdecke unseren neuen Kids-Play Bereich mit Kletternetzen, Hindernisparcours und Ringen.
+                Ein Paradies für die Kleinsten! Entdecke unseren neuen Kids-Play Bereich mit Mini Airbag, Hüpfburg und mehr.
               </p>
               <Link href="/angebote/kids-play" className="bg-white text-sky-600 px-8 py-3.5 rounded-full font-bold hover:bg-sky-50 transition-colors shadow-lg inline-flex items-center gap-2">
                 Mehr erfahren
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </Link>
             </div>
-            {/* Kids Play image — using real climbing photo as visual stand-in */}
             <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/activities/Trampoline/DSC0662-scaled.jpg"
-                alt="Kids Play Bereich im arl.park"
+                src="/images/activities/KidsPlay/IMG_20250720_071557.webp"
+                alt="Kids Play Bereich im arl.park — Hüpfburg"
                 fill
                 className="object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-indigo-900/30" />
             </div>

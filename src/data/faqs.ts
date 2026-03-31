@@ -133,7 +133,7 @@ export const faqs: FAQItem[] = [
     {
         category: "Ausstattung & Umkleiden",
         question: "Gibt es Umkleiden und Duschen?",
-        answer: "Ja, Umkleidekabinen mit Duschen und Spinden stehen kostenlos zur Verfügung."
+        answer: "Ja, für alle Ticketbesitzer stehen Umkleidekabinen mit Duschen und Spinden kostenlos zur Verfügung. Eine ausschließliche Nutzung (ohne Ticket) ist ebenfalls möglich – hierfür wird eine Gebühr erhoben."
     },
     {
         category: "Ausstattung & Umkleiden",

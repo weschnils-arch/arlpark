@@ -10,12 +10,12 @@ export default function BowlingPage() {
 
     const prices = {
         bahn: [
-            { label: "Pro Bahn / Stunde (bis 17 Uhr)", price: "24,00 €" },
-            { label: "Pro Bahn / Stunde (ab 17 Uhr)", price: "30,00 €" },
+            { label: "Pro Person / Stunde", price: "4,50 €" },
+            { label: "Mindestpreis pro Bahn", price: "18,00 €" },
         ],
-        verleih: [
-            { label: "Leihschuhe (pro Person)", price: "3,00 €" },
-            { label: "Socken (Kauf)", price: "3,00 €" },
+        extras: [
+            { label: "Eigene Kinderkugeln", price: "inkl." },
+            { label: "Disco-Kugel mit Moonlight", price: "inkl." },
         ]
     };
 
@@ -39,12 +39,12 @@ export default function BowlingPage() {
                     <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg">
                         9-Pin Bowling
                     </h1>
-                    <p className="text-xl md:text-2xl font-light drop-shadow-md text-white/90 max-w-2xl mx-auto">Vier moderne Bahnen – Spaß für Groß und Klein.</p>
+                    <p className="text-xl md:text-2xl font-light drop-shadow-md text-white/90 max-w-2xl mx-auto">Vier Bahnen – Spaß für Groß und Klein.</p>
                 </div>
             </section>
 
             {/* Content Section */}
-            <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
+            <section className="py-14 px-4 md:px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
 
                 <div>
                     <h2 className="text-3xl font-black text-slate-900 mb-6">Bowling im arl.park</h2>
@@ -54,11 +54,11 @@ export default function BowlingPage() {
                         </p>
                         <ul className="list-none space-y-2 mt-4 pl-0">
                             {[
-                                "4 moderne Bahnen",
+                                "4 Bahnen",
                                 "Kinder-Bumper (Banden) möglich",
-                                "Leihschuhe in allen Größen",
-                                "Direkt an der Sportsbar",
-                                "Musik & Disco-Bowling Events"
+                                "Eigene Kinderkugeln",
+                                "Disco-Kugel mit Moonlight",
+                                "Direkt an der Sportsbar"
                             ].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3">
                                     <span className="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-sm font-bold">✓</span>
@@ -72,7 +72,7 @@ export default function BowlingPage() {
                 <div className="glass-card bg-white p-8 md:p-10 sticky top-24">
                     <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center justify-between">
                         Preise
-                        <span className="text-sm font-normal text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Pro Bahn</span>
+                        <span className="text-sm font-normal text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Pro Person</span>
                     </h2>
 
                     <div className="mb-8">
@@ -82,8 +82,8 @@ export default function BowlingPage() {
                             onChange={(e) => setPriceType(e.target.value)}
                             className="w-full p-4 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer appearance-none"
                         >
-                            <option value="bahn">Bahnmiete</option>
-                            <option value="verleih">Schuhe & Zubehör</option>
+                            <option value="bahn">Preise</option>
+                            <option value="extras">Extras</option>
                         </select>
                     </div>
 
@@ -107,6 +107,26 @@ export default function BowlingPage() {
                     </Link>
                 </div>
 
+            </section>
+
+            {/* Highlights & Sportsbar */}
+            <section className="py-10 px-4 md:px-6 bg-slate-50">
+                <div className="max-w-7xl mx-auto">
+                    <h2 className="text-3xl font-black text-slate-900 mb-8 text-center">Mehr als nur Bowling</h2>
+                    <div className="grid md:grid-cols-2 gap-6">
+                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                            <h3 className="font-bold text-slate-900 mb-3">Sportsbar direkt nebenan</h3>
+                            <p className="text-slate-600 text-sm">Billard, Darts, Tischfußball und mehr. Dazu leckeres Essen und kühle Getränke direkt an der Bar.</p>
+                        </div>
+                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                            <h3 className="font-bold text-slate-900 mb-3">Highlights</h3>
+                            <ul className="text-slate-600 text-sm space-y-1">
+                                <li>Biertender & Catering</li>
+                                <li>Geburtstage, Junggesellenabschiede und Firmenfeiern</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     );

@@ -59,7 +59,7 @@ const schedules = [
         borderColor: "border-emerald-200",
         textColor: "text-emerald-700",
         icon: "🎾",
-        note: "Reservierung erforderlich – telefonisch oder online.",
+        note: "Reservierung erforderlich – online buchbar.",
         rows: [
             { day: "Montag bis Donnerstag", time: "08:00 – 14:00 & 19:00 – 23:00 Uhr" },
             { day: "Freitag", time: "08:00 – 14:00 & 21:00 – 23:00 Uhr" },
@@ -173,7 +173,7 @@ export default function OeffnungszeitenPage() {
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-sky-500 font-black mt-0.5">→</span>
-                                <span><strong className="text-slate-800">9Pin-Bowling, Squash, Tischtennis, Tennis & Pickleball:</strong> Vorab reservieren empfohlen – telefonisch oder online.</span>
+                                <span><strong className="text-slate-800">9Pin-Bowling, Squash, Tischtennis, Tennis & Pickleball:</strong> Vorab reservieren empfohlen – online buchbar.</span>
                             </li>
                         </ul>
                         <div className="mt-6 pt-5 border-t border-sky-200 flex flex-col sm:flex-row gap-3">

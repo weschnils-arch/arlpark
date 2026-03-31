@@ -22,18 +22,18 @@ export default function Footer() {
 
     return (
         <>
-            {/* Anfahrt Section - Now a distinct section */}
-            <section className="bg-slate-50 py-20 border-t border-slate-200">
+            {/* Anfahrt Section */}
+            <section className="bg-slate-50 py-12 border-t border-slate-200">
                 <div className="max-w-7xl mx-auto px-4 md:px-6">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
                         <div>
                             <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 font-bold px-4 py-2 rounded-full text-sm mb-4">
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                                Nur 2 Gehminuten vom Bahnhof
+                                Nur einen Sprung vom Bahnhof entfernt
                             </div>
                             <h2 className="text-3xl font-bold text-slate-900 mb-4">So finden Sie uns</h2>
                             <p className="text-lg text-slate-600 max-w-2xl">
-                                Direkt am Bahnhof St. Anton am Arlberg — nur 2 Gehminuten entfernt. Einfach und bequem mit dem Zug oder Auto anreisen. Parkplätze direkt vor der Halle sowie Tiefgarage vorhanden.
+                                Direkt am Bahnhof St. Anton am Arlberg — nur 1 Gehminute entfernt. Einfach und bequem mit dem Zug oder Auto anreisen. Parkplätze sind direkt beim Eingang neben dem Gebäude.
                             </p>
                         </div>
                         <Link href="/kontakt" className="btn-primary whitespace-nowrap px-8 py-3.5 shadow-lg shadow-sky-500/20">
@@ -44,10 +44,10 @@ export default function Footer() {
             </section>
 
             <footer className="bg-slate-900 text-slate-300" role="contentinfo">
-                <div className="max-w-7xl mx-auto px-4 md:px-6 pt-16 pb-8">
+                <div className="max-w-7xl mx-auto px-4 md:px-6 pt-10 pb-4">
 
                     {/* Main Footer Content */}
-                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-10 gap-y-12 pb-12 border-b border-slate-800">
+                    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-4 sm:gap-x-10 gap-y-10 pb-10 border-b border-slate-800">
                         {/* Brand Column */}
                         <div className="col-span-2 lg:col-span-1">
                             <Link href="/" className="inline-block mb-6" aria-label="ARL.PARK Homepage">
@@ -83,6 +83,17 @@ export default function Footer() {
                                 >
                                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                    </svg>
+                                </a>
+                                <a
+                                    href="https://www.tiktok.com/@arlpark"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-10 h-10 bg-white/10 hover:bg-sky-600 rounded-xl flex items-center justify-center transition-colors"
+                                    aria-label="TikTok"
+                                >
+                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46V13a8.28 8.28 0 005.58 2.14V11.7a4.83 4.83 0 01-3.77-1.24V6.69h3.77z" />
                                     </svg>
                                 </a>
                             </div>
@@ -145,14 +156,14 @@ export default function Footer() {
                         <div className="col-span-2 lg:col-span-1 bg-slate-800/50 rounded-2xl p-6 sm:p-8 border border-slate-700/50 flex flex-col h-full">
                             <h3 className="text-white font-bold text-lg mb-6">Jetzt buchen</h3>
                             <p className="text-slate-400 text-sm mb-8 leading-relaxed flex-grow">
-                                Sichere dir deinen Platz für Bowling, Squash oder Tennis bequem online.
+                                Sichere dir dein Ticket für alle Angebote bequem online.
                             </p>
                             <div>
                                 <Link
                                     href="https://v5.bookandplay.com/p_pro_arlpark.php"
                                     className="btn-primary w-full text-center text-sm py-4 block shadow-lg shadow-sky-500/20 hover:shadow-sky-500/40 transition-shadow"
                                 >
-                                    Online Reservieren
+                                    Jetzt Buchen
                                 </Link>
                                 <p className="text-slate-500 text-xs mt-6 text-center">
                                     * Keine Reservierung für Trampolin & Klettern nötig
@@ -162,20 +173,26 @@ export default function Footer() {
                     </div>
 
                     {/* Sponsors Section */}
-                    <div className="py-12 border-b border-slate-800">
+                    <div className="py-8 border-b border-slate-800">
                         <h4 className="text-slate-500 text-xs font-bold mb-8 text-center uppercase tracking-[0.2em]">Unsere Partner</h4>
-                        <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                        <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-6 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
                             <Link href="https://kletterhalle.com/" target="_blank" className="hover:scale-105 transition-transform flex items-center justify-center">
                                 <Image
                                     src="/logo-kletterzentrum-imst.svg"
                                     alt="Kletterzentrum Imst"
                                     width={120}
                                     height={80}
-                                    className="h-16 w-auto"
+                                    className="h-14 w-auto"
                                 />
                             </Link>
                             <Link href="https://boulderblock.at/" target="_blank" className="hover:scale-105 transition-transform flex items-center justify-center">
-                                <span className="text-3xl font-black text-white tracking-tight uppercase">BOULDERBLOCK.AT</span>
+                                <span className="text-2xl font-black text-white tracking-tight uppercase">BOULDERBLOCK.AT</span>
+                            </Link>
+                            <Link href="https://www.stantonamarlberg.com/" target="_blank" className="hover:scale-105 transition-transform flex items-center justify-center">
+                                <span className="text-lg font-bold text-white tracking-tight">stantonamarlberg.com</span>
+                            </Link>
+                            <Link href="https://www.kayak.com/" target="_blank" className="hover:scale-105 transition-transform flex items-center justify-center">
+                                <span className="text-lg font-bold text-white tracking-tight">KAYAK</span>
                             </Link>
                         </div>
                     </div>

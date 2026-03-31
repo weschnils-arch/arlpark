@@ -45,8 +45,8 @@ export default function GruppenSchulenPage() {
                         <ul className="space-y-3 mb-8">
                             {[
                                 "Attraktive Gruppenrabatte ab 8 Personen",
-                                "Flexible Zeitfenster am Vormittag",
-                                "Kostenlose Begleitpersonen (nach Absprache)",
+                                "Flexible Zeitfenster — auch am Vormittag und außerhalb der Öffnungszeiten",
+                                "Kostenlose Begleitpersonen (Lehrer, Betreuer, Aufsichtsperson)",
                                 "Kombinierbare Aktivitäten"
                             ].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3">
@@ -147,8 +147,63 @@ export default function GruppenSchulenPage() {
 
             </section>
 
+            {/* Preise & Verpflegung */}
+            <section className="py-16 px-4 md:px-6 bg-slate-50">
+                <div className="max-w-7xl mx-auto">
+                    <h2 className="text-3xl font-black text-slate-900 mb-8 text-center">Preise für Schulen & Vereine</h2>
+                    <div className="grid md:grid-cols-2 gap-8 mb-12">
+                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                            <h3 className="font-bold text-slate-900 mb-4">Aktivitäten</h3>
+                            <div className="space-y-3 text-sm text-slate-700">
+                                <div className="flex justify-between py-2 border-b border-slate-100">
+                                    <span>2h Trampolin oder Klettern (inkl. Verleih)</span>
+                                    <span className="font-bold">11,00 € / Person</span>
+                                </div>
+                                <div className="flex justify-between py-2 border-b border-slate-100">
+                                    <span>1h 9-Pin Bowling</span>
+                                    <span className="font-bold">4,50 € / Person</span>
+                                </div>
+                                <p className="text-sky-700 font-medium pt-2">Mit Kombipaketen noch mehr sparen. Erhalte dein individuelles Angebot auf Anfrage.</p>
+                            </div>
+                        </div>
+                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                            <h3 className="font-bold text-slate-900 mb-4">Verpflegung</h3>
+                            <div className="space-y-3 text-sm text-slate-700">
+                                <div className="flex justify-between py-2 border-b border-slate-100">
+                                    <span>Nudeln & Skiwasser</span>
+                                    <span className="font-bold">10,50 €</span>
+                                </div>
+                                <div className="flex justify-between py-2 border-b border-slate-100">
+                                    <span>Chili Con Carne (oder sin Carne) mit Brot & Skiwasser</span>
+                                    <span className="font-bold">15,50 €</span>
+                                </div>
+                                <div className="flex justify-between py-2 border-b border-slate-100">
+                                    <span>Trainer (1h)</span>
+                                    <span className="font-bold">60,00 €</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                            <h3 className="font-bold text-slate-900 mb-3">Bierzapfanlage</h3>
+                            <p className="text-slate-600 text-sm">
+                                Für alle, die ihr Getränk lieber selbst zapfen: Unsere Bierzapfanlage mit 15-Liter-Fass steht auf Anfrage bereit – zum Preis von 133 €. Perfekt für Feiern, oder gemütliche Runden nach dem Sport.
+                            </p>
+                        </div>
+                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                            <h3 className="font-bold text-slate-900 mb-3">Catering nach Wunsch</h3>
+                            <p className="text-slate-600 text-sm">
+                                Auf Anfrage stellen wir individuell abgestimmte Verpflegung ganz nach euren Vorstellungen zusammen. Ob belegte Brote für zwischendurch, herzhafte warme Gerichte wie Chili con Carne oder sin Carne, bunte Fingerfood-Platten oder etwas ganz anderes – wir machen (fast) alles möglich.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* CTA */}
-            <section className="bg-slate-50 py-20 px-4 text-center">
+            <section className="bg-white py-16 px-4 text-center">
                 <div className="max-w-3xl mx-auto">
                     <h2 className="text-3xl font-bold text-slate-900 mb-6">Planen Sie Ihr Event mit uns</h2>
                     <p className="text-xl text-slate-600 mb-8">

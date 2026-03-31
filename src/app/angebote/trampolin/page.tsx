@@ -2,19 +2,42 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TrampolinIcon } from "@/components/Icons";
+
+const galleryImages = [
+    "/images/activities/Trampoline/DSC0523-scaled.jpg",
+    "/images/activities/Trampoline/DSC0316-scaled.jpg",
+    "/images/activities/Trampoline/DSC0345-scaled.jpg",
+    "/images/activities/Trampoline/DSC0636-scaled.jpg",
+    "/images/activities/Trampoline/DSC0662-scaled.jpg",
+    "/images/activities/Trampoline/DSC0767-scaled.jpg",
+    "/images/activities/Trampoline/DSC0877-scaled.jpg",
+];
 
 export default function TrampolinPage() {
     const [priceType, setPriceType] = useState("einzel");
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % galleryImages.length);
+        }, 4000);
+        return () => clearInterval(timer);
+    }, []);
 
     const prices = {
         einzel: [
             { label: "1 Stunde", price: "17,00 €" },
             { label: "2 Stunden", price: "22,00 €" },
+            { label: "4 Stunden (nur mit Kundenkarte)", price: "27,00 €" },
         ],
         block: [
-            { label: "10er Block (NEU!)", price: "153,00 €", highlight: true },
+            { label: "10er Block", price: "153,00 €", highlight: true },
+        ],
+        kundenkarte: [
+            { label: "Kundenkarte (einmalig)", price: "20,00 €", highlight: true },
+            { label: "Rabatt pro Besuch", price: "-5,00 €" },
         ],
         gruppen: [
             { label: "Schulklasse (pro Person)", price: "12,00 €" },
@@ -58,10 +81,10 @@ export default function TrampolinPage() {
                         </p>
                         <ul className="list-none space-y-2 mt-4 pl-0">
                             {[
-                                "Freejump Area mit über 20 Trampolinen",
-                                "Ninja Warrior Parcours",
-                                "Bagjump (Luftkissen)",
-                                "Schnitzelgrube (Foampit)",
+                                "13 Trampolinfelder",
+                                "Freefall Tower",
+                                "15 m Air-Track",
+                                "Trampolin Ski & Boards kostenlos",
                                 "ValoJump (Interaktives Trampolin-Videospiel)"
                             ].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3">
@@ -75,9 +98,9 @@ export default function TrampolinPage() {
                     <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 flex gap-4 items-start">
                         <span className="text-2xl">🧦</span>
                         <div>
-                            <h3 className="font-bold text-slate-900 mb-1">Wichtig: Stopper-Socken</h3>
+                            <h3 className="font-bold text-slate-900 mb-1">Wichtig: Trampolinsocken</h3>
                             <p className="text-sm text-slate-600">
-                                Aus Sicherheitsgründen sind Stopper-Socken Pflicht! Du kannst deine eigenen mitbringen oder bei uns für 3,00 € kaufen.
+                                Aus Sicherheitsgründen sind Trampolinsocken Pflicht! Du kannst deine eigenen mitbringen oder bei uns für 4,00 € kaufen.
                             </p>
                         </div>
                     </div>
@@ -101,6 +124,7 @@ export default function TrampolinPage() {
                         >
                             <option value="einzel">Einzeltickets (Erwachsene/Kinder)</option>
                             <option value="block">10er Block</option>
+                            <option value="kundenkarte">Kundenkarte</option>
                             <option value="gruppen">Gruppen & Vereine</option>
                         </select>
                     </div>
@@ -128,10 +152,78 @@ export default function TrampolinPage() {
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                     </Link>
                     <p className="text-xs text-center text-slate-400 mt-4">
-                        Keine Reservierung notwendig! Einfach vorbeikommen.
+                        Ticket online kaufen und beim Check-In Zeit sparen.
                     </p>
+                    <div className="flex gap-3 mt-4">
+                        <Link href="/geburtstage" className="flex-1 text-center text-sm text-sky-600 font-bold hover:underline">Geburtstage</Link>
+                        <Link href="/gruppen-schulen" className="flex-1 text-center text-sm text-sky-600 font-bold hover:underline">Gruppen</Link>
+                    </div>
                 </div>
 
+            </section>
+
+            {/* Auto-Play Image Carousel */}
+            <section className="py-12 px-4 md:px-6 bg-white">
+                <div className="max-w-5xl mx-auto">
+                    <h2 className="text-3xl font-black text-slate-900 mb-8 text-center">Impressionen</h2>
+                    <div className="relative h-72 md:h-96 rounded-2xl overflow-hidden">
+                        {galleryImages.map((src, i) => (
+                            <Image
+                                key={i}
+                                src={src}
+                                alt={`Trampolin Impression ${i + 1}`}
+                                fill
+                                className={`object-cover transition-opacity duration-700 ${i === currentSlide ? "opacity-100" : "opacity-0"}`}
+                                loading="lazy"
+                            />
+                        ))}
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                            {galleryImages.map((_, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => setCurrentSlide(i)}
+                                    className={`w-2 h-2 rounded-full transition-all ${i === currentSlide ? "bg-white w-6" : "bg-white/50"}`}
+                                    aria-label={`Bild ${i + 1}`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Family Sonntag */}
+            <section className="py-12 px-4 md:px-6 bg-white">
+                <div className="max-w-5xl mx-auto">
+                    <div className="bg-gradient-to-r from-sky-50 to-pink-50 rounded-3xl p-8 md:p-10 border border-sky-100">
+                        <div className="flex items-center gap-3 mb-4">
+                            <span className="text-3xl">👨‍👩‍👧‍👦</span>
+                            <h2 className="text-2xl font-black text-slate-900">Family Sonntag</h2>
+                        </div>
+                        <p className="text-slate-600 mb-6">
+                            Jeden Sonntag ist Family-Tag im arl.park! Kommt als Familie vorbei und genießt gemeinsam einen aktiven Tag auf unserer Trampolinanlage.
+                        </p>
+                        <Link href="https://v5.bookandplay.com/p_pro_arlpark.php" target="_blank" className="btn-primary inline-flex items-center gap-2">
+                            Jetzt Buchen
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Hallenplan */}
+            <section className="py-16 px-4 md:px-6 bg-slate-50">
+                <div className="max-w-5xl mx-auto">
+                    <h2 className="text-3xl font-black text-slate-900 mb-8 text-center">So sieht unsere Halle aus</h2>
+                    <div className="bg-white rounded-3xl p-4 md:p-8 border border-slate-200 shadow-lg">
+                        <Image
+                            src="/images/trampolin-hallenplan.svg"
+                            alt="Hallenplan der Trampolinhalle im arl.park"
+                            width={800}
+                            height={500}
+                            className="w-full h-auto"
+                        />
+                    </div>
+                </div>
             </section>
         </main>
     );

@@ -26,7 +26,7 @@ export default function SquashPage() {
                     <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg">
                         Squash
                     </h1>
-                    <p className="text-xl md:text-2xl font-light drop-shadow-md text-white/90 max-w-2xl mx-auto">Professionelle Courts mit Equipment-Verleih.</p>
+                    <p className="text-xl md:text-2xl font-light drop-shadow-md text-white/90 max-w-2xl mx-auto">Schnelligkeit, Präzision und Spielspaß pur.</p>
                 </div>
             </section>
 
@@ -39,7 +39,7 @@ export default function SquashPage() {
                             Squash ist der ideale Sport, um sich so richtig auszupowern. Technik, Taktik und Kondition sind gefragt.
                         </p>
                         <ul className="list-none space-y-2 mt-4 pl-0">
-                            {["Professioneller Court", "Schlägerverleih", "Einzel oder Doppel", "Sauna nach dem Spiel (optional)"].map((item, i) => (
+                            {["Professioneller Court", "Schläger und Hallenschuhe zum Verleih", "Einzel oder Doppel"].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3">
                                     <span className="w-6 h-6 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center text-sm font-bold">✓</span>
                                     {item}
@@ -54,16 +54,16 @@ export default function SquashPage() {
                     <h2 className="text-2xl font-bold text-slate-900 mb-6">Preise</h2>
                     <div className="space-y-4 mb-8">
                         <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
-                            <span className="font-medium text-slate-700">Court Miete (30 Min)</span>
-                            <span className="text-xl font-black text-slate-900">12,00 €</span>
+                            <span className="font-medium text-slate-700">Court Miete / Stunde</span>
+                            <span className="text-xl font-black text-slate-900">15,00 €</span>
                         </div>
                         <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
-                            <span className="font-medium text-slate-700">Court Miete (60 Min)</span>
-                            <span className="text-xl font-black text-slate-900">24,00 €</span>
+                            <span className="font-medium text-slate-700">10er Block</span>
+                            <span className="text-xl font-black text-slate-900">135,00 €</span>
                         </div>
                         <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
-                            <span className="font-medium text-slate-700">Leihschläger</span>
-                            <span className="text-xl font-black text-slate-900">4,00 €</span>
+                            <span className="font-medium text-slate-700">Schläger inkl. Bälle</span>
+                            <span className="text-xl font-black text-slate-900">5,00 €</span>
                         </div>
                     </div>
 

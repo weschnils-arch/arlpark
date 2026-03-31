@@ -33,16 +33,39 @@ export default function TennisPage() {
                 <div>
                     <h2 className="text-3xl font-black text-slate-900 mb-6">Indoor Tennis</h2>
                     <p className="text-lg text-slate-600 mb-6">
-                        Genieße wetterunabhängiges Tennisvergnügen. Unser Platz bietet optimale Bedingungen für spannende Matches.
+                        Genieße wetterunabhängiges Tennisvergnügen. Unser Indoor Platz mit großer Fensterfläche bietet optimale Bedingungen für spannende Matches.
                     </p>
+                    <ul className="list-none space-y-2 pl-0 mb-6">
+                        {["Trainer auf Anfrage", "Schläger und Hallenschuhe Verleih", "Indoor Platz mit großer Fensterfläche", "Einzel & Doppel"].map((item, i) => (
+                            <li key={i} className="flex items-center gap-3 text-slate-600">
+                                <span className="w-6 h-6 rounded-full bg-lime-100 text-lime-600 flex items-center justify-center text-sm font-bold">✓</span>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4">
+                        <p className="text-sm text-amber-800 font-medium">Hinweis: Juli – September kein Tennis verfügbar.</p>
+                    </div>
                 </div>
 
                 <div className="glass-card bg-white p-8 md:p-10">
                     <h2 className="text-2xl font-bold text-slate-900 mb-6">Preise</h2>
                     <div className="space-y-4 mb-8">
                         <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
-                            <span className="font-medium text-slate-700">Platzmiete (60 Min)</span>
-                            <span className="text-xl font-black text-slate-900">28,00 €</span>
+                            <span className="font-medium text-slate-700">Platzmiete / Stunde</span>
+                            <span className="text-xl font-black text-slate-900">27,00 €</span>
+                        </div>
+                        <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
+                            <span className="font-medium text-slate-700">Primetime (19–21 Uhr)</span>
+                            <span className="text-xl font-black text-slate-900">+5,00 €</span>
+                        </div>
+                        <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
+                            <span className="font-medium text-slate-700">10er Block</span>
+                            <span className="text-xl font-black text-slate-900">243,00 €</span>
+                        </div>
+                        <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
+                            <span className="font-medium text-slate-700">Schläger inkl. Bälle</span>
+                            <span className="text-xl font-black text-slate-900">5,00 €</span>
                         </div>
                     </div>
                     <Link

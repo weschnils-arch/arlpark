@@ -63,12 +63,20 @@ export default function PickleballPage() {
                     <h2 className="text-2xl font-bold text-slate-900 mb-6">Preise</h2>
                     <div className="space-y-4 mb-8">
                         <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
-                            <span className="font-medium text-slate-700">Court Miete (60 Min)</span>
-                            <span className="text-xl font-black text-slate-900">24,00 €</span>
+                            <span className="font-medium text-slate-700">Court Miete / Stunde</span>
+                            <span className="text-xl font-black text-slate-900">27,00 €</span>
                         </div>
                         <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
-                            <span className="font-medium text-slate-700">Schläger & Bälle</span>
-                            <span className="text-xl font-black text-slate-900">inklusive</span>
+                            <span className="font-medium text-slate-700">Primetime (19–21 Uhr)</span>
+                            <span className="text-xl font-black text-slate-900">+5,00 €</span>
+                        </div>
+                        <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
+                            <span className="font-medium text-slate-700">10er Block</span>
+                            <span className="text-xl font-black text-slate-900">243,00 €</span>
+                        </div>
+                        <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
+                            <span className="font-medium text-slate-700">Schläger inkl. Bälle</span>
+                            <span className="text-xl font-black text-slate-900">5,00 €</span>
                         </div>
                     </div>
                     <Link

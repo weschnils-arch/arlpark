@@ -50,7 +50,7 @@ export default function Navigation() {
                 { href: "/angebote", label: "Alle Angebote" },
                 { href: "/angebote/trampolin", label: "Trampolin" },
                 { href: "/angebote/klettern", label: "Klettern & Bouldern" },
-                { href: "/angebote/bowling", label: "Bowling" },
+                { href: "/angebote/bowling", label: "9-Pin Bowling" },
                 { href: "/angebote/squash", label: "Squash" },
                 { href: "/angebote/tennis", label: "Tennis" },
                 { href: "/angebote/tischtennis", label: "Tischtennis" },
@@ -66,9 +66,7 @@ export default function Navigation() {
         { href: "/geburtstage", label: "Geburtstage" },
         { href: "/gruppen-schulen", label: "Gruppen & Vereine" },
         { href: "/sportsbar", label: "Sportsbar" },
-        { href: "/mietanlagen", label: "Mietanlagen" },
-        { href: "/preise", label: "Preise" },
-        { href: "/veranstaltungen", label: "Events" }, // User asked for "Veranstaltungen / Aktuelles", keeping it short for menu
+        { href: "/gutscheine", label: "Gutscheine" },
         { href: "/faq", label: "FAQ" },
         {
             href: "/kontakt",
@@ -140,7 +138,7 @@ export default function Navigation() {
                             href="https://v5.bookandplay.com/p_pro_arlpark.php"
                             className="btn-primary text-sm px-5 py-2.5 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 whitespace-nowrap"
                         >
-                            Tickets buchen
+                            Jetzt Buchen
                         </Link>
                     </div>
                 </div>
@@ -254,7 +252,7 @@ export default function Navigation() {
                             className="btn-primary w-full text-center py-4 text-lg inline-block"
                             onClick={() => setMenuOpen(false)}
                         >
-                            Tickets buchen
+                            Jetzt Buchen
                         </Link>
                         <p className="text-center text-slate-500 text-sm mt-4">
                             +43 660 99 88 0 66

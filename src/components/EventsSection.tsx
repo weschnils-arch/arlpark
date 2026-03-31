@@ -29,14 +29,14 @@ export default function EventsSection() {
             <div className="max-w-7xl mx-auto px-4 md:px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight">
-                        Aktuelles im Kletterzentrum
+                        Aktuelles im arl.park
                     </h2>
                     <p className="text-xl text-slate-600 max-w-2xl mx-auto">
                         Hier findest du einen Überblick aller Kurse, Veranstaltungen und Angebote.
                     </p>
                 </div>
 
-                <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-hide">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5">
                     {events.slice(0, 3).map((event) => {
                         const isBlue = event.colorTheme === "blue";
                         const bgClass = isBlue
@@ -44,43 +44,36 @@ export default function EventsSection() {
                             : "bg-emerald-400";
 
                         return (
-                            <article key={event.id} className="min-w-[85vw] md:min-w-0 snap-center flex flex-col bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 group hover:-translate-y-1">
+                            <article key={event.id} className="flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 group hover:-translate-y-1">
                                 {/* Top Image/Color Area */}
-                                <div className={`h-64 ${bgClass} p-8 flex flex-col justify-between relative`}>
-                                    {/* Decorative Elements */}
+                                <div className={`h-32 md:h-44 ${bgClass} p-4 md:p-6 flex flex-col justify-between relative`}>
                                     <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-white/20 rounded-full blur-xl group-hover:scale-110 transition-transform duration-700" />
 
-                                    {/* Date Badge */}
                                     <div className="self-start relative z-10">
-                                        <span className={`inline-block px-5 py-2 rounded-full font-bold text-lg bg-white/25 text-white backdrop-blur-md shadow-sm border border-white/10`}>
+                                        <span className="inline-block px-3 py-1 md:px-5 md:py-2 rounded-full font-bold text-xs md:text-lg bg-white/25 text-white backdrop-blur-md shadow-sm border border-white/10">
                                             {event.dateBadge}
                                         </span>
                                     </div>
 
-                                    {/* Title in Box */}
                                     <div className="relative z-10 text-white mt-auto">
-                                        <h3 className="text-2xl font-bold leading-tight mb-2 drop-shadow-sm">
+                                        <h3 className="text-sm md:text-2xl font-bold leading-tight mb-1 drop-shadow-sm">
                                             {event.title}
                                         </h3>
-                                        <p className="font-medium text-white/90 text-lg">
+                                        <p className="font-medium text-white/90 text-xs md:text-lg hidden md:block">
                                             {event.subtitle}
                                         </p>
                                     </div>
                                 </div>
 
                                 {/* Bottom Content Area */}
-                                <div className="p-8 flex flex-col flex-grow bg-white">
-                                    <h3 className="text-xl font-bold text-slate-900 mb-6 leading-tight min-h-[3.5rem]">
-                                        {event.title}
-                                    </h3>
-
-                                    <div className="space-y-4 mb-8 text-slate-600 font-medium">
-                                        <div className="flex items-center gap-3">
-                                            <CalendarIcon className="w-5 h-5 text-slate-400" />
-                                            <span>{event.dateRange}</span>
+                                <div className="p-3 md:p-5 flex flex-col flex-grow bg-white">
+                                    <div className="space-y-2 mb-4 text-slate-600 font-medium text-xs md:text-sm">
+                                        <div className="flex items-center gap-2">
+                                            <CalendarIcon className="w-4 h-4 text-slate-400 shrink-0" />
+                                            <span className="truncate">{event.dateRange}</span>
                                         </div>
-                                        <div className="flex items-center gap-3">
-                                            <ClockIcon className="w-5 h-5 text-slate-400" />
+                                        <div className="flex items-center gap-2">
+                                            <ClockIcon className="w-4 h-4 text-slate-400 shrink-0" />
                                             <span>{event.time}</span>
                                         </div>
                                     </div>
@@ -88,9 +81,9 @@ export default function EventsSection() {
                                     <div className="mt-auto">
                                         <Link
                                             href={`/veranstaltungen/${event.slug}`}
-                                            className="block w-full bg-slate-900 text-white text-center py-4 font-bold text-sm hover:bg-sky-600 transition-colors rounded-xl shadow-md"
+                                            className="block w-full bg-slate-900 text-white text-center py-2.5 md:py-3.5 font-bold text-xs md:text-sm hover:bg-sky-600 transition-colors rounded-xl shadow-md"
                                         >
-                                            Weitere Informationen
+                                            Mehr erfahren
                                         </Link>
                                     </div>
                                 </div>

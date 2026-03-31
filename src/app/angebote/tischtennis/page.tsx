@@ -32,21 +32,33 @@ export default function TischtennisPage() {
             <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
                 <div>
                     <h2 className="text-3xl font-black text-slate-900 mb-6">Tischtennis Action</h2>
-                    <p className="text-lg text-slate-600">
+                    <p className="text-lg text-slate-600 mb-6">
                         Ob Rundlauf mit Freunden oder ein spannendes Match – Tischtennis macht immer Spaß!
                     </p>
+                    <ul className="list-none space-y-2 pl-0">
+                        {["Professioneller Tisch", "Schläger und Schuhverleih", "Einzel & Doppel oder in der Gruppe"].map((item, i) => (
+                            <li key={i} className="flex items-center gap-3 text-slate-600">
+                                <span className="w-6 h-6 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-sm font-bold">✓</span>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
 
                 <div className="glass-card bg-white p-8 md:p-10">
                     <h2 className="text-2xl font-bold text-slate-900 mb-6">Preise</h2>
                     <div className="space-y-4 mb-8">
                         <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
-                            <span className="font-medium text-slate-700">Tischmiete (60 Min)</span>
-                            <span className="text-xl font-black text-slate-900">12,00 €</span>
+                            <span className="font-medium text-slate-700">Tischmiete / Stunde</span>
+                            <span className="text-xl font-black text-slate-900">15,00 €</span>
                         </div>
                         <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
-                            <span className="font-medium text-slate-700">Schlägerverleih</span>
-                            <span className="text-xl font-black text-slate-900">3,00 €</span>
+                            <span className="font-medium text-slate-700">10er Block</span>
+                            <span className="text-xl font-black text-slate-900">135,00 €</span>
+                        </div>
+                        <div className="flex justify-between items-center p-4 bg-slate-50 border border-slate-100 rounded-xl">
+                            <span className="font-medium text-slate-700">Schläger inkl. Bälle</span>
+                            <span className="text-xl font-black text-slate-900">5,00 €</span>
                         </div>
                     </div>
                     <Link

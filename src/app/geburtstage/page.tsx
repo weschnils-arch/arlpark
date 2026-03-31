@@ -13,36 +13,63 @@ const birthdayPackages = [
         popular: false,
     },
     {
-        title: "Trampolin + Bowling",
-        price: "17€",
+        title: "Trampolin + 9-Pin Bowling",
+        price: "17,25€",
         icon: BowlingIcon,
-        includes: ["2 Stunden Trampolin", "1 Stunde Bowling", "Trampolinsocken inkl."],
+        includes: ["2 Stunden Trampolin", "1 Stunde 9-Pin Bowling", "Trampolinsocken inkl."],
         popular: true,
     },
     {
         title: "Action-Paket",
         price: "22,50€",
         icon: KletternIcon,
-        includes: ["2 Stunden Trampolin", "Kletter-Tageskarte", "Trampolinsocken inkl."],
+        includes: ["2 Stunden Trampolin", "Kletter-Tageskarte", "Kletterverleih inkl.", "Trampolinsocken inkl."],
+        popular: false,
+    },
+    {
+        title: "Kids Play Geburtstag",
+        price: "9€",
+        icon: GeburtstagIcon,
+        includes: ["2 Stunden Kids Play", "Gruppe ab 6 Kinder", "Alter: 1–10 Jahre"],
         popular: false,
     },
 ];
 
 const cateringOptions = [
     {
-        title: "Kleines Menü",
+        title: "Menü (optional beim Checkout buchbar)",
         price: "11,50€",
-        includes: "Nuggets oder Pizza + Pommes + unlim. Schiwasser",
+        includes: "Nuggets + Pommes oder Pizza + unlim. Skiwasser",
     },
     {
-        title: "Großes Menü",
-        price: "13,50€",
-        includes: "Mehr Auswahl + Pommes + unlim. Schiwasser",
+        title: "Snack Box klein",
+        price: "5€",
+        includes: "Brezn oder Donut + Skiwasser",
     },
     {
-        title: "Geburtstagstorte",
+        title: "Snack Box groß",
+        price: "7€",
+        includes: "Brezn & Donut + Skiwasser",
+    },
+    {
+        title: "Nur Skiwasser unlimitiert",
+        price: "3€",
+        includes: "Unlimitiert Skiwasser für die Party",
+    },
+    {
+        title: "Sachertorte",
         price: "36€",
-        includes: "Original ARL.PARK Torte",
+        includes: "Original Sachertorte für den Geburtstag",
+    },
+    {
+        title: "Partytisch",
+        price: "10€",
+        includes: "Eigener Partytisch + Geschirr von uns. Essen selbst mitbringen? Kein Problem!",
+    },
+    {
+        title: "Trainer",
+        price: "ab 30€",
+        includes: "30 Min: 30 € / 1 Stunde: 60 € — auf Anfrage buchbar",
     },
 ];
 
@@ -74,12 +101,12 @@ export default function GeburtstagePage() {
             {/* Birthday Packages */}
             <section className="py-20 px-4 md:px-6 bg-slate-50">
                 <div className="max-w-5xl mx-auto">
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-12">
                         <h2 className="section-title text-slate-900">Unsere Party-Pakete</h2>
                         <p className="text-xl text-slate-600">Buchbar ab 8 Personen</p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {birthdayPackages.map((pkg) => {
                             const IconComponent = pkg.icon;
                             return (
@@ -102,7 +129,7 @@ export default function GeburtstagePage() {
                                     <p className="text-4xl font-black text-fuchsia-600 mb-2">
                                         {pkg.price}
                                     </p>
-                                    <span className="text-sm text-slate-500 font-medium block mb-6">pro Person</span>
+                                    <span className="text-sm text-slate-500 font-medium block mb-4">pro Kind</span>
 
                                     <ul className="space-y-3 text-slate-600 text-left text-sm" role="list">
                                         {pkg.includes.map((item) => (
@@ -139,7 +166,7 @@ export default function GeburtstagePage() {
                         <h2 className="text-3xl font-black text-slate-900 text-center">Leckeres für die Party</h2>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-6">
+                    <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {cateringOptions.map((option) => (
                             <div
                                 key={option.title}
@@ -151,6 +178,18 @@ export default function GeburtstagePage() {
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* Erwachsenen Geburtstag Link */}
+            <section className="py-8 px-4 md:px-6 bg-slate-50 text-center">
+                <div className="max-w-3xl mx-auto">
+                    <p className="text-lg text-slate-600">
+                        Du planst einen Erwachsenen-Geburtstag oder Junggesellenabschied?
+                    </p>
+                    <Link href="/gruppen-schulen" className="text-sky-600 font-bold hover:underline text-lg">
+                        Mehr dazu bei Gruppen & Vereine &rarr;
+                    </Link>
                 </div>
             </section>
 

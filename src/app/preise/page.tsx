@@ -146,6 +146,10 @@ export default function PreisePage() {
                                     <span>Trampolinsocken (Pflicht)</span>
                                     <span className="font-bold text-slate-900">4,00 €</span>
                                 </div>
+                                <div className="flex justify-between items-center py-2 border-b border-slate-100">
+                                    <span>Kundenkarte (einmalig, -5 € pro Besuch)</span>
+                                    <span className="font-bold text-slate-900">20,00 €</span>
+                                </div>
                                 <div className="flex flex-col gap-1 text-sky-800 bg-sky-50/50 p-3 rounded-lg border border-sky-100">
                                     <p className="font-bold">Gruppenrabatt:</p>
                                     <p>Ab 8 Personen 2 Stunden für nur 15 € pro Person (zzgl. Socken).</p>
@@ -304,16 +308,20 @@ export default function PreisePage() {
                         </div>
 
                         <div className="flex-1 flex flex-col">
-                            <div className="flex justify-between items-baseline mb-6">
+                            <div className="flex justify-between items-baseline mb-2">
                                 <span className="text-lg text-slate-700 font-medium">Platzmiete / Stunde</span>
                                 <span className="text-3xl font-black text-purple-700">15,00 €</span>
+                            </div>
+                            <div className="flex justify-between items-baseline mb-6 text-sm text-slate-600">
+                                <span>10er Block</span>
+                                <span className="font-bold text-slate-900">135,00 €</span>
                             </div>
 
                             <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 mt-auto">
                                 <p className="font-bold text-slate-900 mb-2 text-sm">Verleih</p>
                                 <div className="space-y-1 text-sm text-slate-700">
-                                    <div className="flex justify-between"><span>Squashschläger (+ Bälle)</span><span>5,00 €</span></div>
-                                    <div className="flex justify-between"><span>Tischtennisschläger (+ Bälle)</span><span>3,00 €</span></div>
+                                    <div className="flex justify-between"><span>Squash-/Tischtennisschläger inkl. Bälle</span><span>5,00 €</span></div>
+                                    <div className="flex justify-between"><span>Hallenschuhe</span><span>5,00 €</span></div>
                                 </div>
                             </div>
                         </div>
@@ -335,16 +343,20 @@ export default function PreisePage() {
                                 <span className="text-3xl font-black text-lime-700">27,00 €</span>
                             </div>
 
-                            <div className="mb-6">
+                            <div className="mb-2">
                                 <span className="inline-block bg-lime-50 text-lime-800 text-xs font-bold px-2 py-1 rounded-md border border-lime-100">
-                                    Prime Time (19-21 Uhr): +5,00 €
+                                    Primetime (19–21 Uhr): +5,00 €
                                 </span>
+                            </div>
+                            <div className="flex justify-between items-baseline mb-6 text-sm text-slate-600">
+                                <span>10er Block</span>
+                                <span className="font-bold text-slate-900">243,00 €</span>
                             </div>
 
                             <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 mt-auto">
                                 <p className="font-bold text-slate-900 mb-2 text-sm">Verleih</p>
                                 <div className="space-y-1 text-sm text-slate-700">
-                                    <div className="flex justify-between"><span>Tennis-/Pickleballschläger (+ Bälle)</span><span>5,00 €</span></div>
+                                    <div className="flex justify-between"><span>Schläger inkl. Bälle</span><span>5,00 €</span></div>
                                 </div>
                             </div>
                         </div>
@@ -387,8 +399,8 @@ export default function PreisePage() {
                                 <span className="font-bold">10,00 €</span>
                             </div>
                             <div className="flex justify-between py-2 border-b border-slate-100">
-                                <span>Bearbeitungsgebühr Storno</span>
-                                <span className="font-bold">5,00 €</span>
+                                <span>Kundenkarte (einmalig, -5 € Rabatt)</span>
+                                <span className="font-bold">20,00 €</span>
                             </div>
                         </div>
                         <div className="mt-6 pt-4 text-center">

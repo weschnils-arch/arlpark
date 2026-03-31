@@ -2,7 +2,7 @@ import ActivitiesSection from "@/components/ActivitiesSection";
 
 export default function AngebotePage() {
     return (
-        <main className="min-h-screen bg-slate-50">
+        <main className="min-h-screen bg-slate-100">
             {/* Hero Section */}
             <section
                 className="relative h-[50vh] flex items-center justify-center overflow-hidden"

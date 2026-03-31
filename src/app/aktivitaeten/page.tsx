@@ -90,10 +90,10 @@ const activities = [
     {
         id: "bowling",
         title: "9-Pin Bowling",
-        subtitle: "4 moderne Bahnen",
+        subtitle: "4 Bahnen",
         icon: BowlingIcon,
-        description: "Vier moderne Bowlingbahnen für die ganze Familie und Gruppen.",
-        features: ["4 Bahnen", "Bis zu 6 Personen/Bahn", "Modern", "Sports Bar"],
+        description: "Vier 9-Pin Bowlingbahnen für die ganze Familie und Gruppen.",
+        features: ["4 Bahnen", "Bis zu 8 Personen/Bahn", "Eigene Kinderkugeln", "Sports Bar"],
         images: [
             "/images/activities/Bowling/DSC2180-scaled.jpg",
             "/images/activities/Bowling/DSC2041-scaled.jpg",

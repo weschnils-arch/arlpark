@@ -14,15 +14,22 @@ export default function MietanlagenPage() {
             image: "/images/mietanlagen/Mobiler_Bolderblock.jpg"
         },
         {
+            title: "1 Mobiles Trampolin",
+            description: "Schnell aufgebaut — der perfekte Hingucker für jedes Event.",
+            price: "Auf Anfrage",
+            features: ["Schneller Aufbau", "Mobil einsetzbar", "Für alle Altersgruppen"],
+            image: "/images/mietanlagen/Bunge Trampolin.png"
+        },
+        {
             title: "Bungee Trampolin",
-            description: "Sichere Sprünge in bis zu 8 Meter Höhe. Der Adrenalinkick für Kinder und Erwachsene.",
+            description: "Sichere Sprünge in bis zu 6 Meter Höhe. Der Adrenalinkick für Kinder und Erwachsene.",
             price: "Auf Anfrage",
             features: ["4 Sprungplätze", "Höchste Sicherheitsstandards", "Betreuung inklusive"],
             image: "/images/mietanlagen/Bunge Trampolin.png"
         },
         {
             title: "4er Trampolin Anlage",
-            description: "Der Klassiker für Straßenfeste und Events. Vier Trampoline für gleichzeitigen Spaß.",
+            description: "Der Klassiker für Straßenfeste und Events! Unsere Anlage bietet vier Trampoline für jede Menge Springspaß und zieht garantiert alle Blicke auf sich – ein Highlight für Groß und Klein.",
             price: "Auf Anfrage",
             features: ["Platzsparend", "Hohe Kapazität", "Wetterfest"],
             image: "/images/mietanlagen/4er Trampolin Anlage.png"

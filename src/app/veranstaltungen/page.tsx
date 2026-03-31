@@ -43,7 +43,7 @@ export default function VeranstaltungenPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent z-10" />
                 <div className="relative z-20 text-center text-white px-4 max-w-4xl mx-auto">
                     <h1 className="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg text-white">
-                        Aktuelles im Kletterzentrum
+                        Aktuelles im arl.park
                     </h1>
                     <p className="text-xl md:text-2xl font-light drop-shadow-md text-white/90 max-w-2xl mx-auto">
                         Hier findest du einen Überblick aller Kurse, Veranstaltungen und Angebote.

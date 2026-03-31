@@ -12,7 +12,7 @@ const ACTIVITY_DATA = [
         badge: "1.000 m² Indoor Action",
         badgeColor: "bg-blue-600",
         description: "Unser 1.000 m² großer Trampolinpark bietet verschiedene Bereiche für Anfänger und Profis.",
-        features: ["1.000 m² Fläche", "Airbags", "Trampolinwände", "Dodgeball Arena", "Freejump"],
+        features: ["13 Trampolinfelder", "Freefall Tower", "15 m Air-Track", "Ski & Boards kostenlos", "Freejump"],
         buttonLink: "/angebote/trampolin",
         images: [
             "/images/activities/Trampoline/DSC0523-scaled.jpg",
@@ -23,7 +23,7 @@ const ACTIVITY_DATA = [
     },
     {
         id: "klettern",
-        title: "Klettern & Bouldern",
+        title: "Kletterwand",
         badge: "Über 100 Routen",
         badgeColor: "bg-orange-500",
         description: "Über 100 Indoor- und Outdoor-Routen, 3 Autobelay-Systeme und 125 m² Boulderhalle. In Kooperation mit dem Kletterzentrum Imst.",
@@ -39,10 +39,10 @@ const ACTIVITY_DATA = [
     {
         id: "bowling",
         title: "9-Pin Bowling",
-        badge: "4 moderne Bahnen",
+        badge: "4 Bahnen",
         badgeColor: "bg-slate-700",
-        description: "Vier moderne Bowlingbahnen für die ganze Familie und Gruppen.",
-        features: ["4 Bahnen", "Bis zu 6 Personen/Bahn", "Modern", "Sports Bar"],
+        description: "Vier 9-Pin Bowlingbahnen für die ganze Familie und Gruppen. Bis zu 8 Personen pro Bahn.",
+        features: ["4 Bahnen", "Bis zu 8 Personen/Bahn", "Eigene Kinderkugeln", "Disco-Kugel mit Moonlight"],
         buttonLink: "/angebote/bowling",
         images: [
             "/images/activities/Bowling/DSC2041-scaled.jpg",
@@ -54,10 +54,10 @@ const ACTIVITY_DATA = [
     {
         id: "squash",
         title: "Squash",
-        badge: "Professionelle Courts",
-        badgeColor: "bg-purple-600",
-        description: "Professionelle Courts mit Equipment-Verleih für stundenweise Buchung.",
-        features: ["Profi Courts", "Equipment Verleih", "Flexible Buchung", "Ligatauglich"],
+        badge: "Schnelligkeit, Präzision und Spielspaß pur",
+        badgeColor: "bg-green-600",
+        description: "Indoor Court mit Schläger und Hallenschuhe zum Verleih.",
+        features: ["Indoor Court", "Schläger und Schuhverleih", "Einzel & Doppel", "Gruppen"],
         buttonLink: "/angebote/squash",
         images: [
             "/images/activities/Squash_Tischtennis/DSC2580-scaled.jpg"
@@ -66,10 +66,10 @@ const ACTIVITY_DATA = [
     {
         id: "tennis",
         title: "Tennis",
-        badge: "Outdoor & Indoor",
-        badgeColor: "bg-lime-500",
-        description: "Tennisplätze mit Flutlicht für spannende Matches zu jeder Zeit.",
-        features: ["Sandplätze", "Flutlicht", "Trainer verfügbar", "Equipment Verleih"],
+        badge: "Indoor Tennisplatz",
+        badgeColor: "bg-yellow-500",
+        description: "Indoor Tennisplatz mit großer Fensterfläche. Einzel und Doppel möglich.",
+        features: ["Indoor Platz", "Große Fensterfläche", "Schläger und Hallenschuhe Verleih", "Einzel & Doppel"],
         buttonLink: "/angebote/tennis",
         images: [
             "/images/activities/Tennis_Pickleball/DSC2637-scaled.jpg",
@@ -80,9 +80,9 @@ const ACTIVITY_DATA = [
         id: "tischtennis",
         title: "Tischtennis",
         badge: "Schnelle Ballwechsel",
-        badgeColor: "bg-red-500",
+        badgeColor: "bg-green-600",
         description: "Tischtennisplatten für spannende Duelle. Schläger und Bälle können geliehen werden.",
-        features: ["Profi-Tische", "Schlägerverleih", "Einzel & Doppel", "Turnierqualität"],
+        features: ["Professioneller Tisch", "Schläger und Schuhverleih", "Einzel & Doppel oder in der Gruppe"],
         buttonLink: "/angebote/tischtennis",
         images: [
             "/images/activities/Squash_Tischtennis/DSC2345-scaled.jpg"
@@ -92,9 +92,9 @@ const ACTIVITY_DATA = [
         id: "pickleball",
         title: "Pickleball",
         badge: "Der Trendsport",
-        badgeColor: "bg-emerald-500",
+        badgeColor: "bg-yellow-500",
         description: "Entdecke den neuen Trendsport aus den USA! Eine Mischung aus Tennis, Badminton und Tischtennis.",
-        features: ["Outdoor Court", "Einfach zu lernen", "Equipment vor Ort", "Für alle Alter"],
+        features: ["Indoor Court", "Einfach zu lernen", "Equipment vor Ort", "Für alle Alter"],
         buttonLink: "/angebote/pickleball",
         images: [
             "/images/pickleball/pickleball_1.webp"
@@ -103,10 +103,10 @@ const ACTIVITY_DATA = [
     {
         id: "kids-play",
         title: "Kids Play",
-        badge: "Neu im arl.park",
-        badgeColor: "bg-pink-500",
-        description: "Ein Paradies für die Kleinsten! Entdecke unseren neuen Kids-Play Bereich mit Rutschen, Bällebad und Klettergerüsten.",
-        features: ["Rutschen", "Bällebad", "Klettergerüst", "Für Kleinkinder"],
+        badge: "Von klein bis groß für alle etwas dabei",
+        badgeColor: "bg-red-500",
+        description: "Ein Paradies für die Kleinsten! Entdecke unseren neuen Kids-Play Bereich mit Mini Airbag, Hüpfburg und mehr.",
+        features: ["Hüpfburg", "4er Trampolin Anlage", "Mini Airbag", "Für Kleinkinder"],
         buttonLink: "/angebote/kids-play",
         images: [
             "/images/activities/Trampoline/DSC0877-scaled.jpg", // Placeholder
@@ -117,10 +117,10 @@ const ACTIVITY_DATA = [
         id: "sportsbar",
         title: "Sportsbar",
         badge: "Relax & Enjoy",
-        badgeColor: "bg-amber-600",
-        description: "Genieße kühle Drinks und Snacks. Durchgehend warme Küche, Sky Sports, Billard, Darts und Tischfußball.",
-        features: ["Warme Küche", "Sky Sports", "Billard & Darts", "Boxautomat"],
-        buttonLink: "/gastronomie",
+        badgeColor: "bg-blue-600",
+        description: "Genieße kühle Drinks und Snacks. Durchgehend warme Küche, Billard, Darts und Tischfußball.",
+        features: ["Warme Küche", "Billard & Darts", "Tischfußball", "Boxautomat"],
+        buttonLink: "/sportsbar",
         images: [
             "/images/activities/Sportsbar/DSC2065-scaled.jpg",
             "/images/activities/Sportsbar/DSC2133-scaled.jpg",
@@ -131,10 +131,10 @@ const ACTIVITY_DATA = [
         id: "mietanlagen",
         title: "Mietanlagen",
         badge: "Mobile Action",
-        badgeColor: "bg-cyan-600",
+        badgeColor: "bg-blue-600",
         description: "Wir bringen die Action zu dir! Mobiler Boulderblock, Bungee Trampolin, Airtrack, Free-Fall Tower und mehr.",
         features: ["Boulderblock", "Bungee Trampolin", "Airtrack", "Free-Fall Tower"],
-        buttonLink: "/angebote/mietanlagen",
+        buttonLink: "/mietanlagen",
         images: [
             "/images/mietanlagen/Mobiler_Bolderblock.jpg",
             "/images/mietanlagen/Bunge Trampolin.png",
@@ -150,7 +150,7 @@ const ACTIVITY_DATA = [
         badge: "Training für Profis",
         badgeColor: "bg-indigo-600",
         description: "Professionelle Trainingsmöglichkeiten für Vereine. Klettern, Kondition und Technik.",
-        features: ["Regelmäßige Termine", "Trainer-Support", "Individuelle Pakete", "Modernste Ausstattung"],
+        features: ["Regelmäßige Termine", "Trainer-Support", "Individuelle Pakete", "Professionelle Ausstattung"],
         buttonLink: "/angebote/vereinstraining",
         images: [
             "/images/activities/Climbing/DSC2971-scaled.jpg", // Placeholder
@@ -161,9 +161,9 @@ const ACTIVITY_DATA = [
         id: "geburtstage",
         title: "Geburtstage",
         badge: "Party Alarm",
-        badgeColor: "bg-rose-500",
-        description: "Feiere deinen Geburtstag bei uns! Actiongeladene Pakete für unvergessliche Kindergeburtstage.",
-        features: ["Eigener Partybereich", "Essen & Trinken", "Betreuung möglich", "Individuelle Pakete"],
+        badgeColor: "bg-blue-600",
+        description: "Feiere deinen Geburtstag bei uns! Actiongeladene Pakete für unvergessliche Kindergeburtstage. Eigener Partytisch möglich.",
+        features: ["Eigener Partybereich", "Eigener Partytisch möglich", "Essen & Trinken", "Individuelle Pakete"],
         buttonLink: "/geburtstage",
         images: [
             "/images/activities/Trampoline/DSC0662-scaled.jpg", // Placeholder
@@ -174,7 +174,7 @@ const ACTIVITY_DATA = [
         id: "gruppen",
         title: "Gruppen & Vereine",
         badge: "Gemeinsam erleben",
-        badgeColor: "bg-teal-600",
+        badgeColor: "bg-blue-600",
         description: "Ideal für Schulausflüge, Firmenfeiern und Vereinsausflüge. Individuelle Angebote für große Gruppen.",
         features: ["Schulklassen", "Firmenfeiern", "Teambuilding", "Sonderkonditionen"],
         buttonLink: "/gruppen-schulen",
@@ -253,7 +253,7 @@ export default function ActivitiesSection() {
     };
 
     return (
-        <section className="bg-slate-50 py-20 relative z-10">
+        <section className="bg-slate-50 py-14 relative z-10">
             <div className="max-w-7xl mx-auto px-4 md:px-6">
 
                 {/* Navigation Tabs (Visual only for now, or jump links) */}
@@ -269,12 +269,12 @@ export default function ActivitiesSection() {
                     ))}
                 </div>
 
-                <div className="space-y-24 md:space-y-32">
+                <div className="space-y-16 md:space-y-24">
                     {ACTIVITY_DATA.map((activity, index) => (
                         <div
                             key={activity.id}
                             id={`activity-${activity.id}`}
-                            className={`flex flex-col gap-8 md:gap-16 items-center ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"}`}
+                            className={`flex flex-col gap-6 md:gap-10 items-center ${index % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"}`}
                         >
                             {/* Slideshow */}
                             <div className="w-full md:w-1/2">
