@@ -134,14 +134,14 @@ export default function Footer() {
                                 </li>
                                 <li>
                                     <a
-                                        href="mailto:info@arlpark.com"
+                                        href="mailto:info@arlpark.at"
                                         className="text-slate-400 hover:text-sky-400 transition-colors text-sm flex items-start sm:items-center gap-2 sm:gap-3"
                                     >
                                         <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
                                             <EmailIcon size={12} className="text-sky-500 hidden sm:block" />
                                             <EmailIcon size={10} className="text-sky-500 sm:hidden block" />
                                         </div>
-                                        <span className="break-all mt-[2px] sm:mt-0 leading-tight">info@arlpark.com</span>
+                                        <span className="break-all mt-[2px] sm:mt-0 leading-tight">info@arlpark.at</span>
                                     </a>
                                 </li>
                             </ul>

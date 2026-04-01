@@ -58,7 +58,7 @@ export default function DatenschutzPage() {
                     <strong>Kontaktieren Sie uns unter:</strong><br />
                     ARL.PARK GmbH<br />
                     Bahnhofstraße 1, 6580 St. Anton am Arlberg<br />
-                    info@arlpark.com
+                    info@arlpark.at
                 </p>
 
                 <p className="text-slate-500 italic mt-12 border-t pt-8">

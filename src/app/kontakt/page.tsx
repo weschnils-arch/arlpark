@@ -67,12 +67,12 @@ export default function KontaktPage() {
                                 <h3 className="font-bold text-slate-900 mb-1">Telefon</h3>
                                 <p className="text-slate-600">+43 660 99 88 0 66</p>
                             </a>
-                            <a href="mailto:info@arlpark.com" className="bg-white border border-slate-200 p-6 rounded-2xl hover:shadow-lg transition-all group">
+                            <a href="mailto:info@arlpark.at" className="bg-white border border-slate-200 p-6 rounded-2xl hover:shadow-lg transition-all group">
                                 <div className="w-12 h-12 bg-sky-50 text-sky-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                                     <EmailIcon size={24} />
                                 </div>
                                 <h3 className="font-bold text-slate-900 mb-1">E-Mail</h3>
-                                <p className="text-slate-600">info@arlpark.com</p>
+                                <p className="text-slate-600">info@arlpark.at</p>
                             </a>
                         </div>
                     </div>

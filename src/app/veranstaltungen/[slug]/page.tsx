@@ -139,7 +139,7 @@ export default function EventDetailPage() {
                                     Sichere dir jetzt deinen Platz für diesen Kurs. Die Teilnehmerzahl ist begrenzt!
                                 </p>
                                 <Link
-                                    href="mailto:info@arlpark.com"
+                                    href="mailto:info@arlpark.at"
                                     className={`inline-block px-8 py-3 font-bold text-white rounded-xl shadow-lg transition-transform hover:scale-105 ${headerBgClass}`}
                                 >
                                     Jetzt Anmelden
