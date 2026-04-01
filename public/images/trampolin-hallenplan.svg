@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" fill="#f8fafc"/>
+  <rect x="20" y="20" width="760" height="460" rx="12" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- Title -->
+  <text x="400" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#0f172a">TRAMPOLINHALLE — HALLENPLAN</text>
+
+  <!-- Trampoline fields (13 fields in grid) -->
+  <!-- Row 1: 5 trampolines -->
+  <rect x="50" y="80" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="100" y="125" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#1e40af">Trampolin 1</text>
+
+  <rect x="165" y="80" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="215" y="125" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#1e40af">Trampolin 2</text>
+
+  <rect x="280" y="80" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="330" y="125" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#1e40af">Trampolin 3</text>
+
+  <rect x="395" y="80" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="445" y="125" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#1e40af">Trampolin 4</text>
+
+  <rect x="510" y="80" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="560" y="125" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#1e40af">Trampolin 5</text>
+
+  <!-- Row 2: 5 trampolines -->
+  <rect x="50" y="175" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="100" y="220" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#1e40af">Trampolin 6</text>
+
+  <rect x="165" y="175" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="215" y="220" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#1e40af">Trampolin 7</text>
+
+  <rect x="280" y="175" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="330" y="220" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#1e40af">Trampolin 8</text>
+
+  <rect x="395" y="175" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="445" y="220" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#1e40af">Trampolin 9</text>
+
+  <rect x="510" y="175" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="560" y="220" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#1e40af">Trampolin 10</text>
+
+  <!-- Row 3: 3 trampolines -->
+  <rect x="50" y="270" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="100" y="315" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#1e40af">Trampolin 11</text>
+
+  <rect x="165" y="270" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="215" y="315" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#1e40af">Trampolin 12</text>
+
+  <rect x="280" y="270" width="100" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="330" y="315" text-anchor="middle" font-family="system-ui" font-size="11" font-weight="700" fill="#1e40af">Trampolin 13</text>
+
+  <!-- Freefall Tower -->
+  <rect x="630" y="80" width="130" height="120" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="695" y="130" text-anchor="middle" font-family="system-ui" font-size="13" font-weight="800" fill="#92400e">FREEFALL</text>
+  <text x="695" y="150" text-anchor="middle" font-family="system-ui" font-size="13" font-weight="800" fill="#92400e">TOWER</text>
+
+  <!-- Air-Track (15m long strip) -->
+  <rect x="395" y="280" width="365" height="60" rx="8" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="577" y="315" text-anchor="middle" font-family="system-ui" font-size="14" font-weight="800" fill="#065f46">15 m AIR-TRACK</text>
+
+  <!-- ValoJump -->
+  <rect x="630" y="215" width="130" height="50" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="695" y="245" text-anchor="middle" font-family="system-ui" font-size="12" font-weight="700" fill="#5b21b6">ValoJump</text>
+
+  <!-- Legend -->
+  <rect x="50" y="375" width="700" height="90" rx="8" fill="#f1f5f9"/>
+  <text x="70" y="400" font-family="system-ui" font-size="13" font-weight="800" fill="#334155">LEGENDE:</text>
+
+  <rect x="70" y="415" width="18" height="18" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="95" y="430" font-family="system-ui" font-size="12" fill="#475569">13 Trampolinfelder</text>
+
+  <rect x="250" y="415" width="18" height="18" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="275" y="430" font-family="system-ui" font-size="12" fill="#475569">Freefall Tower</text>
+
+  <rect x="430" y="415" width="18" height="18" rx="4" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+  <text x="455" y="430" font-family="system-ui" font-size="12" fill="#475569">15 m Air-Track</text>
+
+  <rect x="610" y="415" width="18" height="18" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="635" y="430" font-family="system-ui" font-size="12" fill="#475569">ValoJump</text>
+
+  <text x="70" y="455" font-family="system-ui" font-size="11" fill="#94a3b8">Ski &amp; Boards kostenlos verfügbar | Trampolinsocken Pflicht (4 €) | 1.000 m² Gesamtfläche</text>
+</svg>

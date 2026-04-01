@@ -90,7 +90,7 @@ export const faqs: FAQItem[] = [
     {
         category: "Buchung & Reservierung",
         question: "Kann ich meine Buchung ändern oder stornieren?",
-        answer: "Ja, Stornogebühren fallen an: Bis 4 Tage vorher € 5,-; 4 bis 2 Tage vorher 40%; 1 Tag vorher 80%; Nicht-Anreise 100%. In Sonderfällen bitte kontaktieren Sie uns. Eine Abwicklungsgebühr von € 5,- wird bei jeder Stornierung verrechnet."
+        answer: "Ja, Änderungen und Stornierungen sind möglich. Bitte kontaktiere uns rechtzeitig per E-Mail oder Telefon."
     },
 
     // Kinder & Familien

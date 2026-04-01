@@ -20,7 +20,7 @@ const DOLLAR_LINK = "https://v5.bookandplay.com/p_pro_arlpark.php"; // Generic b
 const TRAMPOLINE_OPTIONS = [
     { label: "1 Stunde Eintritt", value: "1h", price: 17.00 },
     { label: "2 Stunden Eintritt", value: "2h", price: 22.00 },
-    { label: "4 Stunden Eintritt", value: "4h", price: 30.00 },
+    { label: "4 Stunden (nur mit Kundenkarte)", value: "4h", price: 27.00 },
     { label: "10er-Block", value: "10er", price: 153.00 },
 ];
 
@@ -35,31 +35,18 @@ const CLIMBING_TYPES = [
 
 const CLIMBING_GROUPS = [
     { label: "Erwachsene (ab 18)", value: "adult" },
-    { label: "Jugendliche (bis 17)", value: "youth" },
+    { label: "Jugendliche 12–17 J.*", value: "youth" },
+    { label: "Kinder 6–11 J.**", value: "child" },
+    { label: "Minis 3–5 J.***", value: "mini" },
 ];
 
 // Price Matrix: [Type][Group] -> Price
 const CLIMBING_PRICES: Record<string, Record<string, number>> = {
-    day: {
-        adult: 13.50,
-        youth: 10.00,
-    },
-    "10er": {
-        adult: 121.50,
-        youth: 90.00,
-    },
-    "3m": {
-        adult: 159.00,
-        youth: 109.00,
-    },
-    "6m": {
-        adult: 290.00,
-        youth: 180.00,
-    },
-    year: {
-        adult: 415.00,
-        youth: 250.00,
-    },
+    day: { adult: 13.50, youth: 10.00, child: 8.00, mini: 6.00 },
+    "10er": { adult: 121.50, youth: 90.00, child: 0, mini: 0 },
+    "3m": { adult: 159.00, youth: 109.00, child: 0, mini: 0 },
+    "6m": { adult: 290.00, youth: 180.00, child: 0, mini: 0 },
+    year: { adult: 415.00, youth: 250.00, child: 0, mini: 0 },
 };
 
 // --- Components ---
@@ -200,7 +187,11 @@ export default function PreisePage() {
 
                             <div className="flex items-center justify-between p-4 bg-orange-50 rounded-xl border border-orange-100">
                                 <span className="text-orange-900 font-bold">Preis</span>
-                                <span className="text-3xl font-black text-orange-700">{climbingPrice.toFixed(2).replace('.', ',')} €</span>
+                                {climbingPrice > 0 ? (
+                                    <span className="text-3xl font-black text-orange-700">{climbingPrice.toFixed(2).replace('.', ',')} €</span>
+                                ) : (
+                                    <span className="text-base font-medium text-slate-400">Nur als Tageskarte</span>
+                                )}
                             </div>
 
                             <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">

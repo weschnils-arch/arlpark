@@ -40,12 +40,11 @@ const highlights = [
     },
 ];
 
-const TWO_HALL_PRICES: Record<string, Record<string, number>> = {
-    day: { adult: 22.00, youth: 16.00 },
-    "10er": { adult: 198.00, youth: 144.00 },
-    "3m": { adult: 259.00, youth: 179.00 },
-    "6m": { adult: 470.00, youth: 290.00 },
-    year: { adult: 670.00, youth: 400.00 },
+const TWO_HALL_PRICES: Record<string, number> = {
+    "10er": 150.00,
+    "3m": 278.00,
+    "6m": 461.00,
+    year: 640.00,
 };
 
 const sponsors: { name: string; url: string | null; logo: string; dark?: boolean }[] = [
@@ -69,30 +68,17 @@ const CLIMBING_TYPES = [
 
 const CLIMBING_GROUPS = [
     { label: "Erwachsene (ab 18)", value: "adult" },
-    { label: "Jugendliche (bis 17)", value: "youth" },
+    { label: "Jugendliche 12–17 J.*", value: "youth" },
+    { label: "Kinder 6–11 J.**", value: "child" },
+    { label: "Minis 3–5 J.***", value: "mini" },
 ];
 
 const CLIMBING_PRICES: Record<string, Record<string, number>> = {
-    day: {
-        adult: 13.50,
-        youth: 10.00,
-    },
-    "10er": {
-        adult: 121.50,
-        youth: 90.00,
-    },
-    "3m": {
-        adult: 159.00,
-        youth: 109.00,
-    },
-    "6m": {
-        adult: 290.00,
-        youth: 180.00,
-    },
-    year: {
-        adult: 415.00,
-        youth: 250.00,
-    },
+    day: { adult: 13.50, youth: 10.00, child: 8.00, mini: 6.00 },
+    "10er": { adult: 121.50, youth: 90.00, child: 0, mini: 0 },
+    "3m": { adult: 159.00, youth: 109.00, child: 0, mini: 0 },
+    "6m": { adult: 290.00, youth: 180.00, child: 0, mini: 0 },
+    year: { adult: 415.00, youth: 250.00, child: 0, mini: 0 },
 };
 
 export default function KletternPage() {
@@ -101,7 +87,7 @@ export default function KletternPage() {
     const [showTwoHall, setShowTwoHall] = useState(false);
     const [openHighlight, setOpenHighlight] = useState<string | null>(null);
     const climbingPrice = CLIMBING_PRICES[climbingType.value]?.[climbingGroup.value] || 0;
-    const twoHallPrice = TWO_HALL_PRICES[climbingType.value]?.[climbingGroup.value] || 0;
+    const twoHallPrice = TWO_HALL_PRICES[climbingType.value as keyof typeof TWO_HALL_PRICES] || 0;
 
     return (
         <main className="bg-white min-h-screen">
@@ -134,7 +120,7 @@ export default function KletternPage() {
                 {/* Left Column: Info & Partner (on mobile: partner shows first via order) */}
                 <div className="space-y-8 order-2 lg:order-1">
                     <div>
-                        <h2 className="text-3xl font-black text-slate-900 mb-6">Die Kletter-Arena</h2>
+                        <h2 className="text-3xl font-black text-slate-900 mb-6">Klettern &amp; Bouldern im arl.park</h2>
                         <div className="prose prose-lg text-slate-600">
                             <p>
                                 Auf 15 Metern Höhe bieten wir eine massive Kletterfläche für alle Schwierigkeitsgrade. Von der sanften Platte bis zum spektakulären Überhang.
@@ -219,36 +205,41 @@ export default function KletternPage() {
 
                             <div className="flex items-center justify-between p-6 bg-orange-50/70 rounded-xl border border-orange-100">
                                 <span className="text-orange-950 font-bold text-lg">Preis</span>
-                                <span className="text-4xl font-black text-[#c2410c]">{climbingPrice.toFixed(2).replace('.', ',')} €</span>
-                            </div>
-
-                            {/* 2-Hallen-Karte */}
-                            <div className="bg-sky-50/70 rounded-xl border border-sky-100 overflow-hidden">
-                                <button
-                                    onClick={() => setShowTwoHall(!showTwoHall)}
-                                    className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-sky-50 transition-colors"
-                                >
-                                    <span className="font-bold text-sky-900">2-Hallen-Karte <span className="text-sky-600 text-sm font-medium">(arl.park + Imst)</span></span>
-                                    <svg className={`w-4 h-4 text-sky-600 transition-transform ${showTwoHall ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
-                                </button>
-                                {showTwoHall && (
-                                    <div className="px-6 pb-4">
-                                        <div className="flex items-center justify-between py-3">
-                                            <span className="text-sky-900 font-medium">{climbingType.label} · {climbingGroup.label}</span>
-                                            <span className="text-2xl font-black text-sky-700">{twoHallPrice.toFixed(2).replace('.', ',')} €</span>
-                                        </div>
-                                        <p className="text-xs text-sky-600">Gültig in beiden Hallen: arl.park St. Anton &amp; Kletterzentrum Imst</p>
-                                    </div>
+                                {climbingPrice > 0 ? (
+                                    <span className="text-4xl font-black text-[#c2410c]">{climbingPrice.toFixed(2).replace('.', ',')} €</span>
+                                ) : (
+                                    <span className="text-lg font-medium text-slate-400">Nur als Tageskarte</span>
                                 )}
                             </div>
 
+                            {/* 2-Hallen-Karte — only for 10er+  */}
+                            {twoHallPrice > 0 && (
+                                <div className="bg-sky-50/70 rounded-xl border border-sky-100 overflow-hidden">
+                                    <button
+                                        onClick={() => setShowTwoHall(!showTwoHall)}
+                                        className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-sky-50 transition-colors"
+                                    >
+                                        <span className="font-bold text-sky-900">2-Hallen-Karte <span className="text-sky-600 text-sm font-medium">(arl.park + Imst)</span></span>
+                                        <svg className={`w-4 h-4 text-sky-600 transition-transform ${showTwoHall ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" /></svg>
+                                    </button>
+                                    {showTwoHall && (
+                                        <div className="px-6 pb-4">
+                                            <div className="flex items-center justify-between py-3">
+                                                <span className="text-sky-900 font-medium">2 Hallen {climbingType.label}</span>
+                                                <span className="text-2xl font-black text-sky-700">{twoHallPrice.toFixed(2).replace('.', ',')} €</span>
+                                            </div>
+                                            <p className="text-xs text-sky-600">Gültig im arl.park St. Anton &amp; Kletterzentrum Imst</p>
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
                             <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
-                                <h4 className="font-bold text-slate-900 mb-4 text-base">Verleihpreise</h4>
+                                <h4 className="font-bold text-slate-900 mb-4 text-base">Verleih Material (pro Stück)</h4>
                                 <div className="space-y-3 text-base text-slate-700">
-                                    <div className="flex justify-between"><span>Kletterschuhe (Erw.)</span><span>5,00 €</span></div>
-                                    <div className="flex justify-between"><span>Kletterschuhe (Kind 0-5)</span><span>3,00 €</span></div>
-                                    <div className="flex justify-between"><span>Gurt / Sicherungsgerät</span><span>je 3,00 €</span></div>
-                                    <div className="flex justify-between"><span>Seil</span><span>3,00 €</span></div>
+                                    <div className="flex justify-between"><span>Schuhe 0–5 Jahre</span><span>3,00 €</span></div>
+                                    <div className="flex justify-between"><span>Schuhe ab 5 Jahren</span><span>5,00 €</span></div>
+                                    <div className="flex justify-between"><span>Gurt, Seil, Chalk, Sicherungsgerät inkl. Karabiner</span><span>3,00 €</span></div>
                                 </div>
                             </div>
                         </div>

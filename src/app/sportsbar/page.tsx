@@ -2,8 +2,53 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { FoodIcon } from "@/components/Icons";
 import PremiumMenuViewer from "@/components/PremiumMenuViewer";
+
+const sportsbarImages = [
+    "/images/activities/Sportsbar/DSC2133-scaled.jpg",
+    "/images/activities/Sportsbar/DSC2049-scaled.jpg",
+    "/images/activities/Sportsbar/DSC2065-scaled.jpg",
+    "/images/activities/Sportsbar/1657095157740-scaled.jpg",
+    "/images/activities/Sportsbar/1657095157752-scaled.jpg",
+];
+
+function SportsbarSlider() {
+    const [current, setCurrent] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrent((prev) => (prev + 1) % sportsbarImages.length);
+        }, 4000);
+        return () => clearInterval(timer);
+    }, []);
+
+    return (
+        <div className="relative h-48 md:h-64 rounded-2xl overflow-hidden">
+            {sportsbarImages.map((src, i) => (
+                <Image
+                    key={i}
+                    src={src}
+                    alt={`Sportsbar Impression ${i + 1}`}
+                    fill
+                    className={`object-cover transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
+                    loading="lazy"
+                />
+            ))}
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                {sportsbarImages.map((_, i) => (
+                    <button
+                        key={i}
+                        onClick={() => setCurrent(i)}
+                        className={`w-1.5 h-1.5 rounded-full transition-all ${i === current ? "bg-white w-5" : "bg-white/50"}`}
+                        aria-label={`Bild ${i + 1}`}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+}
 
 export default function SportsbarPage() {
     return (
@@ -58,34 +103,28 @@ export default function SportsbarPage() {
                             </ul>
                         </div>
 
-                        <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 max-w-md">
-                            <h3 className="font-bold text-slate-900 mb-2">Speisekarte</h3>
-                            <p className="text-sm text-slate-500 mb-4">Hier kannst du dir vorab Appetit holen.</p>
-                            <a href="#" className="flex items-center gap-3 text-amber-600 font-bold hover:underline p-3 bg-white rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-all">
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
-                                Speisekarte herunterladen (PDF)
-                            </a>
-                        </div>
                     </div>
 
                     {/* Games & Entertainment */}
                     <div className="glass-card bg-white p-8 md:p-10 border-t-4 border-amber-500">
                         <h2 className="text-2xl font-bold text-slate-900 mb-6">More than just Food</h2>
-                        <p className="text-slate-600 mb-4">
+                        <p className="text-slate-600 mb-6">
                             In unserer Sportsbar gibt es jede Menge Entertainment abseits der großen Sportflächen. Alle Geräte mit Münzeinwurf. Billard und Tischfußball pro Spiel 1 €. Kartenzahlung — Credits an der Bar erhältlich.
                         </p>
 
-                        <div className="grid grid-cols-2 gap-4">
+                        {/* Image Slider */}
+                        <SportsbarSlider />
+
+                        <div className="grid grid-cols-2 gap-3 mt-6">
                             {[
-                                { name: "Billard", icon: "🎱" },
-                                { name: "Darts", icon: "🎯" },
-                                { name: "Tischfußball", icon: "⚽" },
-                                { name: "Boxautomat", icon: "🥊" },
-                                { name: "Kickautomat", icon: "👣" },
-                            ].map((game, i) => (
-                                <div key={i} className="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-amber-50 hover:border-amber-200 transition-colors">
-                                    <span className="text-3xl mb-2">{game.icon}</span>
-                                    <span className="font-bold text-slate-700">{game.name}</span>
+                                "Billard",
+                                "Darts",
+                                "Tischfußball",
+                                "Boxautomat",
+                                "Kickautomat",
+                            ].map((name, i) => (
+                                <div key={i} className="flex items-center justify-center p-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-amber-50 hover:border-amber-200 transition-colors">
+                                    <span className="font-bold text-slate-700 text-sm">{name}</span>
                                 </div>
                             ))}
                         </div>

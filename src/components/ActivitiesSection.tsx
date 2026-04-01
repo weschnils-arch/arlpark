@@ -109,8 +109,10 @@ const ACTIVITY_DATA = [
         features: ["Hüpfburg", "4er Trampolin Anlage", "Mini Airbag", "Für Kleinkinder"],
         buttonLink: "/angebote/kids-play",
         images: [
-            "/images/activities/Trampoline/DSC0877-scaled.jpg", // Placeholder
-            "/images/activities/Trampoline/DSC0767-scaled.jpg"
+            "/images/activities/KidsPlay/IMG_20250720_071557.webp",
+            "/images/activities/KidsPlay/IMG_20250623_153032.webp",
+            "/images/activities/KidsPlay/IMG_20250802_115514.webp",
+            "/images/activities/KidsPlay/IMG_20251201_170200.webp"
         ]
     },
     {
@@ -257,7 +259,7 @@ export default function ActivitiesSection() {
             <div className="max-w-7xl mx-auto px-4 md:px-6">
 
                 {/* Navigation Tabs (Visual only for now, or jump links) */}
-                <div className="flex flex-wrap justify-center gap-3 mb-16 md:sticky md:top-24 z-30 bg-slate-50/80 backdrop-blur-sm py-4 rounded-full">
+                <div className="hidden md:flex flex-wrap justify-center gap-3 mb-16 md:sticky md:top-24 z-30 bg-slate-50/80 backdrop-blur-sm py-4 rounded-full">
                     {TABS.map((tab) => (
                         <button
                             key={tab.id}
