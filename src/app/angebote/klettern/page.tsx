@@ -117,25 +117,8 @@ export default function KletternPage() {
             {/* Content Section */}
             <section className="py-14 px-4 md:px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
 
-                {/* Left Column: Info & Partner (on mobile: partner shows first via order) */}
-                <div className="space-y-8 order-2 lg:order-1">
-                    <div>
-                        <h2 className="text-3xl font-black text-slate-900 mb-6">Klettern &amp; Bouldern im arl.park</h2>
-                        <div className="prose prose-lg text-slate-600">
-                            <p>
-                                Auf 15 Metern Höhe bieten wir eine massive Kletterfläche für alle Schwierigkeitsgrade. Von der sanften Platte bis zum spektakulären Überhang.
-                            </p>
-                            <ul className="list-none space-y-2 mt-4 pl-0">
-                                {["Ca. 130 Routen", "Schwierigkeit 3 bis 8b", "Boulderbereich", "3 Auto-Belay Systeme", "Interaktive CLIFT Kletterwand"].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3">
-                                        <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm font-bold">✓</span>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-
+                {/* Left Column: Partner only (desktop) */}
+                <div className="space-y-8 order-3 lg:order-1">
                     {/* Partner Section */}
                     <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 transform transition-all hover:shadow-lg">
                         <div className="flex items-center gap-4 mb-6">
@@ -162,7 +145,7 @@ export default function KletternPage() {
                     </div>
                 </div>
 
-                {/* Right Column: Pricing & Booking (on mobile: shows first) */}
+                {/* Right Column: Pricing, then Info, then AV Landeck */}
                 <div className="space-y-8 order-1 lg:order-2">
                     {/* Interactive Pricing Card */}
                     <div className="glass-card bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl flex flex-col">
@@ -257,6 +240,24 @@ export default function KletternPage() {
                                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                             </Link>
                         </p>
+                    </div>
+
+                    {/* Klettern & Bouldern Info */}
+                    <div>
+                        <h2 className="text-3xl font-black text-slate-900 mb-6">Klettern &amp; Bouldern im arl.park</h2>
+                        <div className="prose prose-lg text-slate-600">
+                            <p>
+                                Auf 15 Metern Höhe bieten wir eine massive Kletterfläche für alle Schwierigkeitsgrade. Von der sanften Platte bis zum spektakulären Überhang.
+                            </p>
+                            <ul className="list-none space-y-2 mt-4 pl-0">
+                                {["Ca. 130 Routen", "Schwierigkeit 3 bis 8b", "Boulderbereich", "3 Auto-Belay Systeme", "Interaktive CLIFT Kletterwand"].map((item, i) => (
+                                    <li key={i} className="flex items-center gap-3">
+                                        <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm font-bold">✓</span>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
 
                     {/* AV Landeck Kooperation */}
