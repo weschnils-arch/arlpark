@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FoodIcon } from "@/components/Icons";
 import PremiumMenuViewer from "@/components/PremiumMenuViewer";
+import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 const sportsbarImages = [
     "/images/activities/Sportsbar/DSC2133-scaled.jpg",
@@ -81,7 +82,7 @@ export default function SportsbarPage() {
                     {/* Food & Drink Info */}
                     <div>
                         <div className="inline-block px-4 py-2 bg-amber-100 text-amber-700 rounded-full font-bold text-sm mb-6">
-                            🍕 Durchgehend warme Küche
+                            Durchgehend warme Küche
                         </div>
                         <h2 className="text-3xl font-bold text-slate-900 mb-6">Leckeres für den Hunger</h2>
                         <div className="prose prose-lg text-slate-600 mb-8">
@@ -93,13 +94,15 @@ export default function SportsbarPage() {
                             </p>
                         </div>
 
-                        <div className="bg-amber-50 rounded-2xl p-6 border border-amber-100 mb-6">
+                        <div className="mb-6">
                             <h3 className="font-bold text-slate-900 mb-3">Highlights</h3>
-                            <ul className="text-sm text-slate-600 space-y-1">
-                                <li>Biertender</li>
-                                <li>Catering auf Anfrage</li>
-                                <li>Junggesellen- und Firmenabende</li>
-                                <li>Gruppenveranstaltungen</li>
+                            <ul className="list-none space-y-2 mt-4 pl-0">
+                                {["Biertender", "Catering auf Anfrage", "Junggesellen- und Firmenabende", "Gruppenveranstaltungen"].map((item, i) => (
+                                    <li key={i} className="flex items-center gap-3">
+                                        <span className="w-6 h-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-sm font-bold">✓</span>
+                                        <span className="text-slate-600">{item}</span>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
 
@@ -115,25 +118,30 @@ export default function SportsbarPage() {
                         {/* Image Slider */}
                         <SportsbarSlider />
 
-                        <div className="grid grid-cols-2 gap-3 mt-6">
+                        <ul className="grid grid-cols-2 gap-3 mt-6 list-none p-0">
                             {[
                                 "Billard",
                                 "Darts",
                                 "Tischfußball",
                                 "Boxautomat",
                                 "Kickautomat",
-                            ].map((name, i) => (
-                                <div key={i} className="flex items-center justify-center p-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-amber-50 hover:border-amber-200 transition-colors">
+                            ].map((name) => (
+                                <li
+                                    key={name}
+                                    className="flex items-center justify-center p-3 rounded-xl bg-slate-50 border border-slate-100"
+                                >
                                     <span className="font-bold text-slate-700 text-sm">{name}</span>
-                                </div>
+                                </li>
                             ))}
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </section>
 
             {/* Menu Viewer Section placed right before the Footer which contains "So finden Sie uns" */}
             <PremiumMenuViewer />
+
+            <WeitereAngeboteSection currentHref="/sportsbar" />
         </main>
     );
 }

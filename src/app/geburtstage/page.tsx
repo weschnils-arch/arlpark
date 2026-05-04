@@ -2,28 +2,73 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { GeburtstagIcon, TrampolinIcon, BowlingIcon, KletternIcon, CheckIcon, FoodIcon } from "@/components/Icons";
+
+const partyImages = [
+    { src: "/images/anpassungen/geburtstag_1.webp", alt: "Geburtstagsparty Impression 1" },
+    { src: "/images/anpassungen/geburtstag_2.webp", alt: "Geburtstagsparty Impression 2" },
+    { src: "/images/anpassungen/geburtstag_3.webp", alt: "Geburtstagsparty Impression 3" },
+];
+
+function PartyGalleryCarousel() {
+    const [slide, setSlide] = useState(0);
+    useEffect(() => {
+        const t = setInterval(() => setSlide((p) => (p + 1) % partyImages.length), 4000);
+        return () => clearInterval(t);
+    }, []);
+    return (
+        <section className="py-12 px-4 md:px-6 bg-white">
+            <div className="max-w-5xl mx-auto">
+                <div className="relative h-72 md:h-[28rem] rounded-2xl overflow-hidden shadow-lg">
+                    {partyImages.map((img, i) => (
+                        <Image
+                            key={i}
+                            src={img.src}
+                            alt={img.alt}
+                            fill
+                            className={`object-cover transition-opacity duration-700 ${i === slide ? "opacity-100" : "opacity-0"}`}
+                            loading={i === 0 ? "eager" : "lazy"}
+                            sizes="(max-width: 768px) 100vw, 80vw"
+                        />
+                    ))}
+                    <button type="button" onClick={() => setSlide((p) => (p - 1 + partyImages.length) % partyImages.length)} className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-slate-800 hover:bg-white transition-colors shadow" aria-label="Vorheriges Bild">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button type="button" onClick={() => setSlide((p) => (p + 1) % partyImages.length)} className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-slate-800 hover:bg-white transition-colors shadow" aria-label="Nächstes Bild">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                        {partyImages.map((_, i) => (
+                            <button key={i} type="button" onClick={() => setSlide(i)} className={`w-2 h-2 rounded-full transition-all ${i === slide ? "bg-white w-6" : "bg-white/50"}`} aria-label={`Bild ${i + 1}`} />
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
 
 const birthdayPackages = [
     {
         title: "Trampolin Party",
         price: "15€",
         icon: TrampolinIcon,
-        includes: ["2 Stunden Trampolin", "Trampolinsocken inkl.", "Eigener Partybereich"],
+        includes: ["2 Stunden Trampolin", "Eigener Partybereich"],
         popular: false,
     },
     {
         title: "Trampolin + 9-Pin Bowling",
         price: "17,25€",
         icon: BowlingIcon,
-        includes: ["2 Stunden Trampolin", "1 Stunde 9-Pin Bowling", "Trampolinsocken inkl."],
+        includes: ["2 Stunden Trampolin", "1 Stunde 9-Pin Bowling"],
         popular: true,
     },
     {
         title: "Action-Paket",
         price: "22,50€",
         icon: KletternIcon,
-        includes: ["2 Stunden Trampolin", "Kletter-Tageskarte", "Kletterverleih inkl.", "Trampolinsocken inkl."],
+        includes: ["2 Stunden Trampolin", "Kletter-Tageskarte", "Kletterverleih inkl."],
         popular: false,
     },
     {
@@ -180,6 +225,8 @@ export default function GeburtstagePage() {
                     </div>
                 </div>
             </section>
+
+            <PartyGalleryCarousel />
 
             {/* Erwachsenen Geburtstag Link */}
             <section className="py-8 px-4 md:px-6 bg-slate-50 text-center">

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CheckIcon } from "@/components/Icons";
+import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 export default function MietanlagenPage() {
     const mietanlagen = [
@@ -12,13 +13,6 @@ export default function MietanlagenPage() {
             price: "Auf Anfrage",
             features: ["Überall aufstellbar", "Verschiedene Schwierigkeitsgrade", "Inkl. Matten und Sicherheit"],
             image: "/images/mietanlagen/Mobiler_Bolderblock.jpg"
-        },
-        {
-            title: "1 Mobiles Trampolin",
-            description: "Schnell aufgebaut — der perfekte Hingucker für jedes Event.",
-            price: "Auf Anfrage",
-            features: ["Schneller Aufbau", "Mobil einsetzbar", "Für alle Altersgruppen"],
-            image: "/images/mietanlagen/Bunge Trampolin.png"
         },
         {
             title: "Bungee Trampolin",
@@ -60,7 +54,7 @@ export default function MietanlagenPage() {
             description: "Große Hüpfburg im Dschungel-Design. Der Blickfang für jedes Kinderfest.",
             price: "Auf Anfrage",
             features: ["Große Springfläche", "Dach als Sonnenschutz", "Zertifiziert"],
-            image: "/images/mietanlagen/Dschungel Tiere.jpg"
+            image: "/images/anpassungen/Boulderblock_Huepfburg.webp"
         }
     ];
 
@@ -134,6 +128,8 @@ export default function MietanlagenPage() {
                     </Link>
                 </div>
             </div>
+
+            <WeitereAngeboteSection currentHref="/mietanlagen" />
         </main>
     );
 }
