@@ -126,7 +126,7 @@ export default function SportsbarPage() {
                                 "Boxautomat",
                                 "Kickautomat",
                             ].map((name, i) => (
-                                <div key={i} className="flex items-center justify-center p-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-amber-50 hover:border-amber-200 transition-colors">
+                                <div key={i} className="flex items-center justify-center p-3 rounded-xl bg-slate-50 border border-slate-100">
                                     <span className="font-bold text-slate-700 text-sm">{name}</span>
                                 </div>
                             ))}

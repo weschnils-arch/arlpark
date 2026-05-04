@@ -272,18 +272,14 @@ function RentalSection() {
             Hole dir den Spaß nach Hause! Wir vermieten professionelles Equipment für Firmenfeiern, Events und private Partys.
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {[
-            { title: "Mobiler Boulderblock", desc: "Klettern überall genießen", icon: "🧗‍♂️" },
-            { title: "Bungee Trampolin", desc: "Hoch hinaus mit Sicherheit", icon: "🤸‍♂️" },
-            { title: "Hüpfburgen & mehr", desc: "Spaß für die Kleinen", icon: "🏰" },
-          ].map((item, i) => (
-            <div key={i} className="bg-slate-50 rounded-3xl p-8 shadow-sm border border-slate-100 hover:shadow-xl transition-shadow">
-              <div className="text-4xl mb-4">{item.icon}</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-              <p className="text-slate-500">{item.desc}</p>
-            </div>
-          ))}
+        <div className="relative w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-12 shadow-xl">
+          <Image
+            src="/images/anpassungen/mietanlagen.webp"
+            alt="Mietanlagen — mobiler Boulderblock, Bungee Trampolin, Hüpfburgen und mehr"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 80vw"
+          />
         </div>
         <div className="mt-8 flex justify-center w-full">
           <Link href="/mietanlagen" className="btn-primary px-8 py-3.5 text-lg inline-flex items-center gap-2 shadow-lg shadow-sky-500/20">
