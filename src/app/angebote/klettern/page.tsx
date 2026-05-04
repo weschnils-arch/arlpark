@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { KletternIcon } from "@/components/Icons";
 import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
+import EarlyBirdBlock from "@/components/EarlyBirdBlock";
 
 const highlights = [
     {
@@ -37,7 +38,7 @@ const highlights = [
         subtitle: "Mehrere Outdoor-Routen im Sommer",
         description: "Auch im Sommer bietet sich der arl.park mit seiner Outdoor Kletterwand ideal für alle Kletterfans an. Eine sonnige Outdoor Wand mit Chill-Area und anspruchsvollen, wie auch einfacheren Routen wartet auf dich!",
         extra: "⚠️ Outdoor-Bereich nur im Sommer geöffnet!",
-        image: "/images/klettern_highlights/Outdoor_Klettern.png",
+        image: "/images/anpassungen/Klettern_Outdoor.webp",
     },
 ];
 
@@ -120,6 +121,26 @@ export default function KletternPage() {
 
                 {/* Left Column: Partner only (desktop) */}
                 <div className="space-y-8 order-3 lg:order-1">
+                    {/* Klettern & Bouldern Info (moved from right column on 4 May) */}
+                    <div>
+                        <h2 className="text-3xl font-black text-slate-900 mb-6">Klettern &amp; Bouldern im arl.park</h2>
+                        <div className="prose prose-lg text-slate-600">
+                            <p>
+                                Auf 15 Metern Höhe bieten wir eine massive Kletterfläche für alle Schwierigkeitsgrade. Von der sanften Platte bis zum spektakulären Überhang.
+                            </p>
+                            <ul className="list-none space-y-2 mt-4 pl-0">
+                                {["Ca. 130 Routen", "Schwierigkeit 3 bis 8b", "Boulderbereich", "3 Auto-Belay Systeme", "Interaktive CLIFT Kletterwand"].map((item, i) => (
+                                    <li key={i} className="flex items-center gap-3">
+                                        <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm font-bold">✓</span>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <EarlyBirdBlock />
+
                     {/* Partner Section */}
                     <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 transform transition-all hover:shadow-lg">
                         <div className="flex items-center gap-4 mb-6">
@@ -241,24 +262,6 @@ export default function KletternPage() {
                                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                             </Link>
                         </p>
-                    </div>
-
-                    {/* Klettern & Bouldern Info */}
-                    <div>
-                        <h2 className="text-3xl font-black text-slate-900 mb-6">Klettern &amp; Bouldern im arl.park</h2>
-                        <div className="prose prose-lg text-slate-600">
-                            <p>
-                                Auf 15 Metern Höhe bieten wir eine massive Kletterfläche für alle Schwierigkeitsgrade. Von der sanften Platte bis zum spektakulären Überhang.
-                            </p>
-                            <ul className="list-none space-y-2 mt-4 pl-0">
-                                {["Ca. 130 Routen", "Schwierigkeit 3 bis 8b", "Boulderbereich", "3 Auto-Belay Systeme", "Interaktive CLIFT Kletterwand"].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3">
-                                        <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm font-bold">✓</span>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
                     </div>
 
                     {/* AV Landeck Kooperation */}
