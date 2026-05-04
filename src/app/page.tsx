@@ -27,7 +27,7 @@ function ActivityTile({ href, icon: Icon, name, description, color, glassBg }: A
       aria-label={`${name} - ${description}`}
     >
       <div className={`w-11 h-11 md:w-18 md:h-18 ${color} rounded-xl md:rounded-2xl flex items-center justify-center mb-1.5 md:mb-3 group-hover:scale-110 transition-transform shadow-lg`} aria-hidden="true">
-        <Icon className="text-white" size={22} />
+        <Icon className="text-white" size={30} />
       </div>
       <span className="text-xs md:text-lg font-bold text-white text-center leading-tight">{name}</span>
       <span className="text-xs text-white/80 text-center hidden md:block">{description}</span>
