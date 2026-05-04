@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { KletternIcon } from "@/components/Icons";
-import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
-import EarlyBirdBlock from "@/components/EarlyBirdBlock";
 
 const highlights = [
     {
@@ -121,26 +119,6 @@ export default function KletternPage() {
 
                 {/* Left Column: Partner only (desktop) */}
                 <div className="space-y-8 order-3 lg:order-1">
-                    {/* Klettern & Bouldern Info (moved from right column on 4 May) */}
-                    <div>
-                        <h2 className="text-3xl font-black text-slate-900 mb-6">Klettern &amp; Bouldern im arl.park</h2>
-                        <div className="prose prose-lg text-slate-600">
-                            <p>
-                                Auf 15 Metern Höhe bieten wir eine massive Kletterfläche für alle Schwierigkeitsgrade. Von der sanften Platte bis zum spektakulären Überhang.
-                            </p>
-                            <ul className="list-none space-y-2 mt-4 pl-0">
-                                {["Ca. 130 Routen", "Schwierigkeit 3 bis 8b", "Boulderbereich", "3 Auto-Belay Systeme", "Interaktive CLIFT Kletterwand"].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3">
-                                        <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm font-bold">✓</span>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-
-                    <EarlyBirdBlock />
-
                     {/* Partner Section */}
                     <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 transform transition-all hover:shadow-lg">
                         <div className="flex items-center gap-4 mb-6">
@@ -264,6 +242,24 @@ export default function KletternPage() {
                         </p>
                     </div>
 
+                    {/* Klettern & Bouldern Info */}
+                    <div>
+                        <h2 className="text-3xl font-black text-slate-900 mb-6">Klettern &amp; Bouldern im arl.park</h2>
+                        <div className="prose prose-lg text-slate-600">
+                            <p>
+                                Auf 15 Metern Höhe bieten wir eine massive Kletterfläche für alle Schwierigkeitsgrade. Von der sanften Platte bis zum spektakulären Überhang.
+                            </p>
+                            <ul className="list-none space-y-2 mt-4 pl-0">
+                                {["Ca. 130 Routen", "Schwierigkeit 3 bis 8b", "Boulderbereich", "3 Auto-Belay Systeme", "Interaktive CLIFT Kletterwand"].map((item, i) => (
+                                    <li key={i} className="flex items-center gap-3">
+                                        <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm font-bold">✓</span>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
                     {/* AV Landeck Kooperation */}
                     <div className="bg-white rounded-3xl shadow-lg border border-slate-200 p-8">
                         <h3 className="text-xl font-bold text-slate-900 mb-4">Kooperation mit dem AV Landeck</h3>
@@ -366,7 +362,30 @@ export default function KletternPage() {
                     </div>
                 </div>
             </section>
-            <WeitereAngeboteSection currentHref="/angebote/klettern" />
+            {/* Cross-Links to other activities */}
+            <section className="py-12 px-4 md:px-6 bg-slate-50 border-t border-slate-100">
+                <div className="max-w-5xl mx-auto">
+                    <h3 className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Weitere Angebote im arl.park</h3>
+                    <div className="flex flex-wrap justify-center gap-3">
+                        {[
+                            { href: "/angebote/trampolin", label: "Trampolin" },
+                            { href: "/angebote/bowling", label: "9-Pin Bowling" },
+                            { href: "/angebote/squash", label: "Squash" },
+                            { href: "/angebote/tennis", label: "Tennis" },
+                            { href: "/angebote/tischtennis", label: "Tischtennis" },
+                            { href: "/angebote/pickleball", label: "Pickleball" },
+                            { href: "/angebote/kids-play", label: "Kids Play" },
+                            { href: "/sportsbar", label: "Sportsbar" },
+                            { href: "/geburtstage", label: "Geburtstage" },
+                            { href: "/gruppen-schulen", label: "Gruppen & Vereine" },
+                        ].map((link) => (
+                            <Link key={link.href} href={link.href} className="px-5 py-2 rounded-full bg-white border border-slate-200 text-slate-600 font-medium text-sm hover:bg-sky-50 hover:text-sky-700 hover:border-sky-200 transition-colors">
+                                {link.label}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
         </main>
     );
 }

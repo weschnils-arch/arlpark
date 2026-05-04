@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { SquashIcon } from "@/components/Icons";
-import EarlyBirdBlock from "@/components/EarlyBirdBlock";
-import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 export default function SquashPage() {
     return (
@@ -50,8 +48,6 @@ export default function SquashPage() {
                             ))}
                         </ul>
                     </div>
-
-                    <EarlyBirdBlock />
                 </div>
 
                 <div className="glass-card bg-white p-8 md:p-10">
@@ -81,8 +77,6 @@ export default function SquashPage() {
                     </Link>
                 </div>
             </section>
-
-            <WeitereAngeboteSection currentHref="/angebote/squash" />
         </main>
     );
 }

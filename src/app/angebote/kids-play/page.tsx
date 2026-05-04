@@ -4,8 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { KidsPlayIcon } from "@/components/Icons";
-import EarlyBirdBlock from "@/components/EarlyBirdBlock";
-import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 const galleryImages = [
     { src: "/images/activities/KidsPlay/IMG_20250623_153032.webp", alt: "Bällebad mit Rutsche" },
@@ -68,8 +66,6 @@ export default function KidsPlayPage() {
                             ))}
                         </ul>
                     </div>
-
-                    <EarlyBirdBlock />
                 </div>
 
                 <div className="glass-card bg-white p-8 md:p-10">
@@ -147,8 +143,6 @@ export default function KidsPlayPage() {
                     </div>
                 </div>
             </section>
-
-            <WeitereAngeboteSection currentHref="/angebote/kids-play" />
         </main>
     );
 }

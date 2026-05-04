@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CheckIcon } from "@/components/Icons";
-import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 export default function MietanlagenPage() {
     const mietanlagen = [
@@ -54,7 +53,7 @@ export default function MietanlagenPage() {
             description: "Große Hüpfburg im Dschungel-Design. Der Blickfang für jedes Kinderfest.",
             price: "Auf Anfrage",
             features: ["Große Springfläche", "Dach als Sonnenschutz", "Zertifiziert"],
-            image: "/images/anpassungen/Boulderblock_Huepfburg.webp"
+            image: "/images/mietanlagen/Dschungel Tiere.jpg"
         }
     ];
 
@@ -128,8 +127,6 @@ export default function MietanlagenPage() {
                     </Link>
                 </div>
             </div>
-
-            <WeitereAngeboteSection currentHref="/mietanlagen" />
         </main>
     );
 }

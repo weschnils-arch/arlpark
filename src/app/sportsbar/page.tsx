@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FoodIcon } from "@/components/Icons";
 import PremiumMenuViewer from "@/components/PremiumMenuViewer";
-import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 const sportsbarImages = [
     "/images/activities/Sportsbar/DSC2133-scaled.jpg",
@@ -118,30 +117,25 @@ export default function SportsbarPage() {
                         {/* Image Slider */}
                         <SportsbarSlider />
 
-                        <ul className="grid grid-cols-2 gap-3 mt-6 list-none p-0">
+                        <div className="grid grid-cols-2 gap-3 mt-6">
                             {[
                                 "Billard",
                                 "Darts",
                                 "Tischfußball",
                                 "Boxautomat",
                                 "Kickautomat",
-                            ].map((name) => (
-                                <li
-                                    key={name}
-                                    className="flex items-center justify-center p-3 rounded-xl bg-slate-50 border border-slate-100"
-                                >
+                            ].map((name, i) => (
+                                <div key={i} className="flex items-center justify-center p-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-amber-50 hover:border-amber-200 transition-colors">
                                     <span className="font-bold text-slate-700 text-sm">{name}</span>
-                                </li>
+                                </div>
                             ))}
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* Menu Viewer Section placed right before the Footer which contains "So finden Sie uns" */}
             <PremiumMenuViewer />
-
-            <WeitereAngeboteSection currentHref="/sportsbar" />
         </main>
     );
 }

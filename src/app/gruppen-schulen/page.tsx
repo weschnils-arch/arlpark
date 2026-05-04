@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SchuleIcon, FirmaIcon, CheckIcon, GeburtstagIcon } from "@/components/Icons";
-import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 export default function GruppenSchulenPage() {
     return (
@@ -215,8 +214,6 @@ export default function GruppenSchulenPage() {
                     </Link>
                 </div>
             </section>
-
-            <WeitereAngeboteSection currentHref="/gruppen-schulen" />
         </main>
     );
 }
