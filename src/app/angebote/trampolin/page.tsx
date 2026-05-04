@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { TrampolinIcon } from "@/components/Icons";
 import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
+import EarlyBirdBlock from "@/components/EarlyBirdBlock";
 
 const galleryImages = [
     "/images/activities/Trampoline/DSC0523-scaled.jpg",
@@ -101,6 +102,10 @@ export default function TrampolinPage() {
                         <p className="text-sm text-slate-600">
                             Aus Sicherheitsgründen sind Trampolinsocken Pflicht! Du kannst deine eigenen mitbringen oder bei uns für 4,00 € kaufen.
                         </p>
+                    </div>
+
+                    <div className="mt-6">
+                        <EarlyBirdBlock />
                     </div>
                 </div>
 

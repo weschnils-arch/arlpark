@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { KletternIcon } from "@/components/Icons";
 import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
+import EarlyBirdBlock from "@/components/EarlyBirdBlock";
 
 const highlights = [
     {
@@ -162,6 +163,8 @@ export default function KletternPage() {
                             </ul>
                         </div>
                     </div>
+
+                    <EarlyBirdBlock />
 
                     {/* AV Landeck Kooperation (moved under Partner card on 4 May) */}
                     <div className="bg-white rounded-3xl shadow-lg border border-slate-200 p-8">

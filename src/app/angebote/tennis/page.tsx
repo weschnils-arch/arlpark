@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { TennisIcon } from "@/components/Icons";
 import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
+import EarlyBirdBlock from "@/components/EarlyBirdBlock";
 
 export default function TennisPage() {
     return (
@@ -46,6 +47,10 @@ export default function TennisPage() {
                     </ul>
                     <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4">
                         <p className="text-sm text-amber-800 font-medium">Hinweis: Juni – September kein Tennis verfügbar.</p>
+                    </div>
+
+                    <div className="mt-6">
+                        <EarlyBirdBlock />
                     </div>
                 </div>
 

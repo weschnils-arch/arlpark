@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PickleballIcon } from "@/components/Icons";
 import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
+import EarlyBirdBlock from "@/components/EarlyBirdBlock";
 
 export default function PickleballPage() {
     return (
@@ -57,6 +58,10 @@ export default function PickleballPage() {
                             height={500}
                             className="w-full h-auto object-cover"
                         />
+                    </div>
+
+                    <div className="mt-6">
+                        <EarlyBirdBlock />
                     </div>
                 </div>
 

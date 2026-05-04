@@ -54,7 +54,7 @@ export default function MietanlagenPage() {
             description: "Große Hüpfburg im Dschungel-Design. Der Blickfang für jedes Kinderfest.",
             price: "Auf Anfrage",
             features: ["Große Springfläche", "Dach als Sonnenschutz", "Zertifiziert"],
-            image: "/images/mietanlagen/Dschungel Tiere.jpg"
+            image: "/images/anpassungen/Boulderblock_Huepfburg.webp"
         }
     ];
 

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { SquashIcon } from "@/components/Icons";
 import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
+import EarlyBirdBlock from "@/components/EarlyBirdBlock";
 
 export default function SquashPage() {
     return (
@@ -49,6 +50,8 @@ export default function SquashPage() {
                             ))}
                         </ul>
                     </div>
+
+                    <EarlyBirdBlock />
                 </div>
 
                 <div className="glass-card bg-white p-8 md:p-10">
