@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { BowlingIcon } from "@/components/Icons";
+import EarlyBirdBlock from "@/components/EarlyBirdBlock";
+import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 export default function BowlingPage() {
     const [priceType, setPriceType] = useState("bahn");
@@ -13,10 +15,6 @@ export default function BowlingPage() {
             { label: "Pro Person / Stunde", price: "4,50 €" },
             { label: "Mindestpreis pro Bahn", price: "18,00 €" },
         ],
-        extras: [
-            { label: "Eigene Kinderkugeln", price: "inkl." },
-            { label: "Disco-Kugel mit Moonlight", price: "inkl." },
-        ]
     };
 
     return (
@@ -67,6 +65,8 @@ export default function BowlingPage() {
                             ))}
                         </ul>
                     </div>
+
+                    <EarlyBirdBlock />
                 </div>
 
                 <div className="glass-card bg-white p-8 md:p-10 sticky top-24">
@@ -83,7 +83,6 @@ export default function BowlingPage() {
                             className="w-full p-4 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer appearance-none"
                         >
                             <option value="bahn">Preise</option>
-                            <option value="extras">Extras</option>
                         </select>
                     </div>
 
@@ -128,6 +127,8 @@ export default function BowlingPage() {
                     </div>
                 </div>
             </section>
+
+            <WeitereAngeboteSection currentHref="/angebote/bowling" />
         </main>
     );
 }

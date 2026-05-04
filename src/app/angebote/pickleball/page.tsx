@@ -4,6 +4,8 @@ import Image from "next/image";
 
 import Link from "next/link";
 import { PickleballIcon } from "@/components/Icons";
+import EarlyBirdBlock from "@/components/EarlyBirdBlock";
+import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 export default function PickleballPage() {
     return (
@@ -57,6 +59,10 @@ export default function PickleballPage() {
                             className="w-full h-auto object-cover"
                         />
                     </div>
+
+                    <div className="mt-6">
+                        <EarlyBirdBlock />
+                    </div>
                 </div>
 
                 <div className="glass-card bg-white p-8 md:p-10">
@@ -88,6 +94,8 @@ export default function PickleballPage() {
                     </Link>
                 </div>
             </section>
+
+            <WeitereAngeboteSection currentHref="/angebote/pickleball" />
         </main>
     );
 }

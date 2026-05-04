@@ -4,6 +4,8 @@ import Image from "next/image";
 
 import Link from "next/link";
 import { TableTennisIcon } from "@/components/Icons";
+import EarlyBirdBlock from "@/components/EarlyBirdBlock";
+import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 export default function TischtennisPage() {
     return (
@@ -43,6 +45,10 @@ export default function TischtennisPage() {
                             </li>
                         ))}
                     </ul>
+
+                    <div className="mt-6">
+                        <EarlyBirdBlock />
+                    </div>
                 </div>
 
                 <div className="glass-card bg-white p-8 md:p-10">
@@ -70,6 +76,8 @@ export default function TischtennisPage() {
                     </Link>
                 </div>
             </section>
+
+            <WeitereAngeboteSection currentHref="/angebote/tischtennis" />
         </main>
     );
 }

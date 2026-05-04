@@ -2,7 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { KidsPlayIcon } from "@/components/Icons";
+import EarlyBirdBlock from "@/components/EarlyBirdBlock";
+import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 const galleryImages = [
     { src: "/images/activities/KidsPlay/IMG_20250623_153032.webp", alt: "Bällebad mit Rutsche" },
@@ -14,6 +17,12 @@ const galleryImages = [
 ];
 
 export default function KidsPlayPage() {
+    const [kidsSlide, setKidsSlide] = useState(0);
+    useEffect(() => {
+        const t = setInterval(() => setKidsSlide((p) => (p + 1) % galleryImages.length), 4000);
+        return () => clearInterval(t);
+    }, []);
+
     return (
         <main className="bg-white min-h-screen">
             {/* Hero Section */}
@@ -50,8 +59,7 @@ export default function KidsPlayPage() {
                                 "Hüpfburg",
                                 "Weiche Kletterelemente",
                                 "Altersgerechte Spiele",
-                                "Sitzbereich für Eltern in der Nähe",
-                                "Direkter Zugang zum Café"
+                                "Sitzbereich für Eltern in der Nähe"
                             ].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3">
                                     <span className="w-6 h-6 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center text-sm font-bold">✓</span>
@@ -60,6 +68,8 @@ export default function KidsPlayPage() {
                             ))}
                         </ul>
                     </div>
+
+                    <EarlyBirdBlock />
                 </div>
 
                 <div className="glass-card bg-white p-8 md:p-10">
@@ -99,23 +109,46 @@ export default function KidsPlayPage() {
                 </div>
             </section>
 
-            {/* Image Gallery */}
+            {/* Image Gallery — auto-rotating carousel */}
             <section className="pb-20 px-4 md:px-6 max-w-7xl mx-auto">
                 <h2 className="text-3xl font-black text-slate-900 mb-8">Einblicke in unsere Kids World</h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="relative h-72 md:h-[28rem] rounded-2xl overflow-hidden shadow-lg">
                     {galleryImages.map((img, i) => (
-                        <div key={i} className="relative aspect-[4/3] rounded-2xl overflow-hidden group">
-                            <Image
-                                src={img.src}
-                                alt={img.alt}
-                                fill
-                                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                loading="lazy"
-                            />
-                        </div>
+                        <Image
+                            key={i}
+                            src={img.src}
+                            alt={img.alt}
+                            fill
+                            className={`object-cover transition-opacity duration-700 ${i === kidsSlide ? "opacity-100" : "opacity-0"}`}
+                            loading={i === 0 ? "eager" : "lazy"}
+                            sizes="(max-width: 768px) 100vw, 80vw"
+                        />
                     ))}
+                    <button
+                        type="button"
+                        onClick={() => setKidsSlide((p) => (p - 1 + galleryImages.length) % galleryImages.length)}
+                        className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-slate-800 hover:bg-white transition-colors shadow"
+                        aria-label="Vorheriges Bild"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => setKidsSlide((p) => (p + 1) % galleryImages.length)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-slate-800 hover:bg-white transition-colors shadow"
+                        aria-label="Nächstes Bild"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                        {galleryImages.map((_, i) => (
+                            <button key={i} type="button" onClick={() => setKidsSlide(i)} className={`w-2 h-2 rounded-full transition-all ${i === kidsSlide ? "bg-white w-6" : "bg-white/50"}`} aria-label={`Bild ${i + 1}`} />
+                        ))}
+                    </div>
                 </div>
             </section>
+
+            <WeitereAngeboteSection currentHref="/angebote/kids-play" />
         </main>
     );
 }
