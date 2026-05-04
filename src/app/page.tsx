@@ -141,23 +141,23 @@ function WelcomeAndHoursSection() {
               Nur einen Sprung vom Bahnhof entfernt — im arl.park in St. Anton am Arlberg sind diverse sportliche Erlebnisse unter einem Dach vereint: Von Klettern, über Trampolin-Hüpfen, Squash, Tennis bis hin zu 9-Pin Bowling und mehr. Parkplätze sind direkt beim Eingang neben dem Gebäude. Auch das kulinarische Angebot kann sich sehen lassen – im Zentrum des Sportbereichs gibt es mit der „Sportsbar" einen Ausschank und eine Vielzahl köstlicher Snacks und erfrischender Getränke.
             </p>
 
-            {/* Reservation Info Box */}
+            {/* Preise & Tickets Card (replaces former Info-zu-Reservierungen block) */}
             <div className="bg-sky-50 rounded-3xl p-8 border border-sky-100">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 bg-sky-600 rounded-xl flex items-center justify-center text-white text-lg">📋</div>
-                <h3 className="text-xl font-black text-slate-900">Info zu Reservierungen</h3>
+                <div className="w-10 h-10 bg-sky-600 rounded-xl flex items-center justify-center text-white text-lg" aria-hidden="true">💶</div>
+                <h3 className="text-xl font-black text-slate-900">Preise &amp; Tickets</h3>
               </div>
-              <ul className="space-y-4 text-slate-600 text-sm leading-relaxed">
-                <li className="flex items-start gap-3">
-                  <span className="text-emerald-500 font-black mt-0.5">✓</span>
-                  <span><strong className="text-slate-800">Trampolin &amp; Klettern:</strong> Keine Reservierung notwendig (wird nur an Schlechtwettertagen empfohlen).</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-sky-500 font-black mt-0.5">→</span>
-                  <span><strong className="text-slate-800">9-Pin Bowling, Squash, Tischtennis, Tennis &amp; Pickleball:</strong> Vorab reservieren empfohlen – online buchbar.</span>
-                </li>
-              </ul>
-              <div className="mt-6 pt-5 border-t border-sky-200">
+              <p className="text-slate-600 text-sm leading-relaxed mb-2">
+                Alle Preise für sämtliche Aktivitäten auf einen Blick — Trampolin, Klettern, 9-Pin Bowling, Squash, Tennis, Tischtennis, Pickleball &amp; Kids Play.
+              </p>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Mit unseren EarlyBird Tickets sparst du <strong className="text-amber-700">−20 %</strong> bei Buchungen mindestens eine Woche im Voraus.
+              </p>
+              <div className="mt-6 pt-5 border-t border-sky-200 flex flex-wrap items-center gap-x-6 gap-y-3">
+                <Link href="/preise" className="flex items-center gap-2 text-sky-700 font-bold text-sm hover:underline">
+                  Zur Preisübersicht
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </Link>
                 <Link href="https://v5.bookandplay.com/p_pro_arlpark.php" target="_blank" className="flex items-center gap-2 text-sky-700 font-bold text-sm hover:underline">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                   Jetzt online buchen
@@ -207,18 +207,6 @@ function WelcomeAndHoursSection() {
           </div>
         </div>
 
-        {/* Preise Link — full width below Öffnungszeiten (#13 länglich) */}
-        <div className="mt-10">
-          <Link href="/preise" className="block w-full bg-sky-50 hover:bg-sky-100 border border-sky-200 rounded-2xl px-8 py-5 transition-colors group">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-black text-slate-900">Preise &amp; Tickets</h3>
-                <p className="text-sm text-slate-500">Alle Preise für sämtliche Aktivitäten auf einen Blick.</p>
-              </div>
-              <svg className="w-5 h-5 text-sky-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </div>
-          </Link>
-        </div>
       </div>
     </section>
   );
