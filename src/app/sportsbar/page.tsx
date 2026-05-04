@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FoodIcon } from "@/components/Icons";
 import PremiumMenuViewer from "@/components/PremiumMenuViewer";
+import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 const sportsbarImages = [
     "/images/activities/Sportsbar/DSC2133-scaled.jpg",
@@ -136,6 +137,8 @@ export default function SportsbarPage() {
 
             {/* Menu Viewer Section placed right before the Footer which contains "So finden Sie uns" */}
             <PremiumMenuViewer />
+
+            <WeitereAngeboteSection currentHref="/sportsbar" />
         </main>
     );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { TrampolinIcon } from "@/components/Icons";
+import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 const galleryImages = [
     "/images/activities/Trampoline/DSC0523-scaled.jpg",
@@ -243,6 +244,8 @@ export default function TrampolinPage() {
                     </div>
                 </div>
             </section>
+
+            <WeitereAngeboteSection currentHref="/angebote/trampolin" />
         </main>
     );
 }

@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import Link from "next/link";
 import { TableTennisIcon } from "@/components/Icons";
+import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 export default function TischtennisPage() {
     return (
@@ -70,6 +71,8 @@ export default function TischtennisPage() {
                     </Link>
                 </div>
             </section>
+
+            <WeitereAngeboteSection currentHref="/angebote/tischtennis" />
         </main>
     );
 }

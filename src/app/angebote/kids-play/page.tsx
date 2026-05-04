@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { KidsPlayIcon } from "@/components/Icons";
+import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 const galleryImages = [
     { src: "/images/activities/KidsPlay/IMG_20250623_153032.webp", alt: "Bällebad mit Rutsche" },
@@ -143,6 +144,8 @@ export default function KidsPlayPage() {
                     </div>
                 </div>
             </section>
+
+            <WeitereAngeboteSection currentHref="/angebote/kids-play" />
         </main>
     );
 }

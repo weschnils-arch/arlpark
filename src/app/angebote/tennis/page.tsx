@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import Link from "next/link";
 import { TennisIcon } from "@/components/Icons";
+import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 export default function TennisPage() {
     return (
@@ -77,6 +78,8 @@ export default function TennisPage() {
                     </Link>
                 </div>
             </section>
+
+            <WeitereAngeboteSection currentHref="/angebote/tennis" />
         </main>
     );
 }

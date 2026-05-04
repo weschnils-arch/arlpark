@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import Link from "next/link";
 import { PickleballIcon } from "@/components/Icons";
+import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 export default function PickleballPage() {
     return (
@@ -88,6 +89,8 @@ export default function PickleballPage() {
                     </Link>
                 </div>
             </section>
+
+            <WeitereAngeboteSection currentHref="/angebote/pickleball" />
         </main>
     );
 }
