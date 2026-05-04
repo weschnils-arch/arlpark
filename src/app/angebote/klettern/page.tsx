@@ -144,9 +144,41 @@ export default function KletternPage() {
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                         </Link>
                     </div>
+
+                    {/* Klettern & Bouldern Info (moved under Partner card on 4 May) */}
+                    <div>
+                        <h2 className="text-3xl font-black text-slate-900 mb-6">Klettern &amp; Bouldern im arl.park</h2>
+                        <div className="prose prose-lg text-slate-600">
+                            <p>
+                                Auf 15 Metern Höhe bieten wir eine massive Kletterfläche für alle Schwierigkeitsgrade. Von der sanften Platte bis zum spektakulären Überhang.
+                            </p>
+                            <ul className="list-none space-y-2 mt-4 pl-0">
+                                {["Ca. 130 Routen", "Schwierigkeit 3 bis 8b", "Boulderbereich", "3 Auto-Belay Systeme", "Interaktive CLIFT Kletterwand"].map((item, i) => (
+                                    <li key={i} className="flex items-center gap-3">
+                                        <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm font-bold">✓</span>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* AV Landeck Kooperation (moved under Partner card on 4 May) */}
+                    <div className="bg-white rounded-3xl shadow-lg border border-slate-200 p-8">
+                        <h3 className="text-xl font-bold text-slate-900 mb-4">Kooperation mit dem AV Landeck</h3>
+                        <p className="text-slate-600 mb-4">
+                            Im arl.park arbeiten wir eng mit der Sektion Landeck des Alpenverein zusammen und bieten immer wieder verschiedene Kletterkurse zur Aus- und Weiterbildung an. AV Landeck Mitglieder bekommen vergünstigte Eintrittskonditionen.
+                        </p>
+                        <p className="text-slate-600">
+                            Unsere Kletterkurse findest du im Aktuelles Bereich. Einen Kletterlehrer für individuelle Trainerstunden ist auf Anfrage buchbar.
+                        </p>
+                        <Link href="/veranstaltungen" className="mt-4 inline-flex items-center gap-2 text-sky-600 font-bold hover:underline text-sm">
+                            Aktuelle Kurse ansehen &rarr;
+                        </Link>
+                    </div>
                 </div>
 
-                {/* Right Column: Pricing, then Info, then AV Landeck */}
+                {/* Right Column: Pricing only */}
                 <div className="space-y-8 order-1 lg:order-2">
                     {/* Interactive Pricing Card */}
                     <div className="glass-card bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl flex flex-col">
@@ -243,37 +275,6 @@ export default function KletternPage() {
                         </p>
                     </div>
 
-                    {/* Klettern & Bouldern Info */}
-                    <div>
-                        <h2 className="text-3xl font-black text-slate-900 mb-6">Klettern &amp; Bouldern im arl.park</h2>
-                        <div className="prose prose-lg text-slate-600">
-                            <p>
-                                Auf 15 Metern Höhe bieten wir eine massive Kletterfläche für alle Schwierigkeitsgrade. Von der sanften Platte bis zum spektakulären Überhang.
-                            </p>
-                            <ul className="list-none space-y-2 mt-4 pl-0">
-                                {["Ca. 130 Routen", "Schwierigkeit 3 bis 8b", "Boulderbereich", "3 Auto-Belay Systeme", "Interaktive CLIFT Kletterwand"].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3">
-                                        <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm font-bold">✓</span>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-
-                    {/* AV Landeck Kooperation */}
-                    <div className="bg-white rounded-3xl shadow-lg border border-slate-200 p-8">
-                        <h3 className="text-xl font-bold text-slate-900 mb-4">Kooperation mit dem AV Landeck</h3>
-                        <p className="text-slate-600 mb-4">
-                            Im arl.park arbeiten wir eng mit der Sektion Landeck des Alpenverein zusammen und bieten immer wieder verschiedene Kletterkurse zur Aus- und Weiterbildung an. AV Landeck Mitglieder bekommen vergünstigte Eintrittskonditionen.
-                        </p>
-                        <p className="text-slate-600">
-                            Unsere Kletterkurse findest du im Aktuelles Bereich. Einen Kletterlehrer für individuelle Trainerstunden ist auf Anfrage buchbar.
-                        </p>
-                        <Link href="/veranstaltungen" className="mt-4 inline-flex items-center gap-2 text-sky-600 font-bold hover:underline text-sm">
-                            Aktuelle Kurse ansehen &rarr;
-                        </Link>
-                    </div>
                 </div>
 
             </section>
