@@ -13,7 +13,7 @@ export default function KontaktPage() {
                 className="relative h-[50vh] flex items-center justify-center overflow-hidden"
             >
                 <div
-                    className="absolute inset-0 bg-cover bg-center"
+                    className="absolute inset-0 bg-cover bg-bottom"
                     style={{
                         backgroundImage: `url('/images/activities/Bowling/IMG_20220623_163214-scaled.jpg')`,
                         backgroundAttachment: "fixed",
