@@ -23,7 +23,7 @@ const ACTIVITY_DATA = [
     },
     {
         id: "klettern",
-        title: "Kletterwand",
+        title: "Kletterhalle",
         badge: "Über 100 Routen",
         badgeColor: "bg-orange-500",
         description: "Über 100 Indoor- und Outdoor-Routen, 3 Autobelay-Systeme und 125 m² Boulderhalle. In Kooperation mit dem Kletterzentrum Imst.",
@@ -42,7 +42,7 @@ const ACTIVITY_DATA = [
         badge: "4 Bahnen",
         badgeColor: "bg-slate-700",
         description: "Vier 9-Pin Bowlingbahnen für die ganze Familie und Gruppen. Bis zu 8 Personen pro Bahn.",
-        features: ["4 Bahnen", "Bis zu 8 Personen/Bahn", "Eigene Kinderkugeln", "Disco-Kugel mit Moonlight"],
+        features: ["4 Bahnen", "Bis zu 8 Personen/Bahn", "Eigene Kinderkugeln", "Kinderbahn mit Bande"],
         buttonLink: "/angebote/bowling",
         images: [
             "/images/activities/Bowling/DSC2041-scaled.jpg",
@@ -106,7 +106,7 @@ const ACTIVITY_DATA = [
         badge: "Von klein bis groß für alle etwas dabei",
         badgeColor: "bg-red-500",
         description: "Ein Paradies für die Kleinsten! Entdecke unseren neuen Kids-Play Bereich mit Mini Airbag, Hüpfburg und mehr.",
-        features: ["Hüpfburg", "4er Trampolin Anlage", "Mini Airbag", "Für Kleinkinder"],
+        features: ["Hüpfburg", "Kletterwand", "Mini Airbag", "Für Kleinkinder"],
         buttonLink: "/angebote/kids-play",
         images: [
             "/images/activities/KidsPlay/IMG_20250720_071557.webp",
@@ -151,7 +151,7 @@ const ACTIVITY_DATA = [
         title: "arl.x Vereinstraining",
         badge: "Training für Profis",
         badgeColor: "bg-indigo-600",
-        description: "Professionelle Trainingsmöglichkeiten für Vereine. Klettern, Kondition und Technik.",
+        description: "Arl X – der Verein für alle, die sich bewegen wollen: mit Trampolin, Klettern, Tanzen und jeder Menge Spaß an Sport und Gemeinschaft!",
         features: ["Regelmäßige Termine", "Trainer-Support", "Individuelle Pakete", "Professionelle Ausstattung"],
         buttonLink: "/angebote/vereinstraining",
         images: [
@@ -178,11 +178,23 @@ const ACTIVITY_DATA = [
         badge: "Gemeinsam erleben",
         badgeColor: "bg-blue-600",
         description: "Ideal für Schulausflüge, Firmenfeiern und Vereinsausflüge. Individuelle Angebote für große Gruppen.",
-        features: ["Schulklassen", "Firmenfeiern", "Teambuilding", "Sonderkonditionen"],
+        features: ["Schulklassen", "Firmenfeiern", "Teambuilding", "Junggesellenabschied"],
         buttonLink: "/gruppen-schulen",
         images: [
             "/images/activities/Bowling/DSC2041-scaled.jpg", // Placeholder
             "/images/activities/Climbing/DSC2726-scaled.jpg"
+        ]
+    },
+    {
+        id: "gepaeckdepot",
+        title: "Gepäckdepot & Duschen",
+        badge: "Service für unterwegs",
+        badgeColor: "bg-slate-700",
+        description: "Praktischer Service für Gäste auf der Durchreise — Gepäck sicher verstauen und frisch in den nächsten Programmpunkt starten.",
+        features: ["Gepäckdepot 3 € pro Tag", "Dusche inkl. Handtuch 5 €", "Direkt am Bahnhof", "Ohne Voranmeldung"],
+        buttonLink: "/kontakt",
+        images: [
+            "/images/activities/Sportsbar/DSC2065-scaled.jpg"
         ]
     }
 ];
@@ -199,7 +211,8 @@ const TABS = [
     { id: "sportsbar", label: "Sportsbar" },
     { id: "mietanlagen", label: "Mietanlagen" },
     { id: "geburtstage", label: "Geburtstage" },
-    { id: "gruppen", label: "Gruppen & Vereine" }
+    { id: "gruppen", label: "Gruppen & Vereine" },
+    { id: "gepaeckdepot", label: "Gepäckdepot & Duschen" }
 ];
 
 function ImageSlider({ images, alt }: { images: string[], alt: string }) {
