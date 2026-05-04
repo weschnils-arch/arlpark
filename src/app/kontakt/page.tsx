@@ -12,12 +12,13 @@ export default function KontaktPage() {
             <section
                 className="relative h-[50vh] flex items-center justify-center overflow-hidden"
             >
-                <div
-                    className="absolute inset-0 bg-cover bg-bottom"
-                    style={{
-                        backgroundImage: `url('/images/activities/Bowling/IMG_20220623_163214-scaled.jpg')`,
-                        backgroundAttachment: "fixed",
-                    }}
+                <Image
+                    src="/images/activities/Bowling/IMG_20220623_163214-scaled.jpg"
+                    alt="Kontakt & Anfahrt arl.park"
+                    fill
+                    priority
+                    className="object-cover"
+                    style={{ objectPosition: "center bottom" }}
                 />
                 <div className="absolute inset-0 bg-blue-900/50 z-10" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent z-10" />
