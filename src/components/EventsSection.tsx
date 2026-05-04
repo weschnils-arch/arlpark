@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ClockIcon } from "@/components/Icons";
 import { events } from "@/data/events";
 
@@ -42,12 +43,25 @@ export default function EventsSection() {
                         const bgClass = isBlue
                             ? "bg-sky-400"
                             : "bg-emerald-400";
+                        const hasImage = Boolean(event.image);
 
                         return (
                             <article key={event.id} className="flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 group hover:-translate-y-1">
                                 {/* Top Image/Color Area */}
-                                <div className={`h-32 md:h-44 ${bgClass} p-4 md:p-6 flex flex-col justify-between relative`}>
-                                    <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-white/20 rounded-full blur-xl group-hover:scale-110 transition-transform duration-700" />
+                                <div className={`relative h-32 md:h-44 ${hasImage ? "bg-slate-200" : bgClass} p-4 md:p-6 flex flex-col justify-between`}>
+                                    {hasImage && (
+                                        <Image
+                                            src={event.image!}
+                                            alt={event.title}
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 768px) 50vw, 33vw"
+                                        />
+                                    )}
+                                    {!hasImage && (
+                                        <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-white/20 rounded-full blur-xl group-hover:scale-110 transition-transform duration-700" />
+                                    )}
+                                    {hasImage && <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />}
 
                                     <div className="self-start relative z-10">
                                         <span className="inline-block px-3 py-1 md:px-5 md:py-2 rounded-full font-bold text-xs md:text-lg bg-white/25 text-white backdrop-blur-md shadow-sm border border-white/10">

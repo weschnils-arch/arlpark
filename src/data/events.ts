@@ -12,6 +12,7 @@ export interface Event {
     requirements: string[];
     cancellation: string[];
     colorTheme: "blue" | "green";
+    image?: string;
 }
 
 export const events: Event[] = [

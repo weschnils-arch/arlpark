@@ -93,6 +93,7 @@ const schedules = [
   },
   {
     id: "sportsbar-bowling", label: "Sportsbar | 9Pin-Bowling", color: "bg-amber-600", lightColor: "bg-amber-50", borderColor: "border-amber-200", textColor: "text-amber-700", icon: "🎳",
+    note: "Reservierung erforderlich für 9-Pin Bowling – online buchbar.",
     rows: [
       { day: "Montag", time: "14:00 – 23:00 Uhr" },
       { day: "Dienstag", time: "14:00 – 23:00 Uhr" },
@@ -104,7 +105,8 @@ const schedules = [
     ],
   },
   {
-    id: "klettern", label: "Klettern | Bouldern | Squash", color: "bg-orange-600", lightColor: "bg-orange-50", borderColor: "border-orange-200", textColor: "text-orange-700", icon: "🧗",
+    id: "klettern", label: "Klettern | Bouldern | Squash | Tischtennis", color: "bg-orange-600", lightColor: "bg-orange-50", borderColor: "border-orange-200", textColor: "text-orange-700", icon: "🧗",
+    note: "Reservierung erforderlich für Squash & Tischtennis – online buchbar.",
     rows: [
       { day: "Montag, Mittwoch & Freitag", time: "14:00 – 22:00 Uhr" },
       { day: "Dienstag & Donnerstag", time: "09:00 – 22:00 Uhr" },
@@ -112,7 +114,7 @@ const schedules = [
     ],
   },
   {
-    id: "tennis", label: "Tennis – mit Reservierung", color: "bg-emerald-600", lightColor: "bg-emerald-50", borderColor: "border-emerald-200", textColor: "text-emerald-700", icon: "🎾",
+    id: "tennis", label: "Tennis | Pickleball", color: "bg-emerald-600", lightColor: "bg-emerald-50", borderColor: "border-emerald-200", textColor: "text-emerald-700", icon: "🎾",
     note: "Reservierung erforderlich – online buchbar.",
     rows: [
       { day: "Montag bis Donnerstag", time: "08:00 – 14:00 & 19:00 – 23:00 Uhr" },
@@ -139,35 +141,32 @@ function WelcomeAndHoursSection() {
               Nur einen Sprung vom Bahnhof entfernt — im arl.park in St. Anton am Arlberg sind diverse sportliche Erlebnisse unter einem Dach vereint: Von Klettern, über Trampolin-Hüpfen, Squash, Tennis bis hin zu 9-Pin Bowling und mehr. Parkplätze sind direkt beim Eingang neben dem Gebäude. Auch das kulinarische Angebot kann sich sehen lassen – im Zentrum des Sportbereichs gibt es mit der „Sportsbar" einen Ausschank und eine Vielzahl köstlicher Snacks und erfrischender Getränke.
             </p>
 
-            {/* Reservation Info Box */}
-            <div className="bg-sky-50 rounded-3xl p-8 border border-sky-100">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 bg-sky-600 rounded-xl flex items-center justify-center text-white text-lg">📋</div>
-                <h3 className="text-xl font-black text-slate-900">Info zu Reservierungen</h3>
+            {/* Preise & Tickets Card (replaces former Info-zu-Reservierungen) */}
+            <Link
+              href="/preise"
+              className="block bg-sky-50 hover:bg-sky-100 border border-sky-100 rounded-3xl p-8 transition-colors group"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 bg-sky-600 rounded-xl flex items-center justify-center text-white text-lg" aria-hidden="true">💶</div>
+                <h3 className="text-xl font-black text-slate-900">Preise &amp; Tickets</h3>
               </div>
-              <ul className="space-y-4 text-slate-600 text-sm leading-relaxed">
-                <li className="flex items-start gap-3">
-                  <span className="text-emerald-500 font-black mt-0.5">✓</span>
-                  <span><strong className="text-slate-800">Trampolin &amp; Klettern:</strong> Keine Reservierung notwendig (wird nur an Schlechtwettertagen empfohlen).</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-sky-500 font-black mt-0.5">→</span>
-                  <span><strong className="text-slate-800">9-Pin Bowling, Squash, Tischtennis, Tennis &amp; Pickleball:</strong> Vorab reservieren empfohlen – online buchbar.</span>
-                </li>
-              </ul>
-              <div className="mt-6 pt-5 border-t border-sky-200">
-                <Link href="https://v5.bookandplay.com/p_pro_arlpark.php" target="_blank" className="flex items-center gap-2 text-sky-700 font-bold text-sm hover:underline">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                  Jetzt online buchen
-                </Link>
-              </div>
-            </div>
+              <p className="text-slate-600 mb-5">
+                Alle Preise für sämtliche Aktivitäten auf einen Blick.
+              </p>
+              <span className="inline-flex items-center gap-2 text-sky-700 font-bold text-sm group-hover:underline">
+                Zur Preisübersicht
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </Link>
           </div>
 
           {/* Right: Öffnungszeiten Accordion */}
           <div>
-            <span className="inline-block text-slate-400 font-bold tracking-wider uppercase text-xs mb-3">Öffnungszeiten</span>
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6 leading-tight">Wann wir für dich da sind</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-2 leading-tight">Öffnungszeiten</h2>
+            <p className="text-slate-500 text-base mb-2">Wann wir für dich da sind</p>
+            <p className="text-slate-400 text-xs mb-6">Ferien und Feiertage ab 9 Uhr geöffnet</p>
             <div className="space-y-3">
               {schedules.map((s) => (
                 <div key={s.id} className={`rounded-2xl border-2 overflow-hidden transition-all duration-300 ${openId === s.id ? s.borderColor : "border-slate-100"} bg-white shadow-sm hover:shadow-md`}>
@@ -204,18 +203,6 @@ function WelcomeAndHoursSection() {
           </div>
         </div>
 
-        {/* Preise Link — full width below Öffnungszeiten (#13 länglich) */}
-        <div className="mt-10">
-          <Link href="/preise" className="block w-full bg-sky-50 hover:bg-sky-100 border border-sky-200 rounded-2xl px-8 py-5 transition-colors group">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-lg font-black text-slate-900">Preise &amp; Tickets</h3>
-                <p className="text-sm text-slate-500">Alle Preise für sämtliche Aktivitäten auf einen Blick.</p>
-              </div>
-              <svg className="w-5 h-5 text-sky-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-            </div>
-          </Link>
-        </div>
       </div>
     </section>
   );
@@ -269,18 +256,15 @@ function RentalSection() {
             Hole dir den Spaß nach Hause! Wir vermieten professionelles Equipment für Firmenfeiern, Events und private Partys.
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {[
-            { title: "Mobiler Boulderblock", desc: "Klettern überall genießen", icon: "🧗‍♂️" },
-            { title: "Bungee Trampolin", desc: "Hoch hinaus mit Sicherheit", icon: "🤸‍♂️" },
-            { title: "Hüpfburgen & mehr", desc: "Spaß für die Kleinen", icon: "🏰" },
-          ].map((item, i) => (
-            <div key={i} className="bg-slate-50 rounded-3xl p-8 shadow-sm border border-slate-100 hover:shadow-xl transition-shadow">
-              <div className="text-4xl mb-4">{item.icon}</div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-              <p className="text-slate-500">{item.desc}</p>
-            </div>
-          ))}
+        {/* TODO(client): replace with final hero image once Andy/Chiara confirms */}
+        <div className="relative w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-12 shadow-xl">
+          <Image
+            src="/images/mietanlagen/Mobiler_Bolderblock.jpg"
+            alt="Mietanlagen — mobiler Boulderblock und mehr"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 80vw"
+          />
         </div>
         <div className="mt-8 flex justify-center w-full">
           <Link href="/mietanlagen" className="btn-primary px-8 py-3.5 text-lg inline-flex items-center gap-2 shadow-lg shadow-sky-500/20">
