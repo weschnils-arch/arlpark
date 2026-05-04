@@ -14,12 +14,13 @@ export default function TischtennisPage() {
             <section
                 className="relative h-[50vh] flex items-center justify-center overflow-hidden"
             >
-                <div
-                    className="absolute inset-0 bg-cover bg-bottom"
-                    style={{
-                        backgroundImage: `url('/images/activities/Squash_Tischtennis/DSC2345-scaled.jpg')`,
-                        backgroundAttachment: "fixed",
-                    }}
+                <Image
+                    src="/images/activities/Squash_Tischtennis/DSC2345-scaled.jpg"
+                    alt="Tischtennis im arl.park"
+                    fill
+                    priority
+                    className="object-cover"
+                    style={{ objectPosition: "center bottom" }}
                 />
                 <div className="absolute inset-0 bg-red-900/50 z-10" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent z-10" />
