@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { TrampolinIcon } from "@/components/Icons";
+import EarlyBirdBlock from "@/components/EarlyBirdBlock";
+import WeitereAngeboteSection from "@/components/WeitereAngeboteSection";
 
 const galleryImages = [
     "/images/activities/Trampoline/DSC0523-scaled.jpg",
@@ -85,7 +87,7 @@ export default function TrampolinPage() {
                                 "Freefall Tower",
                                 "15 m Air-Track",
                                 "Trampolin Ski & Boards kostenlos",
-                                "ValoJump (Interaktives Trampolin-Videospiel)"
+                                "Airbag"
                             ].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3">
                                     <span className="w-6 h-6 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center text-sm font-bold">✓</span>
@@ -95,14 +97,15 @@ export default function TrampolinPage() {
                         </ul>
                     </div>
 
-                    <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 flex gap-4 items-start">
-                        <span className="text-2xl">🧦</span>
-                        <div>
-                            <h3 className="font-bold text-slate-900 mb-1">Wichtig: Trampolinsocken</h3>
-                            <p className="text-sm text-slate-600">
-                                Aus Sicherheitsgründen sind Trampolinsocken Pflicht! Du kannst deine eigenen mitbringen oder bei uns für 4,00 € kaufen.
-                            </p>
-                        </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+                        <h3 className="font-bold text-slate-900 mb-1">Wichtig: Trampolinsocken</h3>
+                        <p className="text-sm text-slate-600">
+                            Aus Sicherheitsgründen sind Trampolinsocken Pflicht! Du kannst deine eigenen mitbringen oder bei uns für 4,00 € kaufen.
+                        </p>
+                    </div>
+
+                    <div className="mt-6">
+                        <EarlyBirdBlock />
                     </div>
                 </div>
 
@@ -116,17 +119,22 @@ export default function TrampolinPage() {
                     {/* Dropdown Selector */}
                     <div className="mb-8">
                         <label htmlFor="price-select" className="block text-sm font-medium text-slate-700 mb-2">Ticket-Art wählen:</label>
-                        <select
-                            id="price-select"
-                            value={priceType}
-                            onChange={(e) => setPriceType(e.target.value)}
-                            className="w-full p-4 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 font-bold focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer appearance-none"
-                        >
-                            <option value="einzel">Einzeltickets (Erwachsene/Kinder)</option>
-                            <option value="block">10er Block</option>
-                            <option value="kundenkarte">Kundenkarte</option>
-                            <option value="gruppen">Gruppen & Vereine</option>
-                        </select>
+                        <div className="relative">
+                            <select
+                                id="price-select"
+                                value={priceType}
+                                onChange={(e) => setPriceType(e.target.value)}
+                                className="w-full p-4 pr-12 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 font-bold focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer appearance-none"
+                            >
+                                <option value="einzel">Einzeltickets (Erwachsene/Kinder)</option>
+                                <option value="block">10er Block</option>
+                                <option value="kundenkarte">Kundenkarte</option>
+                                <option value="gruppen">Gruppen & Vereine</option>
+                            </select>
+                            <svg className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
                     </div>
 
                     {/* Price Display */}
@@ -177,6 +185,22 @@ export default function TrampolinPage() {
                                 loading="lazy"
                             />
                         ))}
+                        <button
+                            type="button"
+                            onClick={() => setCurrentSlide((p) => (p - 1 + galleryImages.length) % galleryImages.length)}
+                            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-slate-800 hover:bg-white transition-colors shadow"
+                            aria-label="Vorheriges Bild"
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => setCurrentSlide((p) => (p + 1) % galleryImages.length)}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-slate-800 hover:bg-white transition-colors shadow"
+                            aria-label="Nächstes Bild"
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                        </button>
                         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
                             {galleryImages.map((_, i) => (
                                 <button
@@ -225,6 +249,8 @@ export default function TrampolinPage() {
                     </div>
                 </div>
             </section>
+
+            <WeitereAngeboteSection currentHref="/angebote/trampolin" />
         </main>
     );
 }
